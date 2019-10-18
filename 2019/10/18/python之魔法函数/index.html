@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="魔法方法 含义    基本的魔法方法    _new_(cls[, …]) 1. _new_ 是在一个对象实例化的时候所调用的第一个方法2. 它的第一个参数是这个类，其他的参数是用来直接传递给 _init_ 方法3. _new_ 决定是否要使用该 _init_ 方法，因为 _new_ 可以调用其他类的构造方法或者直接返回别的实例对象来作为本类的实例，如果 _new_ 没有返回实例对象，则 _">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python之魔法函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;18&#x2F;python%E4%B9%8B%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="魔法方法 含义    基本的魔法方法    _new_(cls[, …]) 1. _new_ 是在一个对象实例化的时候所调用的第一个方法2. 它的第一个参数是这个类，其他的参数是用来直接传递给 _init_ 方法3. _new_ 决定是否要使用该 _init_ 方法，因为 _new_ 可以调用其他类的构造方法或者直接返回别的实例对象来作为本类的实例，如果 _new_ 没有返回实例对象，则 _">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-18T17:30:54.474Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/18/python之魔法函数/"/>
+
+
+
+
+
+  <title>python之魔法函数 | Coye's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">脑子会忘，所以要常来看看~~~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/python%E4%B9%8B%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python之魔法函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T21:56:12+08:00">
+                2019-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <table>
+<thead>
+<tr>
+<th>魔法方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基本的魔法方法</td>
+<td></td>
+</tr>
+<tr>
+<td>_<em>new_</em>(cls[, …])</td>
+<td>1. _<em>new_</em> 是在一个对象实例化的时候所调用的第一个方法<br>2. 它的第一个参数是这个类，其他的参数是用来直接传递给 _<em>init_</em> 方法<br>3. _<em>new_</em> 决定是否要使用该 _<em>init_</em> 方法，因为 _<em>new_</em> 可以调用其他类的构造方法或者直接返回别的实例对象来作为本类的实例，如果 _<em>new_</em> 没有返回实例对象，则 _<em>init_</em> 不会被调用<br>4. _<em>new_</em> 主要是用于继承一个不可变的类型比如一个 tuple 或者 string</td>
+</tr>
+<tr>
+<td>_<em>init_</em>(self[, …])</td>
+<td>构造器，当一个实例被创建的时候调用的初始化方法</td>
+</tr>
+<tr>
+<td>_<em>del_</em>(self)</td>
+<td>析构器，当一个实例被销毁的时候调用的方法</td>
+</tr>
+<tr>
+<td>_<em>call_</em>(self[, args…])</td>
+<td>允许一个类的实例像函数一样被调用：x(a, b) 调用 x._<em>call_</em>(a, b)</td>
+</tr>
+<tr>
+<td>_<em>len_</em>(self)</td>
+<td>定义当被 len() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>repr_</em>(self)</td>
+<td>定义当被 repr() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>str_</em>(self)</td>
+<td>定义当被 str() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>bytes_</em>(self)</td>
+<td>定义当被 bytes() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>hash_</em>(self)</td>
+<td>定义当被 hash() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>bool_</em>(self)</td>
+<td>定义当被 bool() 调用时的行为，应该返回 True 或 False</td>
+</tr>
+<tr>
+<td>_<em>format_</em>(self, format_spec)</td>
+<td>定义当被 format() 调用时的行为</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th>有关属性</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>getattr_</em>(self, name)</td>
+<td>定义当用户试图获取一个不存在的属性时的行为</td>
+</tr>
+<tr>
+<td>_<em>getattribute_</em>(self, name)</td>
+<td>定义当该类的属性被访问时的行为</td>
+</tr>
+<tr>
+<td>_<em>setattr_</em>(self, name, value)</td>
+<td>定义当一个属性被设置时的行为</td>
+</tr>
+<tr>
+<td>_<em>delattr_</em>(self, name)</td>
+<td>定义当一个属性被删除时的行为</td>
+</tr>
+<tr>
+<td>_<em>dir_</em>(self)    定义当 dir()</td>
+<td>被调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>get_</em>(self, instance, owner)</td>
+<td>定义当描述符的值被取得时的行为</td>
+</tr>
+<tr>
+<td>_<em>set_</em>(self, instance, value)</td>
+<td>定义当描述符的值被改变时的行为</td>
+</tr>
+<tr>
+<td>_<em>delete_</em>(self, instance)</td>
+<td>定义当描述符的值被删除时的行为</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>比较操作符</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>lt_</em>(self, other)</td>
+<td>定义小于号的行为：x &lt; y 调用 x._<em>lt_</em>(y)</td>
+</tr>
+<tr>
+<td>_<em>le_</em>(self, other)</td>
+<td>定义小于等于号的行为：x &lt;= y 调用 x._<em>le_</em>(y)</td>
+</tr>
+<tr>
+<td>_<em>eq_</em>(self, other)</td>
+<td>定义等于号的行为：x == y 调用 x._<em>eq_</em>(y)</td>
+</tr>
+<tr>
+<td>_<em>ne_</em>(self, other)</td>
+<td>定义不等号的行为：x != y 调用 x._<em>ne_</em>(y)</td>
+</tr>
+<tr>
+<td>_<em>gt_</em>(self, other)</td>
+<td>定义大于号的行为：x &gt; y 调用 x._<em>gt_</em>(y)</td>
+</tr>
+<tr>
+<td>_<em>ge_</em>(self, other)</td>
+<td>定义大于等于号的行为：x &gt;= y 调用 x._<em>ge_</em>(y)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>算数运算符</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>add_</em>(self, other)</td>
+<td>定义加法的行为：+</td>
+</tr>
+<tr>
+<td>_<em>sub_</em>(self, other)</td>
+<td>定义减法的行为：-</td>
+</tr>
+<tr>
+<td>_<em>mul_</em>(self, other)</td>
+<td>定义乘法的行为：*</td>
+</tr>
+<tr>
+<td>_<em>truediv_</em>(self, other)</td>
+<td>定义真除法的行为：/</td>
+</tr>
+<tr>
+<td>_<em>floordiv_</em>(self, other)</td>
+<td>定义整数除法的行为：//</td>
+</tr>
+<tr>
+<td>_<em>mod_</em>(self, other)</td>
+<td>定义取模算法的行为：%</td>
+</tr>
+<tr>
+<td>_<em>divmod_</em>(self, other)</td>
+<td>定义当被 divmod() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>pow_</em>(self, other[, modulo])</td>
+<td>定义当被 power() 调用或 ** 运算时的行为</td>
+</tr>
+<tr>
+<td>_<em>lshift_</em>(self, other)</td>
+<td>定义按位左移位的行为：&lt;&lt;</td>
+</tr>
+<tr>
+<td>_<em>rshift_</em>(self, other)</td>
+<td>定义按位右移位的行为：&gt;&gt;</td>
+</tr>
+<tr>
+<td>_<em>and_</em>(self, other)</td>
+<td>定义按位与操作的行为：&amp;</td>
+</tr>
+<tr>
+<td>_<em>xor_</em>(self, other)</td>
+<td>定义按位异或操作的行为：^</td>
+</tr>
+<tr>
+<td>_<em>or_</em>(self, other)</td>
+<td>定义按位或操作的行为：</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>反运算</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>radd_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rsub_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rmul_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rtruediv_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rfloordiv_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rmod_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rdivmod_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rpow_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rlshift_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rrshift_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>rxor_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+<tr>
+<td>_<em>ror_</em>(self, other)</td>
+<td>（与上方相同，当左操作数不支持相应的操作时被调用）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>增量赋值运算</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>iadd_</em>(self, other)</td>
+<td>定义赋值加法的行为：+=</td>
+</tr>
+<tr>
+<td>_<em>isub_</em>(self, other)</td>
+<td>定义赋值减法的行为：-=</td>
+</tr>
+<tr>
+<td>_<em>imul_</em>(self, other)</td>
+<td>定义赋值乘法的行为：*=</td>
+</tr>
+<tr>
+<td>_<em>itruediv_</em>(self, other)</td>
+<td>定义赋值真除法的行为：/=</td>
+</tr>
+<tr>
+<td>_<em>ifloordiv_</em>(self, other)</td>
+<td>定义赋值整数除法的行为：//=</td>
+</tr>
+<tr>
+<td>_<em>imod_</em>(self, other)</td>
+<td>定义赋值取模算法的行为：%=</td>
+</tr>
+<tr>
+<td>_<em>ipow_</em>(self, other[, modulo])</td>
+<td>定义赋值幂运算的行为：**=</td>
+</tr>
+<tr>
+<td>_<em>ilshift_</em>(self, other)</td>
+<td>定义赋值按位左移位的行为：&lt;&lt;=</td>
+</tr>
+<tr>
+<td>_<em>irshift_</em>(self, other)</td>
+<td>定义赋值按位右移位的行为：&gt;&gt;=</td>
+</tr>
+<tr>
+<td>_<em>iand_</em>(self, other)</td>
+<td>定义赋值按位与操作的行为：&amp;=</td>
+</tr>
+<tr>
+<td>_<em>ixor_</em>(self, other)</td>
+<td>定义赋值按位异或操作的行为：^=</td>
+</tr>
+<tr>
+<td>_<em>ior_</em>(self, other)</td>
+<td>定义赋值按位或操作的行为：</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>一元操作符</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>neg_</em>(self)</td>
+<td>定义正号的行为：+x</td>
+</tr>
+<tr>
+<td>_<em>pos_</em>(self)</td>
+<td>定义负号的行为：-x</td>
+</tr>
+<tr>
+<td>_<em>abs_</em>(self)</td>
+<td>定义当被 abs() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>invert_</em>(self)</td>
+<td>定义按位求反的行为：~x</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类型转换</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>complex_</em>(self)</td>
+<td>定义当被 complex() 调用时的行为（需要返回恰当的值）</td>
+</tr>
+<tr>
+<td>_<em>int_</em>(self)</td>
+<td>定义当被 int() 调用时的行为（需要返回恰当的值）</td>
+</tr>
+<tr>
+<td>_<em>float_</em>(self)</td>
+<td>定义当被 float() 调用时的行为（需要返回恰当的值）</td>
+</tr>
+<tr>
+<td>_<em>round_</em>(self[, n])</td>
+<td>定义当被 round() 调用时的行为（需要返回恰当的值）</td>
+</tr>
+<tr>
+<td>_<em>index_</em>(self)</td>
+<td>1. 当对象是被应用在切片表达式中时，实现整形强制转换<br>2. 如果你定义了一个可能在切片时用到的定制的数值型,你应该定义 _<em>index_</em><br>3. 如果 _<em>index_</em> 被定义，则 _<em>int_</em> 也需要被定义，且返回相同的值</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>上下文管理（with 语句）</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>enter_</em>(self)</td>
+<td>1. 定义当使用 with 语句时的初始化行为<br>2. _<em>enter_</em> 的返回值被 with 语句的目标或者 as 后的名字绑定</td>
+</tr>
+<tr>
+<td>_<em>exit_</em>(self, exc_type, exc_value, traceback)</td>
+<td>1. 定义当一个代码块被执行或者终止后上下文管理器应该做什么<br>2. 一般被用来处理异常，清除工作或者做一些代码块执行完毕之后的日常工作</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>容器类型</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_<em>len_</em>(self)</td>
+<td>定义当被 len() 调用时的行为（返回容器中元素的个数）</td>
+</tr>
+<tr>
+<td>_<em>getitem_</em>(self, key)</td>
+<td>定义获取容器中指定元素的行为，相当于 self[key]</td>
+</tr>
+<tr>
+<td>_<em>setitem_</em>(self, key, value)</td>
+<td>定义设置容器中指定元素的行为，相当于 self[key] = value</td>
+</tr>
+<tr>
+<td>_<em>delitem_</em>(self, key)</td>
+<td>定义删除容器中指定元素的行为，相当于 del self[key]</td>
+</tr>
+<tr>
+<td>_<em>iter_</em>(self)</td>
+<td>定义当迭代容器中的元素的行为</td>
+</tr>
+<tr>
+<td>_<em>reversed_</em>(self)</td>
+<td>定义当被 reversed() 调用时的行为</td>
+</tr>
+<tr>
+<td>_<em>contains_</em>(self, item)</td>
+<td>定义当使用成员测试运算符（in 或 not in）时的行为</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/18/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="next" title="网络协议">
+                <i class="fa fa-chevron-left"></i> 网络协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Coye" />
+            
+              <p class="site-author-name" itemprop="name">Coye</p>
+              <p class="site-description motion-element" itemprop="description">记录测试的每一月、每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
