@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学院," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装123456789#普通启动java -jar jenkins.war --httpport=8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&amp;lt;tomcat_ip&amp;gt;:&amp;lt;tomcat_port&amp;gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="持续集成Jenkins">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;22&#x2F;%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="安装123456789#普通启动java -jar jenkins.war --httpport=8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&amp;lt;tomcat_ip&amp;gt;:&amp;lt;tomcat_port&amp;gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-28T08:17:46.443Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/22/持续集成Jenkins/"/>
+
+
+
+
+
+  <title>持续集成Jenkins | Coye's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">给自己看的=。=</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">持续集成Jenkins</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-22T15:49:34+08:00">
+                2020-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#普通启动</span></span><br><span class="line">java -jar jenkins.war --httpport=8081</span><br><span class="line"><span class="comment">#部署在tomcat</span></span><br><span class="line">准备一台tomcat服务器</span><br><span class="line">将jenkins.war复制到<span class="variable">$tomcat_home</span>/webapps/下</span><br><span class="line">启动tomcat</span><br><span class="line">jenkins服务地址http://&lt;tomcat_ip&gt;:&lt;tomcat_port&gt;/jenkins</span><br><span class="line">如果端口占用修改config/server.xml</span><br><span class="line">tomcat日志在logs/catalina.out</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#docker 启动（version:2.221）</span></span><br><span class="line">docker pull jenkins/jenkins</span><br><span class="line">docker run -d -p 8080:8080 -p 50000:50000 --env JAVA_OPTS=<span class="string">"-Duser.timezone=GMT+08"</span> -v ~/workspace/dockerProject/myjenkins:/var/jenkins_home/ --name myjenkins coye/jenkins:1.0   <span class="comment">#coye/jenkins:1.0 自己的镜像</span></span><br><span class="line">docker logs myjenkins找密码</span><br><span class="line"><span class="comment">#时区设置</span></span><br><span class="line">打开 【系统管理】-&gt;【脚本命令行】运行下面的命令</span><br><span class="line">System.setProperty(<span class="string">'org.apache.commons.jelly.tags.fmt.timeZone'</span>, <span class="string">'Asia/Shanghai'</span>)</span><br><span class="line">或者docker run -d -p 8080:8080 -p 50000:50000 --name myjenkins --env JAVA_OPTS=<span class="string">"-Duser.timezone=GMT+08"</span> jenkins/jenkins </span><br><span class="line">国内插件更新地址 https://updates.jenkins-zh.cn/update-center.json</span><br><span class="line"><span class="comment">#安装mvn python</span></span><br><span class="line">FROM jenkinszh/jenkins-zh</span><br><span class="line">USER root</span><br><span class="line">ADD apache-maven-3.6.3-bin.tar.gz /usr/<span class="built_in">local</span></span><br><span class="line">ADD settings.xml /usr/<span class="built_in">local</span></span><br><span class="line">ADD sources.list /usr/<span class="built_in">local</span></span><br><span class="line">ADD get-pip.py /usr/<span class="built_in">local</span></span><br><span class="line">ADD pip.conf /usr/<span class="built_in">local</span></span><br><span class="line">WORKDIR /usr/<span class="built_in">local</span></span><br><span class="line">RUN mv settings.xml ./apache-maven-3.6.3/conf/settings.xml \</span><br><span class="line">  &amp;&amp; mv sources.list /etc/apt/sources.list \</span><br><span class="line">  &amp;&amp; apt-get update \</span><br><span class="line">  &amp;&amp; apt-get upgrade -y \</span><br><span class="line">  &amp;&amp; apt-get install -y vim python3 python-dev \</span><br><span class="line">  &amp;&amp; python3 get-pip.py \</span><br><span class="line">  &amp;&amp; mkdir -p ~/.pip \</span><br><span class="line">  &amp;&amp; cp pip.conf ~/.pip/ \</span><br><span class="line">  &amp;&amp; pip install --upgrade pip \</span><br><span class="line">  &amp;&amp; pip install -U configparser \</span><br><span class="line">  &amp;&amp; pip install -U selenium \ </span><br><span class="line">  &amp;&amp; pip install -U requests \</span><br><span class="line">  &amp;&amp; pip install -U nose \</span><br><span class="line">  &amp;&amp; pip install -U pytest \</span><br><span class="line">  &amp;&amp; pip install -U appium \</span><br><span class="line">  &amp;&amp; rm -rf settings.xml sources.list get-pip.py pip.conf</span><br><span class="line">ENV MAVEN_HOME /usr/<span class="built_in">local</span>/apache-maven-3.6.3</span><br><span class="line">ENV PATH <span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;MAVEN_HOME&#125;</span>/bin</span><br><span class="line">ENTRYPOINT [<span class="string">"/sbin/tini"</span>,<span class="string">"--"</span>,<span class="string">"/usr/local/bin/jenkins.sh"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#推荐安装的插件</span></span><br><span class="line">    Folders</span><br><span class="line">    OWASP Markup Formatter</span><br><span class="line">    Build Timeout</span><br><span class="line">    Credentials Binding</span><br><span class="line">    Timestamper</span><br><span class="line">    Workspace Cleanup</span><br><span class="line">    Ant</span><br><span class="line">    Gradle</span><br><span class="line">    Pipeline</span><br><span class="line">    GitHub Branch Source</span><br><span class="line">    Pipeline: GitHub Groovy Libraries</span><br><span class="line">    Pipeline: Stage View</span><br><span class="line">    Git</span><br><span class="line">    Subversion</span><br><span class="line">    SSH Build Agents</span><br><span class="line">    Matrix Authorization Strategy</span><br><span class="line">    PAM Authentication</span><br><span class="line">    LDAP</span><br><span class="line">    Email Extension</span><br><span class="line">    Mailer</span><br><span class="line">    Localization: Chinese (Simplified)</span><br><span class="line"></span><br><span class="line">    Multiple SCMs plugin</span><br><span class="line">    Rebuilder</span><br><span class="line">    Safe Restart Plugin</span><br><span class="line">    Text Finder</span><br><span class="line">    Blue Ocean</span><br></pre></td></tr></table></figure>
+<h2 id="创建job"><a href="#创建job" class="headerlink" title="创建job"></a>创建job</h2><ul>
+<li>首页 create job</li>
+<li>Discard old builds 构建记录按天或者条数保存</li>
+<li>This project is parameterized 参数化项目</li>
+<li>Build Triggers<ul>
+<li>Build periodically 构建时间，5个*分别代表分钟、小时、天数、月数、星期数<br>  H/2 * * * *    两分钟一次<br>  H/2 * * * 1-5 周一到周五没两分钟</li>
+</ul>
+</li>
+<li>Build 构建代码，可以选择Windows batch command，shell<ul>
+<li>选择shell   echo “hellow $strparam”</li>
+</ul>
+</li>
+<li>save</li>
+<li>Build with Parameters  </li>
+<li>Build</li>
+<li>Build History 选一个点进去，选择Console Output查看执行结果</li>
+</ul>
+<h2 id="设置从节点"><a href="#设置从节点" class="headerlink" title="设置从节点"></a>设置从节点</h2><p>ssh连接需要插件ssh slave</p>
+<h2 id="配置用户-设置权限"><a href="#配置用户-设置权限" class="headerlink" title="配置用户,设置权限"></a>配置用户,设置权限</h2><p>设置权限需要插件：Role-based Authorization Strategy</p>
+<h2 id="配置email"><a href="#配置email" class="headerlink" title="配置email"></a>配置email</h2><ul>
+<li>系统配置<ul>
+<li>E-mail Notification<ul>
+<li>SMTP server : smtp.163.com</li>
+<li>Default user E-mail suffix : @163.com</li>
+<li>高级 - Use SMTP Authentication,账号密码，Use SSL，SMTP port，    Reply-To Address(接受回复的邮箱)</li>
+</ul>
+</li>
+<li>Jenkins Location<ul>
+<li>Jenkins URL:<a href="http://localhost:8080/jenkins" target="_blank" rel="noopener">http://localhost:8080/jenkins</a></li>
+<li>系统管理员邮件地址:<a href="mailto:xxx@qq.com" target="_blank" rel="noopener">xxx@qq.com</a><h3 id="构建触发邮件"><a href="#构建触发邮件" class="headerlink" title="构建触发邮件"></a>构建触发邮件</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>创建项目最下面 构建后操作添加 Editable Email Notification</li>
+<li>Advanced Setting </li>
+</ul>
+<h2 id="参数化构建"><a href="#参数化构建" class="headerlink" title="参数化构建"></a>参数化构建</h2><p>创建项目-参数化构建过程-添加参数</p>
+<h2 id="父子任务"><a href="#父子任务" class="headerlink" title="父子任务"></a>父子任务</h2><ul>
+<li>创建job1 </li>
+<li>创建job2，构建触发器-其他工程构建后触发。填写job1，选择触发条件<ul>
+<li>稳定时触发：成功时触发</li>
+<li>即使不稳定时触发：稳定，不稳定都触发。 安装text finder，可以再构建后操作添加post action设置当检测到某字符串时，执行结果变为不稳定的，</li>
+<li>即使失败时触发：成功，不稳定，失败都会触发</li>
+</ul>
+</li>
+</ul>
+<h2 id="单元测试-git-job"><a href="#单元测试-git-job" class="headerlink" title="单元测试(git job)"></a>单元测试(git job)</h2><ul>
+<li>创建job </li>
+<li>源码管理选择Multiple SCMs再选择git，填写Repository URL，    Additional Behaviours新增检出到子目录，填写目录名（意思是把git的文件down在这里）</li>
+<li>添加执行shell  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PWD</span></span><br><span class="line"><span class="built_in">cd</span> iTest</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PWD</span></span><br><span class="line">mvn clean install <span class="built_in">test</span></span><br></pre></td></tr></table></figure></li>
+<li>添加构建后操作-publish JUint test result report（需要JUnit插件）测试报告填写为<em>*/</em>.xml 代表当前目录创建</li>
+<li>publish html report 可以添加生成的html报告，需要添加groovy postbuild，不然js代码不能运行</li>
+</ul>
+<h2 id="jenkins-api"><a href="#jenkins-api" class="headerlink" title="jenkins api"></a>jenkins api</h2><ul>
+<li>build<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">post:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/build</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/build</span><br></pre></td></tr></table></figure></li>
+<li>获取最新任务编号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/lastBuild/buildNumber</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/lastBuild/buildNumber</span><br></pre></td></tr></table></figure></li>
+<li>查询任务状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/&lt;buildnum&gt;/api/json</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/2/api/json</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="jenkins-web-hook"><a href="#jenkins-web-hook" class="headerlink" title="jenkins web hook"></a>jenkins web hook</h2><ul>
+<li>jenkins系统配置-GitHub-高级-覆盖 Hook URL-为 Github 指定另外一个 Hook URL。</li>
+<li>把url复制到github项目settings-webhooks下</li>
+<li>jenkins项目中打开GitHub hook trigger for GITScm polling</li>
+</ul>
+<h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><ul>
+<li>Declarative pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">- 必须出现的指令 </span><br><span class="line">- any：可以在任意agent上执行pipeline </span><br><span class="line">- none：pipeline将不分配全局agent, 每个stage分配自己的agent </span><br><span class="line">- label：指定运行节点的Label </span><br><span class="line">- node：自定义运行节点配置， </span><br><span class="line">    - 指定 label </span><br><span class="line">    - 指定 customWorkspace </span><br><span class="line">- docker：控制目标节点上的docker运行相关内容</span><br><span class="line">stages：包含一个或多个stage的序列，Pipeline的大部分工作在此执行; </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 每个pipeline 代码区间中必须只有一个stages </span><br><span class="line">stage：包含在stages中，pipeline完成的所有实际工作都需要包含到stage中 </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 需要定义stage的名字 </span><br><span class="line">steps：</span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 具体执行步骤，包含在 stage 代码区间中</span><br><span class="line">post ：定义Pipeline或stage运行结束时的操作</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - always：无论Pipeline运行的完成状态如何都会运行 </span><br><span class="line">    - changed：只有当前Pipeline运行的状态与先前完成的Pipeline的状态不同时，才能运行 </span><br><span class="line">    - failure：仅当当前Pipeline处于“失败”状态时才运行 </span><br><span class="line">    - success ：仅当当前Pipeline具有“成功”状态时才运行 </span><br><span class="line">    - unstable：只有当前Pipeline具有“不稳定”状态才能运行 </span><br><span class="line">    - aborted：只有当前Pipeline处于“中止”状态时才能运行</span><br><span class="line">options ：定义pipeline 的专有属性</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - buildDiscarder：保持构建的最大个数 </span><br><span class="line">    - disableConcurrentBuilds：不允许并行执行pipeline任务 </span><br><span class="line">    - timeout：pipeline 超时时间 timeout(time: 1,unit: &quot;HOURS&quot;)</span><br><span class="line">    - retry：失败后，重试整个Pipeline的次数 retry(3)</span><br><span class="line">    - timestamps：预定义由Pipeline生成的所有控制台输出时间 </span><br><span class="line">    - skipStagesAfterUnstable：一旦构建状态进入了“Unstable”状态，就跳过此stage</span><br><span class="line">parameters：定义pipeline 的专有参数列表</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - 支持数据类型：booleanParam, choice, credentials, file, text, password, run, string </span><br><span class="line">    - 类似参数化构建的选项</span><br><span class="line">triggers：定义了Pipeline自动化触发的方式</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - cron：接受一个cron风格的字符串来定义Pipeline触发的常规间隔 </span><br><span class="line">    - pollSCM：接受一个cron风格的字符串来定义 Jenkins 检查SCM源更改的常规间隔；如果存在新 的更改，则Pipeline将被重新触发。</span><br><span class="line">https://github.com/c373760488/iPipeline</span><br></pre></td></tr></table></figure></li>
+<li>Scripts pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/c373760488/iPipeline</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>创建pipeline script项目<br>创建项目，选择流水线(pipeline)，创建后选择pipeline script,填写脚本保存运行。。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">demo:</span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent &#123;</span><br><span class="line">          node&#123;</span><br><span class="line">              label <span class="string">'master'</span></span><br><span class="line">              customWorkspace <span class="string">"pipelineWorkspace"</span></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'begin'</span>)&#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">'hello pipeline begin'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">'running'</span>)&#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">'hello pipeline running'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">'finish'</span>)&#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">'hello pipeline finish'</span></span><br><span class="line">                sh <span class="string">'exit 0'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post &#123;</span><br><span class="line">        success &#123;</span><br><span class="line">            <span class="built_in">echo</span> <span class="string">'goodbay pipeline success!'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        failure &#123;</span><br><span class="line">            <span class="built_in">echo</span> <span class="string">'ops!!! pipeline failed....'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        always &#123;</span><br><span class="line">            <span class="built_in">echo</span> <span class="string">'always say goodbay'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建pipeline script from scm</p>
+<ul>
+<li>scm 选择git，添加地址<a href="https://github.com/c373760488/iPipeline.git" target="_blank" rel="noopener">https://github.com/c373760488/iPipeline.git</a></li>
+<li>脚本路径直接写git里的文件名就好了</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/21/k8s/" rel="next" title="k8s">
+                <i class="fa fa-chevron-left"></i> k8s
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/" rel="prev" title="代码审计Sonar">
+                代码审计Sonar <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Coye" />
+            
+              <p class="site-author-name" itemprop="name">Coye</p>
+              <p class="site-description motion-element" itemprop="description">记录测试的每一月、每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建job"><span class="nav-number">2.</span> <span class="nav-text">创建job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置从节点"><span class="nav-number">3.</span> <span class="nav-text">设置从节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置用户-设置权限"><span class="nav-number">4.</span> <span class="nav-text">配置用户,设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置email"><span class="nav-number">5.</span> <span class="nav-text">配置email</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建触发邮件"><span class="nav-number">5.1.</span> <span class="nav-text">构建触发邮件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数化构建"><span class="nav-number">6.</span> <span class="nav-text">参数化构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父子任务"><span class="nav-number">7.</span> <span class="nav-text">父子任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单元测试-git-job"><span class="nav-number">8.</span> <span class="nav-text">单元测试(git job)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jenkins-api"><span class="nav-number">9.</span> <span class="nav-text">jenkins api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jenkins-web-hook"><span class="nav-number">10.</span> <span class="nav-text">jenkins web hook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipeline"><span class="nav-number">11.</span> <span class="nav-text">pipeline</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学院," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="架构系统架构 控制中心：  jenkins，或者自研平台 中控机： STF，自研Agent Hub：供电和数据传输 手机： 部署手机端Agent">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动自动化测试平台">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;29&#x2F;%E7%A7%BB%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="架构系统架构 控制中心：  jenkins，或者自研平台 中控机： STF，自研Agent Hub：供电和数据传输 手机： 部署手机端Agent">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-28T08:16:53.885Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/29/移动自动化测试平台/"/>
+
+
+
+
+
+  <title>移动自动化测试平台 | Coye's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">给自己看的=。=</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/%E7%A7%BB%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动自动化测试平台</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-29T23:38:09+08:00">
+                2020-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><h4 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h4><ul>
+<li>控制中心：<br>  jenkins，或者自研平台</li>
+<li>中控机： STF，自研Agent</li>
+<li>Hub：供电和数据传输</li>
+<li>手机： 部署手机端Agent</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="硬件基础"><a href="#硬件基础" class="headerlink" title="硬件基础"></a>硬件基础</h4><ul>
+<li>硬件建设<ul>
+<li>终端机：Ubuntu（推荐）、mac</li>
+<li>USB Hub</li>
+</ul>
+</li>
+<li>移动设备集群<ul>
+<li>自购<ul>
+<li>中小公司 10-30</li>
+<li>大公司50-200</li>
+</ul>
+</li>
+<li>本地租用</li>
+<li>云端租用</li>
+</ul>
+</li>
+</ul>
+<h4 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h4><ul>
+<li>中控机<ul>
+<li>STF</li>
+<li>Appium Grid</li>
+</ul>
+</li>
+<li>测试执行<ul>
+<li>人工远程测试</li>
+<li>自动化测试<ul>
+<li>自动化遍历工具<ul>
+<li>monkey</li>
+<li>appcrawler</li>
+</ul>
+</li>
+<li>自动化用例<ul>
+<li>appium selenium</li>
+<li>uiautomator，robotium</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="stf"><a href="#stf" class="headerlink" title="stf"></a>stf</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>brew install rethinkdb graphicsmagick zeromq protobuf yasm pkg-config
+npm install -g stf （安装过程中可能应为node版本不对报错，可以执行npm install -g n，sudo n 8.14.0）</code></pre><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><pre><code>新建stf 文件夹，该目录下 执行 nohup rethinkdb &amp; ,nohup stf local --public-ip &lt;本地ip&gt;</code></pre><h4 id="STF-API"><a href="#STF-API" class="headerlink" title="STF API"></a>STF API</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line">STF_TOKEN=dc9ebbcc9eb94994baa1e346fe23b3c32d59629bba0b4a219c0c67a96dfb3989</span><br><span class="line"><span class="comment">#STF_URL=http://39.105.132.200:7100</span></span><br><span class="line">STF_URL=http://127.0.0.1:7100</span><br><span class="line">DEVICE_SERIAL=<span class="string">"emulator-5554"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">add_device</span></span>() &#123;</span><br><span class="line">    response=$(curl -X POST -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">        -H <span class="string">"Authorization: Bearer <span class="variable">$STF_TOKEN</span>"</span> \</span><br><span class="line">        --data <span class="string">"&#123;\"serial\": \"<span class="variable">$DEVICE_SERIAL</span>\"&#125;"</span> <span class="variable">$STF_URL</span>/api/v1/user/devices)</span><br><span class="line"></span><br><span class="line">    success=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .success | tr -d <span class="string">'"'</span>)</span><br><span class="line">    description=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .description | tr -d <span class="string">'"'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">"<span class="variable">$success</span>"</span> != <span class="string">"true"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Failed because <span class="variable">$description</span>"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="built_in">exit</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Device <span class="variable">$DEVICE_SERIAL</span> added successfully"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">remote_connect</span></span>() &#123;</span><br><span class="line">    response=$(curl -X POST \</span><br><span class="line">        -H <span class="string">"Authorization: Bearer <span class="variable">$STF_TOKEN</span>"</span> \</span><br><span class="line">        <span class="variable">$STF_URL</span>/api/v1/user/devices/<span class="variable">$DEVICE_SERIAL</span>/remoteConnect)</span><br><span class="line"></span><br><span class="line">    success=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .success | tr -d <span class="string">'"'</span>)</span><br><span class="line">    description=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .description | tr -d <span class="string">'"'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">"<span class="variable">$success</span>"</span> != <span class="string">"true"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Failed because <span class="variable">$description</span>"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="built_in">exit</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    remote_connect_url=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .remoteConnectUrl | tr -d <span class="string">'"'</span>)</span><br><span class="line"></span><br><span class="line">    adb connect <span class="variable">$remote_connect_url</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Device <span class="variable">$DEVICE_SERIAL</span> remote connected successfully"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">remove_device</span></span>() &#123;</span><br><span class="line">    adb disconnect <span class="variable">$remote_connect_url</span></span><br><span class="line">    response=$(curl -X DELETE \</span><br><span class="line">        -H <span class="string">"Authorization: Bearer <span class="variable">$STF_TOKEN</span>"</span> \</span><br><span class="line">        <span class="variable">$STF_URL</span>/api/v1/user/devices/<span class="variable">$DEVICE_SERIAL</span>)</span><br><span class="line"></span><br><span class="line">    success=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .success | tr -d <span class="string">'"'</span>)</span><br><span class="line">    description=$(<span class="built_in">echo</span> <span class="string">"<span class="variable">$response</span>"</span> | jq .description | tr -d <span class="string">'"'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">"<span class="variable">$success</span>"</span> != <span class="string">"true"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Failed because <span class="variable">$description</span>"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="built_in">exit</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Device <span class="variable">$DEVICE_SERIAL</span> removed successfully"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">every_device</span></span>() &#123;</span><br><span class="line">    <span class="comment">#获得可用设备列表</span></span><br><span class="line">    devices=$(curl -H <span class="string">"Authorization: Bearer <span class="variable">$STF_TOKEN</span>"</span> <span class="variable">$STF_URL</span>/api/v1/devices | jq -r <span class="string">'.devices[] | select(.present==true)|.serial '</span>)</span><br><span class="line">    <span class="keyword">for</span> DEVICE_SERIAL <span class="keyword">in</span> <span class="variable">$devices</span>; <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        add_device</span><br><span class="line">        remote_connect</span><br><span class="line">        sleep 2</span><br><span class="line">        remote_device=<span class="variable">$remote_connect_url</span></span><br><span class="line">        <span class="built_in">eval</span> <span class="variable">$1</span></span><br><span class="line">        adb disconnect <span class="variable">$remote_device</span></span><br><span class="line">        sleep 2</span><br><span class="line">        remove_device</span><br><span class="line">    &#125; &amp;</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/29/%E8%87%AA%E5%8A%A8%E9%81%8D%E5%8E%86%E5%B7%A5%E5%85%B7/" rel="next" title="自动遍历工具">
+                <i class="fa fa-chevron-left"></i> 自动遍历工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/01/ios%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="prev" title="ios自动化">
+                ios自动化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Coye" />
+            
+              <p class="site-author-name" itemprop="name">Coye</p>
+              <p class="site-description motion-element" itemprop="description">记录测试的每一月、每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#架构"><span class="nav-number">1.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统架构"><span class="nav-number">1.1.</span> <span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件基础"><span class="nav-number">1.2.</span> <span class="nav-text">硬件基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术架构"><span class="nav-number">1.3.</span> <span class="nav-text">技术架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stf"><span class="nav-number">2.</span> <span class="nav-text">stf</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">2.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STF-API"><span class="nav-number">2.3.</span> <span class="nav-text">STF API</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

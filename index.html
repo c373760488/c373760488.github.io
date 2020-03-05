@@ -158,7 +158,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">脑子会忘，所以要常来看看~~~</p>
+        <p class="site-subtitle">给自己看的=。=</p>
       
   </div>
 
@@ -240,7 +240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/16/docker%E5%9F%BA%E7%A1%80/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -259,7 +259,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/16/docker%E5%9F%BA%E7%A1%80/" itemprop="url">docker基础</a></h1>
+                <a class="post-title-link" href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" itemprop="url">手机端安全测试</a></h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-16T11:15:27+08:00">
-                2020-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T18:40:04+08:00">
+                2020-03-02
               </time>
             
 
@@ -310,30 +310,11 @@
 
       
         
-          <h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><ul>
-<li><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br>通过 uname -r 命令查看你当前的内核版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></li>
-<li><p>使用 root 权限登录 Centos。确保 yum 包更新到最新。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure></li>
-<li><p>卸载旧版本(如果安装过旧版本的话)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker  docker-common docker-selinux docker-engine</span><br></pre></td></tr></table></figure></li>
-<li><p>安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></li>
-<li><p>设置yum源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">或者</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以查看所有仓库中所有docker版本，并选择特定版本安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br></pre></td></tr></table></figure></li>
-<li><p>安装docker</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce  <span class="comment">#由于repo中默认只开启stable仓库，故这里安装的是最新稳定版17.12.0</span></span><br><span class="line">sudo yum install &lt;FQPN&gt;  <span class="comment"># 例如：sudo yum install docker-ce-17.12.0.ce</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动并加入开机启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure></li>
-<li><p>验证安装是否成功(有client和service两部分表示docker安装启动都成功了)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+          <h2 id="app反编译-静态破解"><a href="#app反编译-静态破解" class="headerlink" title="app反编译,静态破解"></a>app反编译,静态破解</h2><ul>
+<li>jadx反编译工具 <a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">https://github.com/skylot/jadx</a><br>apktools重新编译：<a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="noopener">https://ibotpeaches.github.io/Apktool/</a><br>smali语法：<a href="https://source.android.com/devices/tech/dalvik/dalvik-bytecode" target="_blank" rel="noopener">https://source.android.com/devices/tech/dalvik/dalvik-bytecode</a>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/01/16/docker%E5%9F%BA%E7%A1%80/#more" rel="contents">
+            <a class="btn" href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -384,7 +365,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/15/java%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/%E5%9B%9B%E8%AF%AD%E8%A8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -403,7 +384,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/15/java%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url">java测试基础</a></h1>
+                <a class="post-title-link" href="/2020/03/01/%E5%9B%9B%E8%AF%AD%E8%A8%80/" itemprop="url">四语言</a></h1>
         
 
         <div class="post-meta">
@@ -415,8 +396,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-15T10:04:22+08:00">
-                2020-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-01T19:54:17+08:00">
+                2020-03-01
               </time>
             
 
@@ -454,20 +435,293 @@
 
       
         
-          <h2 id="Junit4"><a href="#Junit4" class="headerlink" title="Junit4"></a>Junit4</h2><h3 id="junit4-pom配置"><a href="#junit4-pom配置" class="headerlink" title="junit4 pom配置"></a>junit4 pom配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="运行器RunWith"><a href="#运行器RunWith" class="headerlink" title="运行器RunWith"></a>运行器RunWith</h3><p>首先要分清几个概念：测试方法，测试类，测试集，测试运行器</p>
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/" itemprop="url">专项测试技能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-01T14:23:35+08:00">
+                2020-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="和用户体验强相关的app性能指标"><a href="#和用户体验强相关的app性能指标" class="headerlink" title="和用户体验强相关的app性能指标"></a>和用户体验强相关的app性能指标</h2><ul>
+<li>启动时间：47%用户希望启动时间&lt;2s</li>
+<li>流畅度：16.67ms绘制一帧作为极限流畅度</li>
+<li>稳定性：不出现app崩溃访问错误等</li>
+<li>页面加载：5s后，每增加1s，会降低7%的访问量</li>
+<li>首屏时间：从app白屏到第一屏区域被填满，且可交互的时间&lt;2s优秀，&lt;5s可接受<h2 id="专项测试（技术维度）"><a href="#专项测试（技术维度）" class="headerlink" title="专项测试（技术维度）"></a>专项测试（技术维度）</h2></li>
+<li>崩溃<ul>
+<li>自动遍历，monkey测试，横竖屏切换，快速进退</li>
+</ul>
+</li>
+<li>卡顿（掉帧，gc，cpu）<ul>
+<li>卡顿测试，内存泄漏测试，menthod profile</li>
+</ul>
+</li>
+<li>响应慢（启动时间，交互相应，h5加载<ul>
+<li>冷热启动，界面切换，h5性能测试）</li>
+</ul>
+</li>
+<li>发热（cpu,men,io,network,gps等硬件使用）<ul>
+<li>method profile,gc统计，io统计，流量统计，硬件使用统计，耗电量分析</li>
+</ul>
+</li>
+<li>兼容性测试（机型覆盖，回归）<ul>
+<li>兼容性测试，自动化测试，自动遍历，monkey测试<h3 id="常用测试方案"><a href="#常用测试方案" class="headerlink" title="常用测试方案"></a>常用测试方案</h3></li>
+</ul>
+</li>
+<li>Android<ul>
+<li>自己编写sdk</li>
+<li>ddms</li>
+<li>android studio最新版本的集成工具</li>
+<li>hook</li>
+<li>代码插桩</li>
+</ul>
+</li>
+<li>iOS<ul>
+<li>instruments</li>
+<li>hook</li>
+<li>代码插桩</li>
+</ul>
+</li>
+</ul>
+<h2 id="崩溃测试"><a href="#崩溃测试" class="headerlink" title="崩溃测试"></a>崩溃测试</h2><h3 id="崩溃问题类型"><a href="#崩溃问题类型" class="headerlink" title="崩溃问题类型"></a>崩溃问题类型</h3><h4 id="典型问题"><a href="#典型问题" class="headerlink" title="典型问题"></a>典型问题</h4><ul>
+<li>ANR;<ul>
+<li>主线程5s内没响应</li>
+</ul>
+</li>
+<li>NullPotinterException<ul>
+<li>空指针</li>
+</ul>
+</li>
+<li>ClassCastException<ul>
+<li>类型转换异常</li>
+</ul>
+</li>
+<li>Force Close：<ul>
+<li>未捕获的android VM 异常</li>
+</ul>
+</li>
+<li>Crash:<ul>
+<li>未处理的native异常<br>崩溃检测通过 adb log <em>:S</em>:E 捕获异常<h4 id="基本测试方法"><a href="#基本测试方法" class="headerlink" title="基本测试方法"></a>基本测试方法</h4></li>
+</ul>
+</li>
+<li>发布前<ul>
+<li>monkey测试—+appcrawler自动遍历</li>
+<li>结合各类场景用例</li>
+</ul>
+</li>
+<li>发布后<ul>
+<li>埋点</li>
+<li>接入外部sdk</li>
+</ul>
+</li>
+</ul>
+<h4 id="异常场景（常见）"><a href="#异常场景（常见）" class="headerlink" title="异常场景（常见）"></a>异常场景（常见）</h4><ul>
+<li>后台接口问题：<ul>
+<li>弱网：完全超时。2G，3G</li>
+<li>接口返回异常：null返回</li>
+<li>接口变更问题：字段类型变更</li>
+</ul>
+</li>
+<li>逻辑问题<ul>
+<li>异步线程问题：打开新闻页在快速按返回</li>
+<li>逻辑处理不当：横竖屏切换，前台后台切换</li>
+</ul>
+</li>
+<li>内存问题：低内存，循环翻页，执行可累计内存的操作<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3></li>
+<li>什么时间点做性能测试<ul>
+<li>第一轮功能测试结束，无重大修改</li>
+</ul>
+</li>
+<li>基于什么基础测上测<ul>
+<li>历史版本&amp;竞品</li>
+</ul>
+</li>
+<li>什么时候性能优化<ul>
+<li>一般情况只有在大版本迭代或者重点性能优化才进行</li>
+</ul>
+</li>
+<li>要哪些场景<ul>
+<li>app核心场景，必须优化场景</li>
+</ul>
+</li>
+<li>要测什么包<ul>
+<li>一般侧正式包（release），反应真实用户体感</li>
+</ul>
+</li>
+<li>要测几轮<ul>
+<li>一般测正式一轮，剩余看开发优化</li>
+</ul>
+</li>
+</ul>
+<h3 id="性能专项测试报告"><a href="#性能专项测试报告" class="headerlink" title="性能专项测试报告"></a>性能专项测试报告</h3><img src="/img/专项测试技能.jpg" >
+
+<h3 id="App冷启动"><a href="#App冷启动" class="headerlink" title="App冷启动"></a>App冷启动</h3><ul>
+<li>adb shel am force-stop com.qiyi.video</li>
+<li>adb shell am start -S -W com.qiyi.video/.WelcomeActivity</li>
+<li>adb logcat | grep -i activitymanager.*Displayed</li>
+<li>lazy load:只能埋点</li>
+<li>this Time 最后一个activity时间</li>
+<li>totalTime：包括简介启动的activity时间</li>
+<li>waitTime：总体小耗时间<h3 id="录屏"><a href="#录屏" class="headerlink" title="录屏"></a>录屏</h3></li>
+<li>adb shell screenrecord –time-limit 10 /sdcard/video.mp4</li>
+<li>adb pull /sdcard/video.mp4 /Users/liyu/Desktop/video</li>
+<li>视频分帧<ul>
+<li>ffmpeg -i d:/test/video.mp4 -r 100 -threads 2 d:/test/Android-Capture-%05d.png<h3 id="硬件使用信息"><a href="#硬件使用信息" class="headerlink" title="硬件使用信息"></a>硬件使用信息</h3></li>
+</ul>
+</li>
+<li>adb shell dumpsys cpuinfo</li>
+<li>adb shell dumpsys meminfo packagename or pid</li>
+<li>adb shell getprop dalvik.vm.heapgrowthlimit 查看进程可用的最大内存</li>
+<li>adb shell cat /proc/#pid#/net/dev 流量数据获取 飞行模式可以清零流量<ul>
+<li>receive表示收包</li>
+<li>transmit比搜啊还是发包</li>
+<li>bytes表示收发的字节数</li>
+<li>packets表示手法正确的包量</li>
+<li>errs表示收发错误的包量</li>
+<li>drop表示收发丢弃的包量</li>
+</ul>
+</li>
+</ul>
+<h2 id="弱网测试"><a href="#弱网测试" class="headerlink" title="弱网测试"></a>弱网测试</h2><p>通过fidller charles代理改变网络测试</p>
+<h2 id="app流量分析"><a href="#app流量分析" class="headerlink" title="app流量分析"></a>app流量分析</h2><p>tcpdump+wireshark<br>proxy<br>burp suite<br>anyproxy</p>
+<h2 id="耗电量分析"><a href="#耗电量分析" class="headerlink" title="耗电量分析"></a>耗电量分析</h2><p><a href="https://developer.android.com/studio/profile/battery-historian" target="_blank" rel="noopener">https://developer.android.com/studio/profile/battery-historian</a><br><a href="https://developer.android.com/topic/performance/power/battery-historian" target="_blank" rel="noopener">https://developer.android.com/topic/performance/power/battery-historian</a><br><a href="https://developer.android.com/s/results/?q=Battery%20Historian" target="_blank" rel="noopener">https://developer.android.com/s/results/?q=Battery%20Historian</a><br>默认提供的docker需要Google Cloud的支持，默认用不了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p port_number:9999 gcr.io/android-battery-historian/stable:3.0 --port 9999</span><br></pre></td></tr></table></figure>
+<h3 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h3><p><a href="https://github.com/google/battery-historian" target="_blank" rel="noopener">https://github.com/google/battery-historian</a></p>
+<h2 id="cpu-men-newwork-分析"><a href="#cpu-men-newwork-分析" class="headerlink" title="cpu men newwork 分析"></a>cpu men newwork 分析</h2><p>android studio profile可以分析cpu men network</p>
 <ul>
-<li>其中测试方法就是@Test注解的一些函数</li>
-<li>测试类是包含一个或多个测试方法的**Test.java文件</li>
-<li>测试集是一个suite,包含多个测试类</li>
-<li>测试运行器则决定了用什么方式偏好取运行这些测试集类方法
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/15/java%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<li><p>内存分析<br>  内存信息dump下来后的hprof文件需要使用hprof-conv xxx.hprof xxx.jvm.hprof转成java可用的文件，然后启动jvisualvm程序加载文件</p>
+</li>
+<li><p>cpu network 直接在profile看就好</p>
+</li>
+</ul>
+<h2 id="关键硬件资源的占用率"><a href="#关键硬件资源的占用率" class="headerlink" title="关键硬件资源的占用率"></a>关键硬件资源的占用率</h2><ul>
+<li>adb shell dumpsys procstasts –hours 3</li>
+<li>adb shell dumpsys meminfo package_name | pid [-d] </li>
+<li>adb shell dumpsys  batterystats –charged package-name</li>
+<li>adb shell dumpsys netstats detail</li>
+<li>adb shell dumpsys gfxinfo package-name<h2 id="卡顿分析"><a href="#卡顿分析" class="headerlink" title="卡顿分析"></a>卡顿分析</h2>卡顿影响因素：</li>
+<li>内存问题：（内存抖动，full gc）</li>
+<li>cpu （计算耗时）</li>
+<li>render（布局复杂，overdraw）<h3 id="使用systrace"><a href="#使用systrace" class="headerlink" title="使用systrace"></a>使用systrace</h3>路径：<code>/Users/coye/Library/Android/sdk/platform-tools/systrace</code><br>使用：<code>python2 ./systrace.py</code>运行，然后操作app，完成后按enter结束，打开生成的html<br>找到对应的app 红色F代表绘制有延迟，绿色正常。鼠标选中一片区域查看slices</li>
+<li><code>python2 ./systrace.py -l</code>列举所有支持的性能数据分析</li>
+<li><code>python2 ./systrace.py -t 10</code>手机10s左右的系统性能数据</li>
+<li><code>python2 ./systrace.py -t 10 -j</code>保存一份json数据文件用于编程分析</li>
+</ul>
+
+          
         
       
     </div>
@@ -514,7 +768,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/shell%E5%9F%BA%E7%A1%80/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -533,7 +787,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/14/shell%E5%9F%BA%E7%A1%80/" itemprop="url">shell基础</a></h1>
+                <a class="post-title-link" href="/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" itemprop="url">测试平台与质量管理</a></h1>
         
 
         <div class="post-meta">
@@ -545,8 +799,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T11:48:44+08:00">
-                2020-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-28T16:02:47+08:00">
+                2020-02-28
               </time>
             
 
@@ -584,320 +838,37 @@
 
       
         
-          <h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><ul>
-<li>$PATH     环境变量</li>
-<li>$PWD      当前目录路径</li>
-<li>$USER     当前用户名</li>
-<li>$HOME 或者~     当前用户家目录</li>
-<li>$RANDOM <h2 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:$PWD #PWD当前路径的变量</span><br></pre></td></tr></table></figure>
-<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=1     #声明基本类型变量  </span><br><span class="line">b=asd   #好像可以不加引号 但是好像一般没人这么用？</span><br><span class="line">c='asda$a'  #单引号下 不识别变量</span><br><span class="line">d="asd$a"   #双引号下 可识别变量</span><br><span class="line">e=`ls`      #``里会执行命令</span><br><span class="line">echo $a     #echo等于print 使用变量时要加$</span><br></pre></td></tr></table></figure>
-<h2 id="数组变量"><a href="#数组变量" class="headerlink" title="数组变量"></a>数组变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=(1 2 3 4 5)   #声明数组</span><br><span class="line">echo $a     #只会展示第一个元素。可能是应为类似c++ 指针指向第一个元素的地址？</span><br><span class="line">echo $&#123;a[@]&#125;    #展示所有数组元素 "$&#123;a[@]&#125;" 加不加双引号都是数组,可用for循环便利实验</span><br><span class="line">echo $&#123;a[*]&#125;    #展示所有数组元素 "$&#123;a[*]&#125;"  加双引号后成为一个字符串</span><br><span class="line">echo $&#123;#a[@]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;#a[*]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;a[0]&#125;    #展示数组第0个元素</span><br><span class="line">echo $&#123;a[-1]&#125;    #展示数组最后一个元素</span><br><span class="line">a=(`ls`)    #将当前目录下文件名或文件夹名传进数组a，``里会执行命令</span><br><span class="line">for i in $&#123;a[@]&#125;;do echo $i;done</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/14/shell%E5%9F%BA%E7%A1%80/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/c-%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/12/c-%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url">c++一些基础知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-12T19:43:50+08:00">
-                2019-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="C-中struct和class定义类区别"><a href="#C-中struct和class定义类区别" class="headerlink" title="C++中struct和class定义类区别"></a>C++中struct和class定义类区别</h2><p>C++中struct和class定义类区别<br>有一种常见的误解认为用struct保留字定义的类与用class定义的类有很大的区别。唯一的不同只是默认的成员保护级别和默认的派生保护级别，没有其他的区别。<br>用class定义的类，默认的成员访问级别为private。struct定义的类成员默认访问级别是public。<br>使用class关键字定义的派生类默认具有private继承，而用struct关键字定义的类默认具有public继承：<br>struct不可以显示声明无参构造函数和析构函数！！！</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/12/c-%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/python%E4%B9%8B%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/18/python%E4%B9%8B%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="url">python之魔法函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T21:56:12+08:00">
-                2019-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <table>
+          <h2 id="质量监控类型"><a href="#质量监控类型" class="headerlink" title="质量监控类型"></a>质量监控类型</h2><table>
 <thead>
 <tr>
-<th>魔法方法</th>
-<th>含义</th>
+<th>方向</th>
+<th>介绍</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>基本的魔法方法</td>
-<td></td>
+<td>资源监控</td>
+<td>及其资源使用监控 cpu men等 zabbix</td>
 </tr>
 <tr>
-<td>_<em>new_</em>(cls[, …])</td>
-<td>1. _<em>new_</em> 是在一个对象实例化的时候所调用的第一个方法<br>2. 它的第一个参数是这个类，其他的参数是用来直接传递给 _<em>init_</em> 方法<br>3. _<em>new_</em> 决定是否要使用该 _<em>init_</em> 方法，因为 _<em>new_</em> 可以调用其他类的构造方法或者直接返回别的实例对象来作为本类的实例，如果 _<em>new_</em> 没有返回实例对象，则 _<em>init_</em> 不会被调用<br>4. _<em>new_</em> 主要是用于继承一个不可变的类型比如一个 tuple 或者 string</td>
+<td>日志监控</td>
+<td>监控业务日志进行分析 只吃tcp 文件和各类业务log</td>
 </tr>
 <tr>
-<td>_<em>init_</em>(self[, …])</td>
-<td>构造器，当一个实例被创建的时候调用的初始化方法</td>
+<td>性能监控</td>
+<td>利用探针分析应用内部性能瓶颈 代表公司 NewPelic OneAPM 听云</td>
 </tr>
 <tr>
-<td>_<em>del_</em>(self)</td>
-<td>析构器，当一个实例被销毁的时候调用的方法</td>
+<td>专项监控</td>
+<td>分析app内特定指标，比如埋点技术，bugly等</td>
 </tr>
 <tr>
-<td>_<em>call_</em>(self[, args…])</td>
-<td>允许一个类的实例像函数一样被调用：x(a, b) 调用 x._<em>call_</em>(a, b)</td>
-</tr>
-<tr>
-<td>_<em>len_</em>(self)</td>
-<td>定义当被 len() 调用时的行为</td>
-</tr>
-<tr>
-<td>_<em>repr_</em>(self)</td>
-<td>定义当被 repr() 调用时的行为</td>
-</tr>
-<tr>
-<td>_<em>str_</em>(self)</td>
-<td>定义当被 str() 调用时的行为</td>
-</tr>
-<tr>
-<td>_<em>bytes_</em>(self)</td>
-<td>定义当被 bytes() 调用时的行为</td>
-</tr>
-<tr>
-<td>_<em>hash_</em>(self)</td>
-<td>定义当被 hash() 调用时的行为</td>
-</tr>
-<tr>
-<td>_<em>bool_</em>(self)</td>
-<td>定义当被 bool() 调用时的行为，应该返回 True 或 False</td>
-</tr>
-<tr>
-<td>_<em>format_</em>(self, format_spec)</td>
-<td>定义当被 format() 调用时的行为</td>
+<td>调用链监控</td>
+<td>分析业务对象的调用链 快速定位问题zipkin</td>
 </tr>
 </tbody></table>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/18/python%E4%B9%8B%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#more" rel="contents">
+            <a class="btn" href="/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -948,7 +919,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -967,7 +938,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/18/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" itemprop="url">网络协议</a></h1>
+                <a class="post-title-link" href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/" itemprop="url">代码审计Sonar</a></h1>
         
 
         <div class="post-meta">
@@ -979,8 +950,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T17:28:25+08:00">
-                2019-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T20:49:41+08:00">
+                2020-02-27
               </time>
             
 
@@ -1018,53 +989,10 @@
 
       
         
-          <h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>含义</th>
-<th>实际应用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>物理层</td>
-<td>机械、电子定时接口通信信道上的原始比特流传输（用高低电平表示010101）</td>
-<td>IEEE802.2<br>Ethernet v.2<br>Internetwork<br></td>
-</tr>
-<tr>
-<td>数据链路层</td>
-<td>物理寻址，同时将原比特流转变为传输线路</td>
-<td>PPTP点一点隧道协议<br>IPinIP IP套IP封装协议 ARP等等</td>
-</tr>
-<tr>
-<td>网络层</td>
-<td>控制子网的运行，如逻辑编址、分组传输、路由选择。</td>
-<td>安全协议AH<br>路由协议EGP<br>IP/IPV6互联网协议 等</td>
-</tr>
-<tr>
-<td>传输层</td>
-<td>接受上一层数据，在必要的时候吧数据进行分割，并将这些数据交给网络层，接保证这些数据段有效到对端</td>
-<td>tcp传输控制协议<br>udp用户数据报协议 等</td>
-</tr>
-<tr>
-<td>会话层</td>
-<td>不同机器上的用户之间建立及管理会话</td>
-<td>SSl安全套接字层协议<br>DAP目录访问协议<br>RPC远程过程调用协议 等</td>
-</tr>
-<tr>
-<td>表示层</td>
-<td>信息的语法语义以及他们的关联，如加密解密、转换翻译、压缩解压缩</td>
-<td>LPP轻量级表示协议 等</td>
-</tr>
-<tr>
-<td>应用层</td>
-<td>各种应用程序协议，如http，ftp，smtp，pop3.</td>
-<td>看下图</td>
-</tr>
-</tbody></table>
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">简单安装如下创建就好，正式使用看docker官方文档</span><br><span class="line">docker run -d --name sonar -p 9000:9000 -p 9092:9092 sonarqube</span><br><span class="line">默认账号密码admin</span><br><span class="line">token 166c920ddf66acb3f77773531ca644b4eca87c53</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/18/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/#more" rel="contents">
+            <a class="btn" href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1115,7 +1043,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -1134,7 +1062,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/18/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%96%B9%E6%B3%95/" itemprop="url">测试用例方法</a></h1>
+                <a class="post-title-link" href="/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/" itemprop="url">持续集成Jenkins</a></h1>
         
 
         <div class="post-meta">
@@ -1146,8 +1074,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T14:58:18+08:00">
-                2019-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-22T15:49:34+08:00">
+                2020-02-22
               </time>
             
 
@@ -1185,29 +1113,10 @@
 
       
         
-          <h2 id="等价类"><a href="#等价类" class="headerlink" title="等价类"></a>等价类</h2><h3 id="等价类定义"><a href="#等价类定义" class="headerlink" title="等价类定义"></a>等价类定义</h3><p>具有相同属性或者方法的事物集合<br>这个集合中某个个体所变现的特征与其他个体完全一致<br>对于某个被测对象的测试输入而言，某个个体能够被接受或被拒绝，则该个体在集合中的任意个体都应该被接受或被拒绝</p>
-<h3 id="等价类划分"><a href="#等价类划分" class="headerlink" title="等价类划分"></a>等价类划分</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>含义</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>有效等价类</td>
-<td>针对被测对象而言，合理的、有意义的、系统接受的输入</td>
-<td>用户名长度在【6，8】</td>
-</tr>
-<tr>
-<td>无效等价类</td>
-<td>针对被测对象而言，不合理的、无意义的、系统不能接受的输入</td>
-<td>用户名长度大于18位，或者小于6位</td>
-</tr>
-</tbody></table>
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#普通启动</span></span><br><span class="line">java -jar jenkins.war --httpport=8081</span><br><span class="line"><span class="comment">#部署在tomcat</span></span><br><span class="line">准备一台tomcat服务器</span><br><span class="line">将jenkins.war复制到<span class="variable">$tomcat_home</span>/webapps/下</span><br><span class="line">启动tomcat</span><br><span class="line">jenkins服务地址http://&lt;tomcat_ip&gt;:&lt;tomcat_port&gt;/jenkins</span><br><span class="line">如果端口占用修改config/server.xml</span><br><span class="line">tomcat日志在logs/catalina.out</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/18/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%96%B9%E6%B3%95/#more" rel="contents">
+            <a class="btn" href="/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1258,7 +1167,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/python%E4%B9%8B%E4%BA%8C%E5%88%86%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/k8s/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -1277,7 +1186,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/18/python%E4%B9%8B%E4%BA%8C%E5%88%86%E6%B3%95/" itemprop="url">python之二分法</a></h1>
+                <a class="post-title-link" href="/2020/02/21/k8s/" itemprop="url">k8s</a></h1>
         
 
         <div class="post-meta">
@@ -1289,8 +1198,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T14:25:51+08:00">
-                2019-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-21T17:22:22+08:00">
+                2020-02-21
               </time>
             
 
@@ -1328,137 +1237,17 @@
 
       
         
-          
-            <p>二分法：给出一个key和一个有序数组，找出key在数组中的位置。取数组中间值与key比较大小，，则左边界+1，如果key小于中间值，则右边界-1。如果key=中间值，则找到该值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(list,key)</span>:</span></span><br><span class="line">    left=<span class="number">0</span></span><br><span class="line">    right=len(list)</span><br><span class="line">    <span class="keyword">while</span> left&lt;=right:</span><br><span class="line">        mid = int((left+right)/<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> key &gt; list[mid]:</span><br><span class="line">            mid+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> key &lt; list[mid]:</span><br><span class="line">            mid-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'key在第%d位'</span> % (mid+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">a=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">46</span>,<span class="number">78</span>,<span class="number">99</span>]</span><br><span class="line">test(a,<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/sql%E8%AF%AD%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/18/sql%E8%AF%AD%E5%8F%A5/" itemprop="url">sql自己常用语句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T11:48:44+08:00">
-                2019-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
-<li>增<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database xxx;</span><br></pre></td></tr></table></figure></li>
-<li>删<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database xxx;</span><br></pre></td></tr></table></figure></li>
-<li>查<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shouw databases;</span><br></pre></td></tr></table></figure></li>
-<li>进入数据库<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use xxx;</span><br></pre></td></tr></table></figure>
-
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac安装"><a href="#mac安装" class="headerlink" title="mac安装"></a>mac安装</h3><p><a href="https://github.com/AliyunContainerService/k8s-for-docker-desktop" target="_blank" rel="noopener">https://github.com/AliyunContainerService/k8s-for-docker-desktop</a></p>
+<ul>
+<li><p>安装docker desktop</p>
+</li>
+<li><p>下载相关镜像，Kubernetes版本要和docker desktop中about docker desktop中版本一致<br>  <a href="https://github.com/gotok8s/k8s-docker-desktop-for-mac" target="_blank" rel="noopener">https://github.com/gotok8s/k8s-docker-desktop-for-mac</a> git下来运行./load_images.sh</p>
+<p>  或者参照：<a href="https://github.com/cookcodeblog/k8s-deploy/blob/master/kubeadm/04_pull_kubernetes_images_from_aliyun.sh" target="_blank" rel="noopener">https://github.com/cookcodeblog/k8s-deploy/blob/master/kubeadm/04_pull_kubernetes_images_from_aliyun.sh</a></p>
 </li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/18/sql%E8%AF%AD%E5%8F%A5/#more" rel="contents">
+            <a class="btn" href="/2020/02/21/k8s/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1509,7 +1298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A6%82%E5%BF%B5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coye">
@@ -1528,7 +1317,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/18/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A6%82%E5%BF%B5/" itemprop="url">测试分类及概念</a></h1>
+                <a class="post-title-link" href="/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url">安全测试基础</a></h1>
         
 
         <div class="post-meta">
@@ -1540,8 +1329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T00:36:05+08:00">
-                2019-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-13T15:33:43+08:00">
+                2020-02-13
               </time>
             
 
@@ -1579,72 +1368,265 @@
 
       
         
-          <h2 id="测试概念"><a href="#测试概念" class="headerlink" title="测试概念"></a>测试概念</h2><h3 id="经典定义"><a href="#经典定义" class="headerlink" title="经典定义"></a>经典定义</h3><p>软件测试(Software Testing)，在规定的条件下对程序进行操作，以发现程序错误，衡量软件质量，并对其是否能满足设计要求进行评估的过程。</p>
-<h3 id="标准定义-IEEE"><a href="#标准定义-IEEE" class="headerlink" title="标准定义(IEEE)"></a>标准定义(IEEE)</h3><p>软件测试是使用人工或自动的手段来运行或测定某个软件系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别。</p>
-<h3 id="测试目的"><a href="#测试目的" class="headerlink" title="测试目的"></a>测试目的</h3><p>软件测试的目的是发现问题，发现至今未发现的问题。检查系统是否满足需求。</p>
-<h2 id="测试分类"><a href="#测试分类" class="headerlink" title="测试分类"></a>测试分类</h2><table>
-<thead>
-<tr>
-<th>按阶段划分</th>
-<th>按是否查看代码划分</th>
-<th>按是否执行程序划分</th>
-<th>按是否手工执行</th>
-<th>其他汇总</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元测试</td>
-<td>白盒测试</td>
-<td>静态测试</td>
-<td>手工测试</td>
-<td>随机测试</td>
-</tr>
-<tr>
-<td>集成测试</td>
-<td>黑盒测试</td>
-<td>动态测试</td>
-<td>自动化测试</td>
-<td>冒烟测试</td>
-</tr>
-<tr>
-<td>系统测试</td>
-<td>灰盒测试</td>
-<td></td>
-<td></td>
-<td>安全测试</td>
-</tr>
-<tr>
-<td>验收测试</td>
-<td></td>
-<td></td>
-<td></td>
-<td>探索性测试</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>回归测试</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>α测试</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>β测试</td>
-</tr>
-</tbody></table>
+          <h3 id="OWASP服务端安全测试体系"><a href="#OWASP服务端安全测试体系" class="headerlink" title="OWASP服务端安全测试体系"></a>OWASP服务端安全测试体系</h3><ul>
+<li>OWASP ZAP项目 <a href="https://github.com/zaproxy/zaproxy/wiki/Downloads" target="_blank" rel="noopener">https://github.com/zaproxy/zaproxy/wiki/Downloads</a></li>
+<li>ZAP下载地址 <a href="https://github.com/zaproxy/zaproxy/wiki/Downloads" target="_blank" rel="noopener">https://github.com/zaproxy/zaproxy/wiki/Downloads</a></li>
+<li>burpsuite</li>
+<li>在线漏洞模拟环境 dvwa+xampp</li>
+<li>OWASP_Testing_Guide_v4 <a href="https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents" target="_blank" rel="noopener">https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents</a></li>
+<li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project" target="_blank" rel="noopener">https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project</a></li>
+<li><a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf" target="_blank" rel="noopener">https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide" target="_blank" rel="noopener">https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide</a></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/18/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A6%82%E5%BF%B5/#more" rel="contents">
+            <a class="btn" href="/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/swagger%E6%8E%A5%E5%8F%A3%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/13/swagger%E6%8E%A5%E5%8F%A3%E5%B7%A5%E5%85%B7/" itemprop="url">swagger接口工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-13T15:09:47+08:00">
+                2020-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>TODO</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/dubbo%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/12/dubbo%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url">dubbo微服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T23:26:51+08:00">
+                2020-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="dubbo"><a href="#dubbo" class="headerlink" title="dubbo"></a>dubbo</h3><img src="/img/dubbo1.png" >
+
+<p>0 provider和container启动<br>1 provider和container启动后注册到注册中心<br>2 consumer订阅注册中心<br>3 如果有合适的服务，注册中心通知consumer，返回地址列表<br>4 consumer获得通知后调用相应服务<br>5 monitor 监控container，provider和consume</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/12/dubbo%E5%BE%AE%E6%9C%8D%E5%8A%A1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1685,6 +1667,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -1732,7 +1718,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

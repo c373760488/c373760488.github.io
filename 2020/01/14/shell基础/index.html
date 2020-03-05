@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="霍格沃兹," />
+  <meta name="keywords" content="学院," />
 
 
 
@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="shell预定义变量 $PATH     环境变量 $PWD      当前目录路径 $USER     当前用户名 $HOME 或者~     当前用户家目录 $RANDOM 修改环境变量1export PATH=$PATH:$PWD #PWD当前路径的变量 变量定义123456a=1     #声明基本类型变量  b=asd   #好像可以不加引号 但是好像一般没人这么用？c=&amp;apos;asda$a&amp;apos;">
-<meta name="keywords" content="霍格沃兹">
+<meta name="description" content="shell预定义变量 $PATH     环境变量 $PWD      当前目录路径 $USER     当前用户名 $HOME 或者~     当前用户家目录 $RANDOM">
+<meta name="keywords" content="学院">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell基础">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;14&#x2F;shell%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="shell预定义变量 $PATH     环境变量 $PWD      当前目录路径 $USER     当前用户名 $HOME 或者~     当前用户家目录 $RANDOM 修改环境变量1export PATH=$PATH:$PWD #PWD当前路径的变量 变量定义123456a=1     #声明基本类型变量  b=asd   #好像可以不加引号 但是好像一般没人这么用？c=&amp;apos;asda$a&amp;apos;">
+<meta property="og:description" content="shell预定义变量 $PATH     环境变量 $PWD      当前目录路径 $USER     当前用户名 $HOME 或者~     当前用户家目录 $RANDOM">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T03:20:15.016Z">
+<meta property="og:updated_time" content="2020-02-28T08:15:45.688Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -159,7 +159,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">脑子会忘，所以要常来看看~~~</p>
+        <p class="site-subtitle">给自己看的=。=</p>
       
   </div>
 
@@ -313,13 +313,14 @@
 <li>$PWD      当前目录路径</li>
 <li>$USER     当前用户名</li>
 <li>$HOME 或者~     当前用户家目录</li>
-<li>$RANDOM <h2 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:$PWD #PWD当前路径的变量</span><br></pre></td></tr></table></figure>
-<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=1     #声明基本类型变量  </span><br><span class="line">b=asd   #好像可以不加引号 但是好像一般没人这么用？</span><br><span class="line">c='asda$a'  #单引号下 不识别变量</span><br><span class="line">d="asd$a"   #双引号下 可识别变量</span><br><span class="line">e=`ls`      #``里会执行命令</span><br><span class="line">echo $a     #echo等于print 使用变量时要加$</span><br></pre></td></tr></table></figure>
-<h2 id="数组变量"><a href="#数组变量" class="headerlink" title="数组变量"></a>数组变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=(1 2 3 4 5)   #声明数组</span><br><span class="line">echo $a     #只会展示第一个元素。可能是应为类似c++ 指针指向第一个元素的地址？</span><br><span class="line">echo $&#123;a[@]&#125;    #展示所有数组元素 "$&#123;a[@]&#125;" 加不加双引号都是数组,可用for循环便利实验</span><br><span class="line">echo $&#123;a[*]&#125;    #展示所有数组元素 "$&#123;a[*]&#125;"  加双引号后成为一个字符串</span><br><span class="line">echo $&#123;#a[@]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;#a[*]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;a[0]&#125;    #展示数组第0个元素</span><br><span class="line">echo $&#123;a[-1]&#125;    #展示数组最后一个元素</span><br><span class="line">a=(`ls`)    #将当前目录下文件名或文件夹名传进数组a，``里会执行命令</span><br><span class="line">for i in $&#123;a[@]&#125;;do echo $i;done</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+<li>$RANDOM <a id="more"></a>
 
 </li>
 </ul>
+<h2 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:$PWD #PWD当前路径的变量</span><br></pre></td></tr></table></figure>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=1     #声明基本类型变量  </span><br><span class="line">b=asd   #好像可以不加引号 但是好像一般没人这么用？</span><br><span class="line">c='asda$a'  #单引号下 不识别变量</span><br><span class="line">d="asd$a"   #双引号下 可识别变量</span><br><span class="line">e=`ls`      #``里会执行命令</span><br><span class="line">echo $a     #echo等于print 使用变量时要加$</span><br></pre></td></tr></table></figure>
+<h2 id="数组变量"><a href="#数组变量" class="headerlink" title="数组变量"></a>数组变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=(1 2 3 4 5)   #声明数组</span><br><span class="line">echo $a     #只会展示第一个元素。可能是应为类似c++ 指针指向第一个元素的地址？</span><br><span class="line">echo $&#123;a[@]&#125;    #展示所有数组元素 "$&#123;a[@]&#125;" 加不加双引号都是数组,可用for循环便利实验</span><br><span class="line">echo $&#123;a[*]&#125;    #展示所有数组元素 "$&#123;a[*]&#125;"  加双引号后成为一个字符串</span><br><span class="line">echo $&#123;#a[@]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;#a[*]&#125;   #展示数组元素的个数</span><br><span class="line">echo $&#123;a[0]&#125;    #展示数组第0个元素</span><br><span class="line">echo $&#123;a[-1]&#125;    #展示数组最后一个元素</span><br><span class="line">a=(`ls`)    #将当前目录下文件名或文件夹名传进数组a，``里会执行命令</span><br><span class="line">for i in $&#123;a[@]&#125;;do echo $i;done</span><br></pre></td></tr></table></figure>
+
 <h2 id="特殊符号的使用"><a href="#特殊符号的使用" class="headerlink" title="特殊符号的使用"></a>特殊符号的使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">echo -e "a\nas"     #-e  开启转义模式</span><br><span class="line">echo -e "a\bas"     #\b删除前一个字符</span><br><span class="line">echo -e "a\aas"     #\a发出一个警告的声音</span><br><span class="line"><span class="meta">$</span><span class="bash">(ls)       <span class="comment">#等同于`ls` ,$(ls)不是所有linux系统都支持  所以一般还是用``</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">$(())对变量进行操作 比如$((a+b))</span></span><br><span class="line">a=1;b=2</span><br><span class="line">echo $((a+b))</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">(())是整数扩展 把里面的变量当做整数去处理</span></span><br><span class="line">a=1;b=2</span><br><span class="line"><span class="meta">(($</span><span class="bash">a&gt;<span class="variable">$b</span>));<span class="built_in">echo</span> $?       <span class="comment">#$?返回上句运行错与多 0为真 非零为假</span></span></span><br><span class="line"></span><br><span class="line">arr=(1 2 3 4 5 6 7)</span><br><span class="line">seq 1 7     #等同于for循环遍历1到7</span><br><span class="line">arr=seq 1 7     #等同于arr=(1 2 3 4 5 6 7)</span><br></pre></td></tr></table></figure>
 <h2 id="数字型变量操作"><a href="#数字型变量操作" class="headerlink" title="数字型变量操作"></a>数字型变量操作</h2><ul>
 <li>计算：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i=1;echo $i;echo $((i+1))</span><br><span class="line">((i=i+1)); echo $i</span><br><span class="line">((a++))</span><br><span class="line">((a--))</span><br></pre></td></tr></table></figure></li>
@@ -495,7 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E9%9C%8D%E6%A0%BC%E6%B2%83%E5%85%B9/" rel="tag"># 霍格沃兹</a>
+            <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
           
         </div>
       
@@ -601,7 +602,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

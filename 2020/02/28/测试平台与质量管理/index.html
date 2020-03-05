@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学院," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="质量监控类型   方向 介绍    资源监控 及其资源使用监控 cpu men等 zabbix   日志监控 监控业务日志进行分析 只吃tcp 文件和各类业务log   性能监控 利用探针分析应用内部性能瓶颈 代表公司 NewPelic OneAPM 听云   专项监控 分析app内特定指标，比如埋点技术，bugly等   调用链监控 分析业务对象的调用链 快速定位问题zipkin">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试平台与质量管理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;28&#x2F;%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="质量监控类型   方向 介绍    资源监控 及其资源使用监控 cpu men等 zabbix   日志监控 监控业务日志进行分析 只吃tcp 文件和各类业务log   性能监控 利用探针分析应用内部性能瓶颈 代表公司 NewPelic OneAPM 听云   专项监控 分析app内特定指标，比如埋点技术，bugly等   调用链监控 分析业务对象的调用链 快速定位问题zipkin">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;测试平台与质量管理0.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;测试平台与质量管理1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;测试平台与质量管理2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;测试平台与质量管理3.png">
+<meta property="og:updated_time" content="2020-02-29T14:50:05.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;测试平台与质量管理0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/28/测试平台与质量管理/"/>
+
+
+
+
+
+  <title>测试平台与质量管理 | Coye's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">给自己看的=。=</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">测试平台与质量管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-28T16:02:47+08:00">
+                2020-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="质量监控类型"><a href="#质量监控类型" class="headerlink" title="质量监控类型"></a>质量监控类型</h2><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>资源监控</td>
+<td>及其资源使用监控 cpu men等 zabbix</td>
+</tr>
+<tr>
+<td>日志监控</td>
+<td>监控业务日志进行分析 只吃tcp 文件和各类业务log</td>
+</tr>
+<tr>
+<td>性能监控</td>
+<td>利用探针分析应用内部性能瓶颈 代表公司 NewPelic OneAPM 听云</td>
+</tr>
+<tr>
+<td>专项监控</td>
+<td>分析app内特定指标，比如埋点技术，bugly等</td>
+</tr>
+<tr>
+<td>调用链监控</td>
+<td>分析业务对象的调用链 快速定位问题zipkin</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h2 id="业务监控价值"><a href="#业务监控价值" class="headerlink" title="业务监控价值"></a>业务监控价值</h2><h3 id="业务日志监控"><a href="#业务日志监控" class="headerlink" title="业务日志监控"></a>业务日志监控</h3><p>可以获取Nginx,Tomact,Apache等标准系统的log并解析保存，只吃对redis,mysql,oracle,mongdo等众多数据源的日志分析。</p>
+<h3 id="业务监控报告"><a href="#业务监控报告" class="headerlink" title="业务监控报告"></a>业务监控报告</h3><p>总保函如下系列的报告：</p>
+<ul>
+<li>业务的可用性监控</li>
+<li>业务的性能监控</li>
+<li>业务的流程分析</li>
+<li>业务数据统计 <h4 id="nginx监控示例"><a href="#nginx监控示例" class="headerlink" title="nginx监控示例"></a>nginx监控示例</h4><h4 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h4><h4 id="综合报告"><a href="#综合报告" class="headerlink" title="综合报告"></a>综合报告</h4></li>
+</ul>
+<h2 id="接口监控价值"><a href="#接口监控价值" class="headerlink" title="接口监控价值"></a>接口监控价值</h2><p>接口的数据是企业业务的核心，里面包含了业务的很多数据，利用大数据分析技术可以深度的其中的价值<br>接口监控平台可以统计如下关键信息</p>
+<ul>
+<li><p>接口的功能</p>
+<ul>
+<li>对接口发生异常时进行及时识别和预警</li>
+<li>定位分析用户的行为</li>
+<li>定位故障发生时影响的用户范围和精准的用户群体</li>
+<li>随时了解新接口的上线，及时度量风险</li>
+<li>统计接口访问量</li>
+</ul>
+</li>
+<li><p>接口的性能</p>
+<ul>
+<li>接口在不同时段的性能度量</li>
+<li>接口在不同地域的访问速度</li>
+<li>相同接口在多版本之间的性能变化</li>
+</ul>
+</li>
+<li><p>接口的一场访问</p>
+<ul>
+<li>及时识别安全攻击</li>
+<li>统计和发现各类爬虫</li>
+</ul>
+</li>
+</ul>
+<p>接口监控不仅可以用于线上的业务分析，也可以用测试环境的测试行为分析</p>
+<ul>
+<li>度量测试工程师的测试覆盖率，及时发现漏测功能</li>
+<li>度量内部测试的参与度，实现观测测试介入的人数和执行过程</li>
+<li>度量研发的自测成都，监督研发提高自测</li>
+</ul>
+<h3 id="线上业务接口监控示例"><a href="#线上业务接口监控示例" class="headerlink" title="线上业务接口监控示例"></a>线上业务接口监控示例</h3><p>影响用户数：<br>接口报错次数：<br>接口报错列表：<br>报错影响用户：</p>
+<h3 id="线下测试分析"><a href="#线下测试分析" class="headerlink" title="线下测试分析"></a>线下测试分析</h3><h4 id="内测用户参与度"><a href="#内测用户参与度" class="headerlink" title="内测用户参与度"></a>内测用户参与度</h4><ul>
+<li>人员统计：多少人测试 什么人在测试</li>
+<li>功能覆盖：覆盖了多少功能 每一轮的测试覆盖<br>现在的状态</li>
+</ul>
+<h4 id="内侧接口覆盖程度"><a href="#内侧接口覆盖程度" class="headerlink" title="内侧接口覆盖程度"></a>内侧接口覆盖程度</h4><ul>
+<li>接口漏测分析</li>
+<li>每轮测试的测试覆盖统计</li>
+</ul>
+<h2 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h2><h3 id="ES-Kibana"><a href="#ES-Kibana" class="headerlink" title="ES+Kibana"></a>ES+Kibana</h3><p>kibana地址：<a href="https://www.elastic.co/cn/products/kibana" target="_blank" rel="noopener">https://www.elastic.co/cn/products/kibana</a><br>ELK docker: <a href="https://store.docker.com/community/images/sebp/elk" target="_blank" rel="noopener">https://store.docker.com/community/images/sebp/elk</a></p>
+<h4 id="安装ELK（单机）"><a href="#安装ELK（单机）" class="headerlink" title="安装ELK（单机）"></a>安装ELK（单机）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#更新ELK</span><br><span class="line">docker pull sebp/elk</span><br><span class="line">sysctl -w vm.max_map_count=262144</span><br><span class="line">#部署</span><br><span class="line">docker run \</span><br><span class="line">--name elk -d \</span><br><span class="line">-e LOGSTASH_START=0 \</span><br><span class="line">-e ES_HEAP_SIZE=&quot;1g&quot; \</span><br><span class="line">-p 5601:5601 -p 9200:9200 -p 5044:5044 sebp/elk</span><br><span class="line"></span><br><span class="line">#启动</span><br><span class="line">docker start elk</span><br></pre></td></tr></table></figure>
+<h4 id="分离安装elk"><a href="#分离安装elk" class="headerlink" title="分离安装elk"></a>分离安装elk</h4><p>启动ElasticSearch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run - --name elasticsearch \</span><br><span class="line">-v &quot;$PWD/elaticsearch/data&quot;:/usr/share/elasticsearch/dat \</span><br><span class="line">-p 9200:92000 -p 9300:9300 elasticsearch</span><br></pre></td></tr></table></figure>
+<p>启动kibanna</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name kibana \</span><br><span class="line">-e ELASTICSEARCH_URL=http://xxx:9200 \</span><br><span class="line">-p 5601:5601 kibana</span><br></pre></td></tr></table></figure>
+<p>####<br>访问kibana所在副武器的5601端口即可看到监控系统界面</p>
+<h4 id="Logstash"><a href="#Logstash" class="headerlink" title="Logstash"></a>Logstash</h4><p>Logstash: <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html#_yum" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html#_yum</a><br>logstash docker安装： <a href="https://store.docker.com/images/logstash" target="_blank" rel="noopener">https://store.docker.com/images/logstash</a><br>直接下载：<a href="https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.zip" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.zip</a></p>
+<ul>
+<li>从CSV读取数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#更新logstash</span><br><span class="line">docker pull registry.docker-cn.com/library/logstash</span><br><span class="line">#官网docker镜像</span><br><span class="line">docker pull docker.elastic.co/logstash/logstash</span><br></pre></td></tr></table></figure>
+写一份配置文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    file &#123;</span><br><span class="line">        path =&gt; &quot;/data/*.csv&quot;</span><br><span class="line">        start_position =&gt; beginning</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">   csv&#123;</span><br><span class="line">        columns =&gt;[ &quot;log_time&quot;, &quot;user&quot;, &quot;api&quot;, &quot;status&quot;, &quot;version&quot;]</span><br><span class="line">   &#125;</span><br><span class="line">  date &#123;</span><br><span class="line">        match =&gt; [&quot;log_time&quot;, &quot;yyyy-MM-dd HH:mm:ss&quot;]</span><br><span class="line">        timezone =&gt; &quot;Asia/Shanghai&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">    elasticsearch &#123;</span><br><span class="line">        hosts =&gt; [&quot;elk.testing-studio.com:9200&quot;]</span><br><span class="line">        index =&gt; &quot;logstash-rc-%&#123;+YYYY.MM.dd&#125;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+填充数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">while true</span><br><span class="line">do</span><br><span class="line">  version=$([ $((RANDOM%5)) -ge 1 ] &amp;&amp; echo debug || echo test)</span><br><span class="line">  version=$&#123;version&#125;_3.$((RANDOM%3))</span><br><span class="line">  api=api/$((RANDOM%5)).json</span><br><span class="line">  array=(200 404 200 502 200 503 200 200 200 200 200)</span><br><span class="line">  status=$&#123;array[RANDOM%10]&#125;</span><br><span class="line">  ip=192.168.0.1$((RANDOM%5))$((RANDOM%5))</span><br><span class="line">  echo $(date +&quot;%Y-%m-%d %H:%M:%S&quot;),$&#123;ip&#125;,$&#123;api&#125;,$&#123;status&#125;,$&#123;version&#125; | tee -a  $(date +%Y%m%d).csv</span><br><span class="line">  sleep 0.$((RANDOM%5))</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+启动logstash</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">非docker方式：bin/logstash -f conf/csv.conf -v</span><br><span class="line">docker run -d  \</span><br><span class="line">--name logstash \</span><br><span class="line">-v $PWD/conf/:/conf/ \</span><br><span class="line">-v $PWD/data/:/data/  \</span><br><span class="line">logstash -f /conf/csv.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从文本读取数据<br>以nginx为例，需要增加一个patterns目录描述匹配规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    file &#123;</span><br><span class="line">        path =&gt; [&quot;/log/homeland-acess.log&quot;]</span><br><span class="line">        start_postion =&gt; &quot;end&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">    gork &#123;</span><br><span class="line">        patterns_dir =&gt; [&quot;/conf/patterns&quot;]</span><br><span class="line">        match =&gt; &#123;</span><br><span class="line">            &quot;message&quot; =&gt; &quot;%&#123;IPORHOST:clientip&#125; %&#123;NGUSER:ident&#125; %&#123;NGUSER:auth&#125; \[%&#123;HTTPDATE:timestamp&#125;\] \&quot;%&#123;WORD:verb&#125; %&#123;DATA:request&#125; HTTP/%&#123;NUMBER:httpversion&#125;\&quot; %&#123;NUMBER:response&#125; (?:%&#123;NUMBER:bytes&#125;|-) (?:\&quot;(?:%&#123;URI:referrer&#125;|-)\&quot;|%&#123;QS:referrer&#125;)(?;|) %&#123;QS:agent&#125;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">    elasticsearch &#123;</span><br><span class="line">        hosts =&gt; [&quot;x.x.x.x:9200&quot;]</span><br><span class="line">        index =&gt; &quot;logstash-homelacd-%&#123;+YYYY.MM.dd&#125;&quot;</span><br><span class="line">        workers =&gt; 2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="监控架构"><a href="#监控架构" class="headerlink" title="监控架构"></a>监控架构</h3><img src="/img/测试平台与质量管理0.jpg" >
+作者：laizhiy
+链接：https://www.jianshu.com/p/d66bfe7e9127
+简单粗暴版架构图：
+<img src="/img/测试平台与质量管理1.png" >
+上面架构是简单粗暴的架构，这种架构对数据源服务器性能影响较大，因为Logsash是需要安装和运行在需要收集的数据源服务器中，然后将收集到的数据实时进行过滤，过滤环节是很耗时间和资源的，过滤完成后才传输到ES中。下面是优化后的架构图
+<img src="/img/测试平台与质量管理2.png" >
+可以看到，优化后的架构图中添加了Kafka作为缓冲存储作用，运行在数据源的Logstash采集器收集到数据后作为生产者直接传输到Kafka,注意这里省略了过滤动作，这样对数据源服务器影响最小，因为Kafka大家都清楚，它的读写性能是非常高的。另一方面，我们需要独立部署一个专门消费的Logstash，这个Logstash负责过滤，并将过滤好的数据传输到ES，后面依然由Kibana读取ES数据进行展示。这个架构不但性能好，而且耦合低，并且可以针对不同环节进行平行扩展，在有条件的生产级部署中，强烈推荐第二种部署架构。下面是在新的架构上平行扩展可能演变的架构图
+<img src="/img/测试平台与质量管理3.png" >
+当然，kafka可能不止两个节点，而是更多节点，ES也可能集群分布式部署更多节点。
+
+</li>
+</ul>
+<h3 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h3><p>ES搜索语法：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html</a></p>
+<p>Visualize菜单栏下绘图</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/" rel="next" title="代码审计Sonar">
+                <i class="fa fa-chevron-left"></i> 代码审计Sonar
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/" rel="prev" title="专项测试技能">
+                专项测试技能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Coye" />
+            
+              <p class="site-author-name" itemprop="name">Coye</p>
+              <p class="site-description motion-element" itemprop="description">记录测试的每一月、每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#质量监控类型"><span class="nav-number">1.</span> <span class="nav-text">质量监控类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务监控价值"><span class="nav-number">2.</span> <span class="nav-text">业务监控价值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务日志监控"><span class="nav-number">2.1.</span> <span class="nav-text">业务日志监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务监控报告"><span class="nav-number">2.2.</span> <span class="nav-text">业务监控报告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx监控示例"><span class="nav-number">2.2.1.</span> <span class="nav-text">nginx监控示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计分析"><span class="nav-number">2.2.2.</span> <span class="nav-text">统计分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#综合报告"><span class="nav-number">2.2.3.</span> <span class="nav-text">综合报告</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口监控价值"><span class="nav-number">3.</span> <span class="nav-text">接口监控价值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线上业务接口监控示例"><span class="nav-number">3.1.</span> <span class="nav-text">线上业务接口监控示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线下测试分析"><span class="nav-number">3.2.</span> <span class="nav-text">线下测试分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内测用户参与度"><span class="nav-number">3.2.1.</span> <span class="nav-text">内测用户参与度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内侧接口覆盖程度"><span class="nav-number">3.2.2.</span> <span class="nav-text">内侧接口覆盖程度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELK"><span class="nav-number">4.</span> <span class="nav-text">ELK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES-Kibana"><span class="nav-number">4.1.</span> <span class="nav-text">ES+Kibana</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ELK（单机）"><span class="nav-number">4.1.1.</span> <span class="nav-text">安装ELK（单机）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离安装elk"><span class="nav-number">4.1.2.</span> <span class="nav-text">分离安装elk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logstash"><span class="nav-number">4.1.3.</span> <span class="nav-text">Logstash</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控架构"><span class="nav-number">4.2.</span> <span class="nav-text">监控架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘图"><span class="nav-number">4.3.</span> <span class="nav-text">绘图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

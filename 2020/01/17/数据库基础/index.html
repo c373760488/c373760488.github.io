@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学院," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="mysql与sql安装 mac 1brew install mysql-client">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库基础">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;17&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="mysql与sql安装 mac 1brew install mysql-client">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-28T08:16:08.393Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/17/数据库基础/"/>
+
+
+
+
+
+  <title>数据库基础 | Coye's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">给自己看的=。=</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-17T08:26:36+08:00">
+                2020-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="mysql与sql"><a href="#mysql与sql" class="headerlink" title="mysql与sql"></a>mysql与sql</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>mac</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql-client</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+</li>
+<li><p>windows<br>windows需要自行下载mysql并安装，安装后可以找到mysql命令<br>单独下载地址：<a href="https://dev.mysql.com/downloads/shell/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/shell/</a><br>mysql-client是一个官方的客户端连接管理的工具套件</p>
+</li>
+<li><p>docker<br>docker run \</p>
+</li>
+<li><p>-name mysql \</p>
+</li>
+<li><p>v $PWD/mysql:/var/lib/mysql \</p>
+</li>
+<li><p>p 3306:3306 \</p>
+</li>
+<li><p>e MYSQL_ROOT_PASSWORD=feifei911 \</p>
+</li>
+<li><p>d mysql:5.7</p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>本地：mysql -uroot -p<br>远程：mysql -hlocalhost -uroot -p</p>
+</li>
+<li><p>D database 表示进入时连接哪个库</p>
+</li>
+<li><p>e 命令    执行完命令直接退出</p>
+</li>
+<li><p>P    端口<br>mysql -hlocalhost -uroot -p -D test -e “select * from Course;” -X  将输出转换成xml格式<br>mysql -hlocalhost -uroot -p -D test -e “select * from Course;” -H  转成html 可以跟 &gt;a.html 输出到文件中<br>mysql -hlocalhost -uroot -p -D test -e “select * from Course;” -s | awk…  开一个跟管道符进行处理</p>
+</li>
+</ul>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>show processlist; 查看数据库连接人员信息</p>
+<ul>
+<li>增<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> xxx;</span><br></pre></td></tr></table></figure></li>
+<li>删<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> xxx;</span><br></pre></td></tr></table></figure></li>
+<li>查<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><ul>
+<li>增<br>主键：表中记录的唯一标识符，不重复，不为空<br>外键：字段中的支来自其他表的主键<br>索引：加速表的查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">exists</span> &lt;<span class="keyword">database</span> <span class="keyword">name</span>&gt;;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> &lt;<span class="keyword">database</span> <span class="keyword">name</span>&gt;</span><br><span class="line"><span class="keyword">use</span> &lt;<span class="keyword">database</span> <span class="keyword">name</span>&gt;;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Persons`</span> (</span><br><span class="line">  <span class="string">`PersonID`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`LastName`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`FirstName`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Address`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`City`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span></span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=latin1</span><br></pre></td></tr></table></figure></li>
+<li>删<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> xxx;</span><br></pre></td></tr></table></figure></li>
+<li>改<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;<span class="keyword">database</span> <span class="keyword">name</span>&gt;.&lt;<span class="keyword">table</span> <span class="keyword">name</span>&gt; <span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`age`</span> <span class="string">`age`</span> <span class="built_in">INT</span>(<span class="number">11</span>) <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">18</span> ;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> column_name datatype</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> column_name</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> column_name datatype</span><br></pre></td></tr></table></figure></li>
+<li>查<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="表数据"><a href="#表数据" class="headerlink" title="表数据"></a>表数据</h3><ul>
+<li>增<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名称 <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (列<span class="number">1</span>, 列<span class="number">2</span>,...) <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br></pre></td></tr></table></figure></li>
+<li>删<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 = 值</span><br><span class="line"><span class="keyword">DELETE</span> * <span class="keyword">FROM</span> table_name  <span class="comment">--删所有行</span></span><br></pre></td></tr></table></figure></li>
+<li>改<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> 表名称 <span class="keyword">SET</span> 列名称 = 新值 <span class="keyword">WHERE</span> 列名称 = 某值</span><br></pre></td></tr></table></figure></li>
+<li>查<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name;</span><br><span class="line"><span class="comment">--join</span></span><br><span class="line"><span class="comment">-- inner join 取交集，</span></span><br><span class="line"><span class="comment">-- left join 只要左表有匹配的条件，就会生成一行,  </span></span><br><span class="line"><span class="comment">-- right join 只要左表有匹配的条件，就会生成一行 </span></span><br><span class="line"><span class="comment">-- full join 只要其中一个表中存在匹配，就会生成一行，</span></span><br><span class="line"><span class="comment">-- </span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name_a <span class="keyword">as</span> a <span class="keyword">join</span> table_name_b <span class="keyword">as</span> b <span class="keyword">on</span> a.id =b.id; <span class="comment">--默认是inner join--</span></span><br><span class="line"><span class="comment">-- union</span></span><br><span class="line"><span class="comment">--UNION 操作符用于合并两个或多个 SELECT 语句的结果集。 </span></span><br><span class="line"><span class="comment">--请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。</span></span><br><span class="line"><span class="keyword">SELECT</span> E_Name <span class="keyword">FROM</span> Employees_China <span class="keyword">UNION</span> <span class="keyword">SELECT</span> E_Name <span class="keyword">FROM</span> Employees_USA;</span><br><span class="line"><span class="comment">--order by</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">desc</span>;<span class="comment">--降序查询，升序用asc</span></span><br><span class="line"><span class="comment">--group by</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">class</span>; <span class="comment">--按class分类</span></span><br><span class="line"><span class="comment">--where</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">1</span>; <span class="comment">--查询id等于1的信息</span></span><br><span class="line"><span class="comment">--limit</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">10</span>; <span class="comment">--前10条信息</span></span><br><span class="line"><span class="comment">--offset</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_name <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">10</span> <span class="keyword">offset</span> <span class="number">10</span>； <span class="comment">--跳过10条 读取10 信息</span></span><br><span class="line"><span class="comment">--group by having</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(gender) <span class="keyword">from</span> table_name <span class="keyword">group</span> <span class="keyword">by</span> gender <span class="keyword">having</span> gender=<span class="string">"F"</span>;<span class="comment">--查询gender为f的条数</span></span><br><span class="line"><span class="comment">--avg()</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(score) <span class="keyword">from</span> table_name; <span class="comment">--score的平均值</span></span><br><span class="line"><span class="comment">--count</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> table_name; <span class="comment">--查询多少条记录</span></span><br><span class="line"><span class="comment">--max()</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(score) <span class="keyword">from</span> table_name; <span class="comment">--查询最大值</span></span><br><span class="line"><span class="comment">--min()</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">min</span>(score) <span class="keyword">from</span> table_name; <span class="comment">--查询最小值</span></span><br><span class="line"><span class="comment">--distinct</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="keyword">name</span> <span class="keyword">from</span> table_name; <span class="comment">--去重</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据库其他操作"><a href="#数据库其他操作" class="headerlink" title="数据库其他操作"></a>数据库其他操作</h3></li>
+<li>日志查询<br>show log<br>bin log</li>
+<li>备份<br>dump:mysqldump  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p --all-databases &gt; dump.sql</span><br><span class="line">mysqldump --databases db1 db2 db3 &gt; dump.sql</span><br></pre></td></tr></table></figure>
+load:source</li>
+</ul>
+<h2 id="reids"><a href="#reids" class="headerlink" title="reids"></a>reids</h2><h3 id="部分基础命令"><a href="#部分基础命令" class="headerlink" title="部分基础命令"></a>部分基础命令</h3><ul>
+<li><p>字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set key value  --set human zhangsan   set human:zhangsan 30</span><br><span class="line">get key</span><br><span class="line">del key</span><br><span class="line">incr key --key的值加1</span><br><span class="line">expire key  &lt;seconds&gt; --设置过期时间</span><br><span class="line">ttl key  --查看过期时间还有多少</span><br></pre></td></tr></table></figure></li>
+<li><p>list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lpush key value 从左插入一个value</span><br><span class="line">rpush key value  从右插入一个value</span><br><span class="line">lpop key  删除左边第一个value</span><br><span class="line">rpop key    删除右边数第一个value</span><br><span class="line">lrange key 0 -1 从左遍历key的value</span><br><span class="line">llen key  获取列表长度</span><br></pre></td></tr></table></figure></li>
+<li><p>集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sadd key value1 ; sadd key value2 为key添加两个值</span><br><span class="line">srem key value1  删除value1</span><br><span class="line">smembers key  查询key的value</span><br><span class="line">sismember key value1  查询value1 存不存在 0不存在 1 存在</span><br><span class="line">sunion key1 key2  结合两个集合</span><br><span class="line">zadd key 1 value1  ;    zadd key 2 value2 给集合排序</span><br><span class="line">zrange key 1 3 取1到3 的值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hashes</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hset key field value;  hset key field2 value2</span><br><span class="line">hmset key field value field2 value2</span><br><span class="line">hget key field</span><br><span class="line">hgetall key</span><br><span class="line">hincrby key field 10   field的值加10</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h3><ul>
+<li>docker<br>服务端部署<br>docker run –name redis -p 6379:6379 -d redis<br>客户端连接<br>docker run -it –net=host –rm redis redis-cli</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/16/docker%E5%9F%BA%E7%A1%80/" rel="next" title="docker基础">
+                <i class="fa fa-chevron-left"></i> docker基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/18/py-unittest-pytest/" rel="prev" title="py_unittest_pytest">
+                py_unittest_pytest <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Coye" />
+            
+              <p class="site-author-name" itemprop="name">Coye</p>
+              <p class="site-description motion-element" itemprop="description">记录测试的每一月、每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql与sql"><span class="nav-number">1.</span> <span class="nav-text">mysql与sql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">1.2.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">1.3.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表操作"><span class="nav-number">1.4.</span> <span class="nav-text">表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表数据"><span class="nav-number">1.5.</span> <span class="nav-text">表数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库其他操作"><span class="nav-number">1.6.</span> <span class="nav-text">数据库其他操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">2.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部分基础命令"><span class="nav-number">2.1.</span> <span class="nav-text">部分基础命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis安装"><span class="nav-number">2.2.</span> <span class="nav-text">Redis安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
