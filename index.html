@@ -554,174 +554,18 @@
 
       
         
-          
-            <h2 id="和用户体验强相关的app性能指标"><a href="#和用户体验强相关的app性能指标" class="headerlink" title="和用户体验强相关的app性能指标"></a>和用户体验强相关的app性能指标</h2><ul>
+          <h2 id="和用户体验强相关的app性能指标"><a href="#和用户体验强相关的app性能指标" class="headerlink" title="和用户体验强相关的app性能指标"></a>和用户体验强相关的app性能指标</h2><ul>
 <li>启动时间：47%用户希望启动时间&lt;2s</li>
 <li>流畅度：16.67ms绘制一帧作为极限流畅度</li>
 <li>稳定性：不出现app崩溃访问错误等</li>
-<li>页面加载：5s后，每增加1s，会降低7%的访问量</li>
-<li>首屏时间：从app白屏到第一屏区域被填满，且可交互的时间&lt;2s优秀，&lt;5s可接受<h2 id="专项测试（技术维度）"><a href="#专项测试（技术维度）" class="headerlink" title="专项测试（技术维度）"></a>专项测试（技术维度）</h2></li>
-<li>崩溃<ul>
-<li>自动遍历，monkey测试，横竖屏切换，快速进退</li>
-</ul>
-</li>
-<li>卡顿（掉帧，gc，cpu）<ul>
-<li>卡顿测试，内存泄漏测试，menthod profile</li>
-</ul>
-</li>
-<li>响应慢（启动时间，交互相应，h5加载<ul>
-<li>冷热启动，界面切换，h5性能测试）</li>
-</ul>
-</li>
-<li>发热（cpu,men,io,network,gps等硬件使用）<ul>
-<li>method profile,gc统计，io统计，流量统计，硬件使用统计，耗电量分析</li>
-</ul>
-</li>
-<li>兼容性测试（机型覆盖，回归）<ul>
-<li>兼容性测试，自动化测试，自动遍历，monkey测试<h3 id="常用测试方案"><a href="#常用测试方案" class="headerlink" title="常用测试方案"></a>常用测试方案</h3></li>
-</ul>
-</li>
-<li>Android<ul>
-<li>自己编写sdk</li>
-<li>ddms</li>
-<li>android studio最新版本的集成工具</li>
-<li>hook</li>
-<li>代码插桩</li>
-</ul>
-</li>
-<li>iOS<ul>
-<li>instruments</li>
-<li>hook</li>
-<li>代码插桩</li>
-</ul>
-</li>
-</ul>
-<h2 id="崩溃测试"><a href="#崩溃测试" class="headerlink" title="崩溃测试"></a>崩溃测试</h2><h3 id="崩溃问题类型"><a href="#崩溃问题类型" class="headerlink" title="崩溃问题类型"></a>崩溃问题类型</h3><h4 id="典型问题"><a href="#典型问题" class="headerlink" title="典型问题"></a>典型问题</h4><ul>
-<li>ANR;<ul>
-<li>主线程5s内没响应</li>
-</ul>
-</li>
-<li>NullPotinterException<ul>
-<li>空指针</li>
-</ul>
-</li>
-<li>ClassCastException<ul>
-<li>类型转换异常</li>
-</ul>
-</li>
-<li>Force Close：<ul>
-<li>未捕获的android VM 异常</li>
-</ul>
-</li>
-<li>Crash:<ul>
-<li>未处理的native异常<br>崩溃检测通过 adb log <em>:S</em>:E 捕获异常<h4 id="基本测试方法"><a href="#基本测试方法" class="headerlink" title="基本测试方法"></a>基本测试方法</h4></li>
-</ul>
-</li>
-<li>发布前<ul>
-<li>monkey测试—+appcrawler自动遍历</li>
-<li>结合各类场景用例</li>
-</ul>
-</li>
-<li>发布后<ul>
-<li>埋点</li>
-<li>接入外部sdk</li>
-</ul>
-</li>
-</ul>
-<h4 id="异常场景（常见）"><a href="#异常场景（常见）" class="headerlink" title="异常场景（常见）"></a>异常场景（常见）</h4><ul>
-<li>后台接口问题：<ul>
-<li>弱网：完全超时。2G，3G</li>
-<li>接口返回异常：null返回</li>
-<li>接口变更问题：字段类型变更</li>
-</ul>
-</li>
-<li>逻辑问题<ul>
-<li>异步线程问题：打开新闻页在快速按返回</li>
-<li>逻辑处理不当：横竖屏切换，前台后台切换</li>
-</ul>
-</li>
-<li>内存问题：低内存，循环翻页，执行可累计内存的操作<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3></li>
-<li>什么时间点做性能测试<ul>
-<li>第一轮功能测试结束，无重大修改</li>
-</ul>
-</li>
-<li>基于什么基础测上测<ul>
-<li>历史版本&amp;竞品</li>
-</ul>
-</li>
-<li>什么时候性能优化<ul>
-<li>一般情况只有在大版本迭代或者重点性能优化才进行</li>
-</ul>
-</li>
-<li>要哪些场景<ul>
-<li>app核心场景，必须优化场景</li>
-</ul>
-</li>
-<li>要测什么包<ul>
-<li>一般侧正式包（release），反应真实用户体感</li>
-</ul>
-</li>
-<li>要测几轮<ul>
-<li>一般测正式一轮，剩余看开发优化</li>
-</ul>
-</li>
-</ul>
-<h3 id="性能专项测试报告"><a href="#性能专项测试报告" class="headerlink" title="性能专项测试报告"></a>性能专项测试报告</h3><img src="/img/专项测试技能.jpg" >
-
-<h3 id="App冷启动"><a href="#App冷启动" class="headerlink" title="App冷启动"></a>App冷启动</h3><ul>
-<li>adb shel am force-stop com.qiyi.video</li>
-<li>adb shell am start -S -W com.qiyi.video/.WelcomeActivity</li>
-<li>adb logcat | grep -i activitymanager.*Displayed</li>
-<li>lazy load:只能埋点</li>
-<li>this Time 最后一个activity时间</li>
-<li>totalTime：包括简介启动的activity时间</li>
-<li>waitTime：总体小耗时间<h3 id="录屏"><a href="#录屏" class="headerlink" title="录屏"></a>录屏</h3></li>
-<li>adb shell screenrecord –time-limit 10 /sdcard/video.mp4</li>
-<li>adb pull /sdcard/video.mp4 /Users/liyu/Desktop/video</li>
-<li>视频分帧<ul>
-<li>ffmpeg -i d:/test/video.mp4 -r 100 -threads 2 d:/test/Android-Capture-%05d.png<h3 id="硬件使用信息"><a href="#硬件使用信息" class="headerlink" title="硬件使用信息"></a>硬件使用信息</h3></li>
-</ul>
-</li>
-<li>adb shell dumpsys cpuinfo</li>
-<li>adb shell dumpsys meminfo packagename or pid</li>
-<li>adb shell getprop dalvik.vm.heapgrowthlimit 查看进程可用的最大内存</li>
-<li>adb shell cat /proc/#pid#/net/dev 流量数据获取 飞行模式可以清零流量<ul>
-<li>receive表示收包</li>
-<li>transmit比搜啊还是发包</li>
-<li>bytes表示收发的字节数</li>
-<li>packets表示手法正确的包量</li>
-<li>errs表示收发错误的包量</li>
-<li>drop表示收发丢弃的包量</li>
-</ul>
-</li>
-</ul>
-<h2 id="弱网测试"><a href="#弱网测试" class="headerlink" title="弱网测试"></a>弱网测试</h2><p>通过fidller charles代理改变网络测试</p>
-<h2 id="app流量分析"><a href="#app流量分析" class="headerlink" title="app流量分析"></a>app流量分析</h2><p>tcpdump+wireshark<br>proxy<br>burp suite<br>anyproxy</p>
-<h2 id="耗电量分析"><a href="#耗电量分析" class="headerlink" title="耗电量分析"></a>耗电量分析</h2><p><a href="https://developer.android.com/studio/profile/battery-historian" target="_blank" rel="noopener">https://developer.android.com/studio/profile/battery-historian</a><br><a href="https://developer.android.com/topic/performance/power/battery-historian" target="_blank" rel="noopener">https://developer.android.com/topic/performance/power/battery-historian</a><br><a href="https://developer.android.com/s/results/?q=Battery%20Historian" target="_blank" rel="noopener">https://developer.android.com/s/results/?q=Battery%20Historian</a><br>默认提供的docker需要Google Cloud的支持，默认用不了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p port_number:9999 gcr.io/android-battery-historian/stable:3.0 --port 9999</span><br></pre></td></tr></table></figure>
-<h3 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h3><p><a href="https://github.com/google/battery-historian" target="_blank" rel="noopener">https://github.com/google/battery-historian</a></p>
-<h2 id="cpu-men-newwork-分析"><a href="#cpu-men-newwork-分析" class="headerlink" title="cpu men newwork 分析"></a>cpu men newwork 分析</h2><p>android studio profile可以分析cpu men network</p>
-<ul>
-<li><p>内存分析<br>  内存信息dump下来后的hprof文件需要使用hprof-conv xxx.hprof xxx.jvm.hprof转成java可用的文件，然后启动jvisualvm程序加载文件</p>
-</li>
-<li><p>cpu network 直接在profile看就好</p>
-</li>
-</ul>
-<h2 id="关键硬件资源的占用率"><a href="#关键硬件资源的占用率" class="headerlink" title="关键硬件资源的占用率"></a>关键硬件资源的占用率</h2><ul>
-<li>adb shell dumpsys procstasts –hours 3</li>
-<li>adb shell dumpsys meminfo package_name | pid [-d] </li>
-<li>adb shell dumpsys  batterystats –charged package-name</li>
-<li>adb shell dumpsys netstats detail</li>
-<li>adb shell dumpsys gfxinfo package-name<h2 id="卡顿分析"><a href="#卡顿分析" class="headerlink" title="卡顿分析"></a>卡顿分析</h2>卡顿影响因素：</li>
-<li>内存问题：（内存抖动，full gc）</li>
-<li>cpu （计算耗时）</li>
-<li>render（布局复杂，overdraw）<h3 id="使用systrace"><a href="#使用systrace" class="headerlink" title="使用systrace"></a>使用systrace</h3>路径：<code>/Users/coye/Library/Android/sdk/platform-tools/systrace</code><br>使用：<code>python2 ./systrace.py</code>运行，然后操作app，完成后按enter结束，打开生成的html<br>找到对应的app 红色F代表绘制有延迟，绿色正常。鼠标选中一片区域查看slices</li>
-<li><code>python2 ./systrace.py -l</code>列举所有支持的性能数据分析</li>
-<li><code>python2 ./systrace.py -t 10</code>手机10s左右的系统性能数据</li>
-<li><code>python2 ./systrace.py -t 10 -j</code>保存一份json数据文件用于编程分析</li>
-</ul>
-
-          
+<li>页面加载：5s后，每增加1s，会降低7%的访问量
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
