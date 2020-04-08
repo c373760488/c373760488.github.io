@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化 class TestCase‘’‘测试用例基类    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”">
+  <meta name="description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化">
 <meta name="keywords" content="qta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="qta接口">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;qta%E6%8E%A5%E5%8F%A3&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化 class TestCase‘’‘测试用例基类    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”">
+<meta property="og:description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-26T09:33:41.085Z">
+<meta property="og:updated_time" content="2020-04-08T05:17:19.692Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/25/qta%E6%8E%A5%E5%8F%A3/">
@@ -183,7 +183,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-26 17:33:41" itemprop="dateModified" datetime="2020-03-26T17:33:41+08:00">2020-03-26</time>
+                <time title="修改时间：2020-04-08 13:17:19" itemprop="dateModified" datetime="2020-04-08T13:17:19+08:00">2020-04-08</time>
               </span>
 
           
@@ -198,6 +198,7 @@
 
       
         <h1 id="qtaf"><a href="#qtaf" class="headerlink" title="qtaf"></a>qtaf</h1><h3 id="class-Environ"><a href="#class-Environ" class="headerlink" title="class Environ"></a>class Environ</h3><p>用法说明：<br>它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：<br>from testbase.testcase import Environ<br>env = Environ()<br>env保存了用例运行时的一些测试环境变量。<br>TestCase中有进行实例化</p>
+<a id="more"></a>
 <h3 id="class-TestCase"><a href="#class-TestCase" class="headerlink" title="class TestCase"></a>class TestCase</h3><p>‘’‘测试用例基类<br>    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”runTest()”中，<br>    而当用例需要初始化和清理测试环境时则分别重写”preTest()”和”postTest()”函数。<br>‘’’</p>
 <ul>
 <li><p>class EnumStatus<br>  5种用例状态<br>Design, Implement, Review, Ready, Suspend </p>
