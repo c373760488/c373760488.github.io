@@ -20,28 +20,30 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录测试的点点滴滴。。。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Coye&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化 class TestCase‘’‘测试用例基类    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”">
+<meta name="keywords" content="qta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qta接口">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;qta%E6%8E%A5%E5%8F%A3&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="记录测试的点点滴滴。。。">
+<meta property="og:description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化 class TestCase‘’‘测试用例基类    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-26T09:33:41.085Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/03/25/qta%E6%8E%A5%E5%8F%A3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 
-  <title>Coye's blog</title>
+  <title>qta接口 | Coye's blog</title>
   
 
 
@@ -147,10 +149,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/qta%E6%8E%A5%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,8 +166,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/25/qta%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">qta接口</a>
+          qta接口
         </h1>
 
         <div class="post-meta">
@@ -196,7 +197,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="qtaf"><a href="#qtaf" class="headerlink" title="qtaf"></a>qtaf</h1><h3 id="class-Environ"><a href="#class-Environ" class="headerlink" title="class Environ"></a>class Environ</h3><p>用法说明：<br>它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：<br>from testbase.testcase import Environ<br>env = Environ()<br>env保存了用例运行时的一些测试环境变量。<br>TestCase中有进行实例化</p>
+        <h1 id="qtaf"><a href="#qtaf" class="headerlink" title="qtaf"></a>qtaf</h1><h3 id="class-Environ"><a href="#class-Environ" class="headerlink" title="class Environ"></a>class Environ</h3><p>用法说明：<br>它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：<br>from testbase.testcase import Environ<br>env = Environ()<br>env保存了用例运行时的一些测试环境变量。<br>TestCase中有进行实例化</p>
 <h3 id="class-TestCase"><a href="#class-TestCase" class="headerlink" title="class TestCase"></a>class TestCase</h3><p>‘’‘测试用例基类<br>    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”runTest()”中，<br>    而当用例需要初始化和清理测试环境时则分别重写”preTest()”和”postTest()”函数。<br>‘’’</p>
 <ul>
 <li><p>class EnumStatus<br>  5种用例状态<br>Design, Implement, Review, Ready, Suspend </p>
@@ -650,712 +651,36 @@
 <li>def set_date</li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/qta/" rel="tag"># qta</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">手机端安全测试</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-02 18:40:04" itemprop="dateCreated datePublished" datetime="2020-03-02T18:40:04+08:00">2020-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-05 19:21:40" itemprop="dateModified" datetime="2020-03-05T19:21:40+08:00">2020-03-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="app反编译-静态破解"><a href="#app反编译-静态破解" class="headerlink" title="app反编译,静态破解"></a>app反编译,静态破解</h2><ul>
-<li>jadx反编译工具 <a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">https://github.com/skylot/jadx</a><br>apktools重新编译：<a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="noopener">https://ibotpeaches.github.io/Apktool/</a><br>smali语法：<a href="https://source.android.com/devices/tech/dalvik/dalvik-bytecode" target="_blank" rel="noopener">https://source.android.com/devices/tech/dalvik/dalvik-bytecode</a>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="prev" title="手机端安全测试">
+      <i class="fa fa-chevron-left"></i> 手机端安全测试
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/Python%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/01/Python%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">Python一些基础知识</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-01 19:54:17" itemprop="dateCreated datePublished" datetime="2020-03-01T19:54:17+08:00">2020-03-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 02:16:32" itemprop="dateModified" datetime="2020-03-07T02:16:32+08:00">2020-03-07</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="如何查看数据类型"><a href="#如何查看数据类型" class="headerlink" title="如何查看数据类型"></a>如何查看数据类型</h4><p>使用type() 或者 instance(val,type)</p>
-<ul>
-<li>isinstance() 与 type() 区别：<ul>
-<li>type() 不会认为子类是一种父类类型，不考虑继承关系。</li>
-<li>isinstance() 会认为子类是一种父类类型，考虑继承关系。<br>如果要判断两个类型是否相同推荐使用 isinstance()。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">isinstance(A(), A)    <span class="comment"># returns True</span></span><br><span class="line">type(A()) == A        <span class="comment"># returns True</span></span><br><span class="line">isinstance(B(), A)    <span class="comment"># returns True</span></span><br><span class="line">type(B()) == A        <span class="comment"># returns False</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/" class="post-title-link" itemprop="url">专项测试技能</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-01 14:23:35" itemprop="dateCreated datePublished" datetime="2020-03-01T14:23:35+08:00">2020-03-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-05 17:21:56" itemprop="dateModified" datetime="2020-03-05T17:21:56+08:00">2020-03-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="和用户体验强相关的app性能指标"><a href="#和用户体验强相关的app性能指标" class="headerlink" title="和用户体验强相关的app性能指标"></a>和用户体验强相关的app性能指标</h2><ul>
-<li>启动时间：47%用户希望启动时间&lt;2s</li>
-<li>流畅度：16.67ms绘制一帧作为极限流畅度</li>
-<li>稳定性：不出现app崩溃访问错误等</li>
-<li>页面加载：5s后，每增加1s，会降低7%的访问量
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">测试平台与质量管理</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-28 16:02:47" itemprop="dateCreated datePublished" datetime="2020-02-28T16:02:47+08:00">2020-02-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-06 23:07:28" itemprop="dateModified" datetime="2020-04-06T23:07:28+08:00">2020-04-06</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="质量监控类型"><a href="#质量监控类型" class="headerlink" title="质量监控类型"></a>质量监控类型</h2><table>
-<thead>
-<tr>
-<th>方向</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>资源监控</td>
-<td>及其资源使用监控 cpu men等 zabbix</td>
-</tr>
-<tr>
-<td>日志监控</td>
-<td>监控业务日志进行分析 只吃tcp 文件和各类业务log</td>
-</tr>
-<tr>
-<td>性能监控</td>
-<td>利用探针分析应用内部性能瓶颈 代表公司 NewPelic OneAPM 听云</td>
-</tr>
-<tr>
-<td>专项监控</td>
-<td>分析app内特定指标，比如埋点技术，bugly等</td>
-</tr>
-<tr>
-<td>调用链监控</td>
-<td>分析业务对象的调用链 快速定位问题zipkin</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/" class="post-title-link" itemprop="url">代码审计Sonar</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-27 20:49:41" itemprop="dateCreated datePublished" datetime="2020-02-27T20:49:41+08:00">2020-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-28 16:17:53" itemprop="dateModified" datetime="2020-02-28T16:17:53+08:00">2020-02-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">简单安装如下创建就好，正式使用看docker官方文档</span><br><span class="line">docker run -d --name sonar -p 9000:9000 -p 9092:9092 sonarqube</span><br><span class="line">默认账号密码admin</span><br><span class="line">token 166c920ddf66acb3f77773531ca644b4eca87c53</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/27/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1Sonar/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/" class="post-title-link" itemprop="url">持续集成Jenkins</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-22 15:49:34" itemprop="dateCreated datePublished" datetime="2020-02-22T15:49:34+08:00">2020-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-28 16:17:46" itemprop="dateModified" datetime="2020-02-28T16:17:46+08:00">2020-02-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#普通启动</span></span><br><span class="line">java -jar jenkins.war --httpport=8081</span><br><span class="line"><span class="comment">#部署在tomcat</span></span><br><span class="line">准备一台tomcat服务器</span><br><span class="line">将jenkins.war复制到<span class="variable">$tomcat_home</span>/webapps/下</span><br><span class="line">启动tomcat</span><br><span class="line">jenkins服务地址http://&lt;tomcat_ip&gt;:&lt;tomcat_port&gt;/jenkins</span><br><span class="line">如果端口占用修改config/server.xml</span><br><span class="line">tomcat日志在logs/catalina.out</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/k8s/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/21/k8s/" class="post-title-link" itemprop="url">k8s</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-21 17:22:22" itemprop="dateCreated datePublished" datetime="2020-02-21T17:22:22+08:00">2020-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-28 16:17:41" itemprop="dateModified" datetime="2020-02-28T16:17:41+08:00">2020-02-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac安装"><a href="#mac安装" class="headerlink" title="mac安装"></a>mac安装</h3><p><a href="https://github.com/AliyunContainerService/k8s-for-docker-desktop" target="_blank" rel="noopener">https://github.com/AliyunContainerService/k8s-for-docker-desktop</a></p>
-<ul>
-<li><p>安装docker desktop</p>
-</li>
-<li><p>下载相关镜像，Kubernetes版本要和docker desktop中about docker desktop中版本一致<br>  <a href="https://github.com/gotok8s/k8s-docker-desktop-for-mac" target="_blank" rel="noopener">https://github.com/gotok8s/k8s-docker-desktop-for-mac</a> git下来运行./load_images.sh</p>
-<p>  或者参照：<a href="https://github.com/cookcodeblog/k8s-deploy/blob/master/kubeadm/04_pull_kubernetes_images_from_aliyun.sh" target="_blank" rel="noopener">https://github.com/cookcodeblog/k8s-deploy/blob/master/kubeadm/04_pull_kubernetes_images_from_aliyun.sh</a></p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/21/k8s/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">安全测试基础</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-13 15:33:43" itemprop="dateCreated datePublished" datetime="2020-02-13T15:33:43+08:00">2020-02-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-28 16:17:35" itemprop="dateModified" datetime="2020-02-28T16:17:35+08:00">2020-02-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="OWASP服务端安全测试体系"><a href="#OWASP服务端安全测试体系" class="headerlink" title="OWASP服务端安全测试体系"></a>OWASP服务端安全测试体系</h3><ul>
-<li>OWASP ZAP项目 <a href="https://github.com/zaproxy/zaproxy/wiki/Downloads" target="_blank" rel="noopener">https://github.com/zaproxy/zaproxy/wiki/Downloads</a></li>
-<li>ZAP下载地址 <a href="https://github.com/zaproxy/zaproxy/wiki/Downloads" target="_blank" rel="noopener">https://github.com/zaproxy/zaproxy/wiki/Downloads</a></li>
-<li>burpsuite</li>
-<li>在线漏洞模拟环境 dvwa+xampp</li>
-<li>OWASP_Testing_Guide_v4 <a href="https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents" target="_blank" rel="noopener">https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents</a></li>
-<li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project" target="_blank" rel="noopener">https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project</a></li>
-<li><a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf" target="_blank" rel="noopener">https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf</a></li>
-<li><a href="https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide" target="_blank" rel="noopener">https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide</a></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/13/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/swagger%E6%8E%A5%E5%8F%A3%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/13/swagger%E6%8E%A5%E5%8F%A3%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">swagger接口工具</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-13 15:09:47 / 修改时间：15:33:57" itemprop="dateCreated datePublished" datetime="2020-02-13T15:09:47+08:00">2020-02-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>TODO</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1406,6 +731,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#qtaf"><span class="nav-number">1.</span> <span class="nav-text">qtaf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Environ"><span class="nav-number">1.0.1.</span> <span class="nav-text">class Environ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-TestCase"><span class="nav-number">1.0.2.</span> <span class="nav-text">class TestCase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程"><span class="nav-number">1.0.3.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成测试报告"><span class="nav-number">1.0.4.</span> <span class="nav-text">生成测试报告</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qt4a"><span class="nav-number">2.</span> <span class="nav-text">qt4a</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-AndroidTestBase"><span class="nav-number">2.0.1.</span> <span class="nav-text">class AndroidTestBase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ADB"><span class="nav-number">2.0.2.</span> <span class="nav-text">ADB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-AndroidApp"><span class="nav-number">2.0.3.</span> <span class="nav-text">class AndroidApp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Window"><span class="nav-number">2.0.4.</span> <span class="nav-text">class Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Gravity"><span class="nav-number">2.0.5.</span> <span class="nav-text">class Gravity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-VerticalSwipe"><span class="nav-number">2.0.6.</span> <span class="nav-text">class VerticalSwipe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-View"><span class="nav-number">2.0.7.</span> <span class="nav-text">class View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#class-TextView-View"><span class="nav-number">2.0.7.1.</span> <span class="nav-text">class TextView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-EditText-TextView"><span class="nav-number">2.0.7.2.</span> <span class="nav-text">class EditText(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-Button-TextView"><span class="nav-number">2.0.7.3.</span> <span class="nav-text">class Button(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-CompoundButton-Button"><span class="nav-number">2.0.7.4.</span> <span class="nav-text">class CompoundButton(Button)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton-CompoundButton"><span class="nav-number">2.0.7.5.</span> <span class="nav-text">RadioButton(CompoundButton)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CheckBox-CompoundButton"><span class="nav-number">2.0.7.6.</span> <span class="nav-text">CheckBox(CompoundButton)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CheckedTextView-TextView"><span class="nav-number">2.0.7.7.</span> <span class="nav-text">CheckedTextView(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ImageView-View"><span class="nav-number">2.0.7.8.</span> <span class="nav-text">ImageView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ImageButton-ImageView"><span class="nav-number">2.0.7.9.</span> <span class="nav-text">class ImageButton(ImageView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-DropdownView-View"><span class="nav-number">2.0.7.10.</span> <span class="nav-text">class DropdownView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ViewGroup-View"><span class="nav-number">2.0.7.11.</span> <span class="nav-text">class ViewGroup(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-FrameLayout-ViewGroup"><span class="nav-number">2.0.7.12.</span> <span class="nav-text">class FrameLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-LinearLayout-ViewGroup"><span class="nav-number">2.0.7.13.</span> <span class="nav-text">class LinearLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RelativeLayout-ViewGroup"><span class="nav-number">2.0.7.14.</span> <span class="nav-text">class RelativeLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ProgressBar-View"><span class="nav-number">2.0.7.15.</span> <span class="nav-text">class ProgressBar(View):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-SeekBar-ProgressBar"><span class="nav-number">2.0.7.16.</span> <span class="nav-text">class SeekBar(ProgressBar)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ScrollView-FrameLayout"><span class="nav-number">2.0.7.17.</span> <span class="nav-text">class ScrollView(FrameLayout)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AbsListView-ScrollView"><span class="nav-number">2.0.7.18.</span> <span class="nav-text">AbsListView(ScrollView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ListItem"><span class="nav-number">2.0.7.19.</span> <span class="nav-text">class ListItem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ListView-AbsListView"><span class="nav-number">2.0.7.20.</span> <span class="nav-text">class ListView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-GridView-AbsListView"><span class="nav-number">2.0.7.21.</span> <span class="nav-text">class GridView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-TabWidget-View"><span class="nav-number">2.0.7.22.</span> <span class="nav-text">class TabWidget(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-WebkitWebView-View"><span class="nav-number">2.0.7.23.</span> <span class="nav-text">class WebkitWebView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-WebView-View"><span class="nav-number">2.0.7.24.</span> <span class="nav-text">class WebView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ChromiumWebView-WebkitWebView"><span class="nav-number">2.0.7.25.</span> <span class="nav-text">class ChromiumWebView(WebkitWebView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ViewPager-ViewGroup"><span class="nav-number">2.0.7.26.</span> <span class="nav-text">class ViewPager(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RadioGroup-LinearLayout"><span class="nav-number">2.0.7.27.</span> <span class="nav-text">class RadioGroup(LinearLayout)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RecyclerView-AbsListView"><span class="nav-number">2.0.7.28.</span> <span class="nav-text">class RecyclerView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-DatePicker-FrameLayout"><span class="nav-number">2.0.7.29.</span> <span class="nav-text">class DatePicker(FrameLayout)</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
