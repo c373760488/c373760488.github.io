@@ -151,6 +151,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/python%E4%B9%8B%E4%BA%8C%E5%88%86%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/18/python%E4%B9%8B%E4%BA%8C%E5%88%86%E6%B3%95/" class="post-title-link" itemprop="url">python之二分法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-18 14:25:51 / 修改时间：14:41:34" itemprop="dateCreated datePublished" datetime="2019-10-18T14:25:51+08:00">2019-10-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>二分法：给出一个key和一个有序数组，找出key在数组中的位置。取数组中间值与key比较大小，，则左边界+1，如果key小于中间值，则右边界-1。如果key=中间值，则找到该值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(list,key)</span>:</span></span><br><span class="line">    left=<span class="number">0</span></span><br><span class="line">    right=len(list)</span><br><span class="line">    <span class="keyword">while</span> left&lt;=right:</span><br><span class="line">        mid = int((left+right)/<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> key &gt; list[mid]:</span><br><span class="line">            mid+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> key &lt; list[mid]:</span><br><span class="line">            mid-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'key在第%d位'</span> % (mid+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">a=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">46</span>,<span class="number">78</span>,<span class="number">99</span>]</span><br><span class="line">test(a,<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/sql%E8%AF%AD%E5%8F%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -420,7 +479,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
