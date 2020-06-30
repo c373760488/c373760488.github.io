@@ -182,7 +182,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 15:13:13" itemprop="dateModified" datetime="2020-06-30T15:13:13+08:00">2020-06-30</time>
+                <time title="修改时间：2020-06-30 17:14:08" itemprop="dateModified" datetime="2020-06-30T17:14:08+08:00">2020-06-30</time>
               </span>
 
           
@@ -198,21 +198,14 @@
       
           <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
 <h4 id="配置账号"><a href="#配置账号" class="headerlink" title="配置账号"></a>配置账号</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line">git config --global color.ui true #加颜色  不执行也可以</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建git本地仓库，提交代码，回滚"><a href="#创建git本地仓库，提交代码，回滚" class="headerlink" title="创建git本地仓库，提交代码，回滚"></a>创建git本地仓库，提交代码，回滚</h3><p>模型：<br>本地文件—暂存区—本地仓库—远程仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">git init</span><br><span class="line">git status #查看仓库状态，如果有文件没有git add，会显示出来</span><br><span class="line">git add .  # 提交到暂存区，也可以git add filename</span><br><span class="line">git commit -m "第一次提交" #提交到本地仓库，-m是对此次提交的描述</span><br><span class="line">git diff file #查看file改动细节，是本地文件与暂存区文件作比较，所以git add后 就不会有差异了</span><br><span class="line">git diff --cache file #暂存区与本地仓库作比较</span><br><span class="line">git log #显示每次提交编号，提交人，提交时间，增删记录</span><br><span class="line">git log --oneLine #显示编号，增删记录</span><br><span class="line">git log -1 #显示上一次提交日志</span><br><span class="line">git checkout file #回退 本地文件写乱了想回到上一次的状态。使上次提交至暂存区的文件覆盖本地的文件</span><br><span class="line">git reset HEAD file #回退  撤回一次失误的git add</span><br><span class="line">git reset --hard &lt;编号&gt; #回退 从本地仓库回退</span><br><span class="line">git reflog  #当本地仓库从版本4回退到版本2时，git log就不显示版本3,4了，需要使用reflog查看版本3,4然后进行回滚</span><br></pre></td></tr></table></figure>
-<h3 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h3><p>正常步骤：分支测试完毕，拉去主分支代码合并，再切换到主分支，拉去分支代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">假如创建分支dev</span></span><br><span class="line">git branch #查看所有分支  当前工作的分支前会有*</span><br><span class="line">git branch dev  #创建dev分支</span><br><span class="line">git checkout master #切换到master分支</span><br><span class="line">git merge master #当前在dev分支 吧master的代码拉过来</span><br><span class="line">git merge dev #当前在master 把dev分支拉过来</span><br><span class="line">git branch -d dev #删除dev分支</span><br></pre></td></tr></table></figure>
-<h3 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h3><p>分支标签与master标签没关联</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git tag #查看已有标签</span><br><span class="line">git tag -a "v1.0" -m "描述信息。。。" #打标签</span><br><span class="line">git show v1.0  #查看标签内容</span><br><span class="line">git tag -a "v1,0" &lt;commit id&gt; -m "..." #对指定快照打标签</span><br><span class="line">git tag -d v1.0 #删除标签</span><br></pre></td></tr></table></figure>
-
-<h3 id="关联远程仓库"><a href="#关联远程仓库" class="headerlink" title="关联远程仓库"></a>关联远程仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;address&gt; #配置远程仓库地址</span><br><span class="line">git push -u origin master #本地仓库文件推送到远程仓库</span><br><span class="line">git remote remove origin #删除远程仓库 origin是用户名</span><br><span class="line"><span class="meta">#</span><span class="bash">新开发人员加入</span></span><br><span class="line">git clone &lt;add&gt;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<h2 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>正常安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y curl policycoreutils-python openssh-server</span><br><span class="line">sudo systemctl enable sshd</span><br><span class="line">sudo systemctl start sshd</span><br><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br><span class="line">sudo yum install postfix</span><br><span class="line">sudo systemctl enable postfix</span><br><span class="line">sudo systemctl start postfix</span><br><span class="line">yum install -y gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>docker<br><a href="https://www.jianshu.com/p/c99a40e5255d" target="_blank" rel="noopener">https://www.jianshu.com/p/c99a40e5255d</a></p>
-<p>汉化地址： gitlab.com/xhang/gitlab<br>#TODO</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/29/git%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

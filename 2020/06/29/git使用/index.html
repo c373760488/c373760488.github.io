@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="git安装1yum install git 配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以  创建git本地仓库，提交代码，回滚模型：本地文件—暂存区—本地仓库—远程仓库 123456">
+  <meta name="description" content="git安装1yum install git 配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;29&#x2F;git%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="git安装1yum install git 配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以  创建git本地仓库，提交代码，回滚模型：本地文件—暂存区—本地仓库—远程仓库 123456">
+<meta property="og:description" content="git安装1yum install git 配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-30T07:13:13.314Z">
+<meta property="og:updated_time" content="2020-06-30T09:14:08.393Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/06/29/git%E4%BD%BF%E7%94%A8/">
@@ -183,7 +183,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 15:13:13" itemprop="dateModified" datetime="2020-06-30T15:13:13+08:00">2020-06-30</time>
+                <time title="修改时间：2020-06-30 17:14:08" itemprop="dateModified" datetime="2020-06-30T17:14:08+08:00">2020-06-30</time>
               </span>
 
           
@@ -199,7 +199,7 @@
       
         <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
 <h4 id="配置账号"><a href="#配置账号" class="headerlink" title="配置账号"></a>配置账号</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line">git config --global color.ui true #加颜色  不执行也可以</span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <h3 id="创建git本地仓库，提交代码，回滚"><a href="#创建git本地仓库，提交代码，回滚" class="headerlink" title="创建git本地仓库，提交代码，回滚"></a>创建git本地仓库，提交代码，回滚</h3><p>模型：<br>本地文件—暂存区—本地仓库—远程仓库</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">git init</span><br><span class="line">git status #查看仓库状态，如果有文件没有git add，会显示出来</span><br><span class="line">git add .  # 提交到暂存区，也可以git add filename</span><br><span class="line">git commit -m "第一次提交" #提交到本地仓库，-m是对此次提交的描述</span><br><span class="line">git diff file #查看file改动细节，是本地文件与暂存区文件作比较，所以git add后 就不会有差异了</span><br><span class="line">git diff --cache file #暂存区与本地仓库作比较</span><br><span class="line">git log #显示每次提交编号，提交人，提交时间，增删记录</span><br><span class="line">git log --oneLine #显示编号，增删记录</span><br><span class="line">git log -1 #显示上一次提交日志</span><br><span class="line">git checkout file #回退 本地文件写乱了想回到上一次的状态。使上次提交至暂存区的文件覆盖本地的文件</span><br><span class="line">git reset HEAD file #回退  撤回一次失误的git add</span><br><span class="line">git reset --hard &lt;编号&gt; #回退 从本地仓库回退</span><br><span class="line">git reflog  #当本地仓库从版本4回退到版本2时，git log就不显示版本3,4了，需要使用reflog查看版本3,4然后进行回滚</span><br></pre></td></tr></table></figure>
 <h3 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h3><p>正常步骤：分支测试完毕，拉去主分支代码合并，再切换到主分支，拉去分支代码</p>
