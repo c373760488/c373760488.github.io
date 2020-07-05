@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Coye&#39;s blog">
 <meta property="og:description" content="docker 启动docker 配置nginx">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-01T04:04:07.120Z">
+<meta property="og:updated_time" content="2020-06-30T13:10:34.643Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/04/15/nginx%E9%85%8D%E7%BD%AE/">
@@ -183,7 +183,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-01 12:04:07" itemprop="dateModified" datetime="2020-05-01T12:04:07+08:00">2020-05-01</time>
+                <time title="修改时间：2020-06-30 21:10:34" itemprop="dateModified" datetime="2020-06-30T21:10:34+08:00">2020-06-30</time>
               </span>
 
           
@@ -207,6 +207,11 @@
 <p>conf.d/default.conf</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  122.152.251.161;</span><br><span class="line"></span><br><span class="line">    #charset koi8-r;</span><br><span class="line">    #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location = /favicon.ico &#123;</span><br><span class="line">        log_not_found off;</span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #location /api&#123;</span><br><span class="line">        #proxy_pass http://172.17.0.6:8080/api;</span><br><span class="line">        # access_log &quot;logs/test.log&quot;;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>机器 a b c，a分配请求给bc<br>a配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">upstream html&#123;</span><br><span class="line">    server xx.xx.xx.xx:xx #b ip:port</span><br><span class="line">    server xx.xx.xx.xx:xx #c ip:port</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name xxx.com;</span><br><span class="line">    logcation / &#123;</span><br><span class="line">        proxy_pass http://html;</span><br><span class="line">        proxy_set_header Host $http_host</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name xxx.com;</span><br><span class="line">    root /web; #html文件存放位置</span><br><span class="line">    logcation / &#123;</span><br><span class="line">        index index.html</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>c与b配置相同</p>
 
     </div>
 
@@ -229,8 +234,8 @@
       <i class="fa fa-chevron-left"></i> 系统监控
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/29/git%E4%BD%BF%E7%94%A8/" rel="next" title="git使用">
-      git使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/06/25/javaIo%E6%B5%81/" rel="next" title="javaIo流">
+      javaIo流 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -291,7 +296,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-启动"><span class="nav-number">1.</span> <span class="nav-text">docker 启动</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-启动"><span class="nav-number">1.</span> <span class="nav-text">docker 启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡"><span class="nav-number">1.0.1.</span> <span class="nav-text">负载均衡</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -307,14 +312,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

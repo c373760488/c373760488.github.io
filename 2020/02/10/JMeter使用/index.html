@@ -20,16 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="百分之八十的流量发生在百分之20的时间里每天流量里的百分之八十，认为他发生在一天24小时的百分之20的时间里相除得到至少能支持的线上的流量">
+  <meta name="description" content="百分之八十的流量发生在百分之 20 的时间里每天流量里的百分之八十，认为他发生在一天 24 小时的百分之 20 的时间里相除得到至少能支持的线上的流量">
 <meta name="keywords" content="学院">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JMeter使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;10&#x2F;JMeter%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="百分之八十的流量发生在百分之20的时间里每天流量里的百分之八十，认为他发生在一天24小时的百分之20的时间里相除得到至少能支持的线上的流量">
+<meta property="og:description" content="百分之八十的流量发生在百分之 20 的时间里每天流量里的百分之八十，认为他发生在一天 24 小时的百分之 20 的时间里相除得到至少能支持的线上的流量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T16:52:48.000Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;jmeter1.png">
+<meta property="og:updated_time" content="2020-07-02T13:25:52.927Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;jmeter1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/10/JMeter%E4%BD%BF%E7%94%A8/">
 
@@ -183,7 +185,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-02 00:52:48" itemprop="dateModified" datetime="2020-03-02T00:52:48+08:00">2020-03-02</time>
+                <time title="修改时间：2020-07-02 21:25:52" itemprop="dateModified" datetime="2020-07-02T21:25:52+08:00">2020-07-02</time>
               </span>
 
           
@@ -197,42 +199,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>百分之八十的流量发生在百分之20的时间里<br>每天流量里的百分之八十，认为他发生在一天24小时的百分之20的时间里<br>相除得到至少能支持的线上的流量</p>
+        <p>百分之八十的流量发生在百分之 20 的时间里<br>每天流量里的百分之八十，认为他发生在一天 24 小时的百分之 20 的时间里<br>相除得到至少能支持的线上的流量</p>
 <a id="more"></a>
+
 <h2 id="安装和简易使用"><a href="#安装和简易使用" class="headerlink" title="安装和简易使用"></a>安装和简易使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>mac： brew install jmeter</p>
 <h3 id="录制，参数化配置"><a href="#录制，参数化配置" class="headerlink" title="录制，参数化配置"></a>录制，参数化配置</h3><ul>
-<li><p>录制<br>  Test Plan下创建 Thread Group</p>
-<pre><code>创建Recording Controller</code></pre><p>  Test Plan下创建 HTTP(S) Test Script Recorder</p>
+<li><p>录制<br>Test Plan 下创建 Thread Group</p>
+<pre><code>创建Recording Controller</code></pre><p>Test Plan 下创建 HTTP(S) Test Script Recorder</p>
 <pre><code>Test Plan Creation下设置Target Controller 为创建的Recording Controller
 (过滤掉静态文件)Requests Filtering下设置 include: .*\.(baidu.com).*   Exclude: .*\.(js|css|PNG|jpg|ico|png|gif).*</code></pre></li>
-<li><p>并发<br>  Thread Group中 </p>
+<li><p>并发<br>Thread Group 中</p>
 <pre><code>Number of Threads(users) 设置并发数 10
 Ramp-Up period(in seconds) 并发加载时间5
-Loop Count 循环次数20</code></pre><p>  在5秒时并发数达到10，然后再持续15秒</p>
+Loop Count 循环次数20</code></pre><p>在 5 秒时并发数达到 10，然后再持续 15 秒</p>
 </li>
 <li><p>设置断言</p>
 <pre><code>对每一条接口设置断言</code></pre></li>
-<li><p>TestPlan下创建聚合报告</p>
+<li><p>TestPlan 下创建聚合报告</p>
 <pre><code>Average</code></pre></li>
 <li><p>命令行执行</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmeter -n -t baidu_test.jmx -l result.jtl</span><br></pre></td></tr></table></figure>
-<p>  会生成log jtl文件可以在ui界面中打开</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmeter -n -t baidu_test.jmx -l result.jtl</span><br></pre></td></tr></table></figure>
+
+<p>会生成 log jtl 文件可以在 ui 界面中打开</p>
 </li>
-<li><p>接口中变量设置<br>  线程添加debug sampler然后运行可以看到已有变量<br>  查看结果树种search下面的text切换为json path tester，右边的json path expression中以$.查看提取json的正确性，如$.access_token,下方的对话框就会显示access_token的值<br>  接口-add-post processors-json extractor：</p>
+<li><p>接口中变量设置<br>线程添加 debug sampler 然后运行可以看到已有变量<br>查看结果树种 search 下面的 text 切换为 json path tester，右边的 json path expression 中以$.查看提取json的正确性，如$.access_token,下方的对话框就会显示 access_token 的值<br>接口-add-post processors-json extractor：</p>
 <pre><code>names of created variables设置变量名
 json path expressions 设置json的表达式
 match No.(o for random) 如果只匹配到一个元素，写0就好，
-Default Values 设置默认值，如果没有匹配到值则变量为默认值</code></pre><p>  后面使用${access_token}进行引用</p>
+Default Values 设置默认值，如果没有匹配到值则变量为默认值</code></pre><p>后面使用${access_token}进行引用</p>
 </li>
-<li><p>设置全局变量<br>  Thread group -add-config element-user defined variables 可配置host port 等</p>
+<li><p>设置全局变量<br>Thread group -add-config element-user defined variables 可配置 host port 等</p>
 </li>
-<li><p>导入csv<br>  hread group -add-config element-csv data set config</p>
+<li><p>导入 csv<br>hread group -add-config element-csv data set config</p>
 </li>
-<li><p>连接数据库<br>  Thread Group下add config Element-JDBC Connection Configuration<br>  Validation Query 选择Select 1就可以<br>  URL： JDBC:mysql://locahost:3306/jmeter_class?alloMutltiQueries=true&amp;userSSL=fasle  （jmeter_class是库名）<br>  Driver选择jdbcdriver<br>  填写用户名密码<br>  添加jdbk requests 可以进行增删改查<br>  增删可以分别放到setup Thread线程和teardown线程</p>
+<li><p>连接数据库<br>Thread Group 下 add config Element-JDBC Connection Configuration<br>Validation Query 选择 Select 1 就可以<br>URL： JDBC:mysql://locahost:3306/jmeter_class?alloMutltiQueries=true&amp;userSSL=fasle （jmeter_class 是库名）<br>Driver 选择 jdbcdriver<br>填写用户名密码<br>添加 jdbk requests 可以进行增删改查<br>增删可以分别放到 setup Thread 线程和 teardown 线程</p>
 </li>
 </ul>
-<h3 id="压测执行和压测自动化"><a href="#压测执行和压测自动化" class="headerlink" title="压测执行和压测自动化"></a>压测执行和压测自动化</h3><p>分别测试10 50 100.。并发 查看90 95 line、流量、错误率</p>
+<h3 id="压测执行和压测自动化"><a href="#压测执行和压测自动化" class="headerlink" title="压测执行和压测自动化"></a>压测执行和压测自动化</h3><p>分别测试 10 50 100.。并发 查看 90 95 line、流量、错误率</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">export</span> jmx_template=<span class="string">"PreClassMenu_auto"</span></span><br><span class="line"><span class="built_in">export</span> suffix=<span class="string">".jmx"</span></span><br><span class="line"><span class="built_in">export</span> jmx_template_filename=<span class="string">"<span class="variable">$&#123;jmx_template&#125;</span><span class="variable">$&#123;suffix&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> os_type=`uname`</span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要在系统变量中定义jmeter根目录的位置，如下</span></span><br><span class="line"><span class="comment"># export jmeter_path="/your jmeter path/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空nohup.out</span></span><br><span class="line">cat /dev/null &gt; nohup.out</span><br><span class="line"></span><br><span class="line"><span class="comment"># 强制杀掉JMeter进程</span></span><br><span class="line">killJMeter()</span><br><span class="line">&#123;</span><br><span class="line">    pid=`ps -ef|grep jmeter|grep java|grep <span class="variable">$&#123;jmx_filename&#125;</span>|awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"jmeter Id list :<span class="variable">$pid</span>"</span></span><br><span class="line">    <span class="keyword">if</span> [[ <span class="string">"<span class="variable">$pid</span>"</span> = <span class="string">""</span> ]]</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"no jmeter pid alive"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">kill</span> -9 <span class="variable">$pid</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">thread_number_array=(10 20 30 40 50)</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="string">"<span class="variable">$&#123;thread_number_array[@]&#125;</span>"</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="comment"># 生成对应压测线程的jmx文件</span></span><br><span class="line">    <span class="built_in">export</span> jmx_filename=<span class="string">"<span class="variable">$&#123;jmx_template&#125;</span>_<span class="variable">$&#123;num&#125;</span><span class="variable">$&#123;suffix&#125;</span>"</span></span><br><span class="line">    <span class="built_in">export</span> jtl_filename=<span class="string">"test_<span class="variable">$&#123;num&#125;</span>.jtl"</span></span><br><span class="line"></span><br><span class="line">    rm -f <span class="variable">$&#123;jmx_filename&#125;</span> <span class="variable">$&#123;jtl_filename&#125;</span></span><br><span class="line">    cp <span class="variable">$&#123;jmx_template_filename&#125;</span> <span class="variable">$&#123;jmx_filename&#125;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"生成jmx压测脚本 <span class="variable">$&#123;jmx_filename&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [[ <span class="string">"<span class="variable">$&#123;os_type&#125;</span>"</span> == <span class="string">"Darwin"</span> ]]; <span class="keyword">then</span></span><br><span class="line">        sed -i <span class="string">""</span> <span class="string">"s/thread_num/<span class="variable">$&#123;num&#125;</span>/g"</span> <span class="variable">$&#123;jmx_filename&#125;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        sed -i <span class="string">"s/thread_num/<span class="variable">$&#123;num&#125;</span>/g"</span> <span class="variable">$&#123;jmx_filename&#125;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># JMeter 静默压测</span></span><br><span class="line">    nohup <span class="variable">$&#123;jmeter_path&#125;</span>/bin/jmeter -n -t <span class="variable">$&#123;jmx_filename&#125;</span> -l <span class="variable">$&#123;jtl_filename&#125;</span> &amp;</span><br><span class="line">    sleep 65</span><br><span class="line">    killJMeter</span><br><span class="line">    rm -f <span class="variable">$&#123;jmx_filename&#125;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"自动化压测全部结束"</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="java-with-jmeter"><a href="#java-with-jmeter" class="headerlink" title="java with jmeter"></a>java with jmeter</h4><pre><code>https://github.com/c373760488/iJava_Request
 打包后放入jemeter_path/lib/ext中 就可以在jmeter界面创建java request里找到了
 配置所需参数
@@ -245,30 +250,38 @@ Default Values 设置默认值，如果没有匹配到值则变量为默认值</
 <li>docker</li>
 <li>JMeter：压测⼯具， 产⽣压测数据</li>
 <li>InfluxDB: 开源时序数据库， 特别适合⽤于处理和分析资源监控<br>数据，⽤于存储压测数据</li>
-<li>Grafana：度量分析与可视化图标展示⼯具，可以⽀持不⽤种类的<br>数据源，⽤于将存储于InfluxDB中的数据以图表的形式展示出来</li>
+<li>Grafana：度量分析与可视化图标展示⼯具，可以⽀持不⽤种类的<br>数据源，⽤于将存储于 InfluxDB 中的数据以图表的形式展示出来</li>
 </ul>
 <h4 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h4><ul>
 <li><p>influxdb</p>
-<p>  下载influxDB镜像： docker pull influxdb<br>  docker run -d -p 8086:8086 -p 8083:8083 –name=jmeterdb influxdb<br>  docker exec -it jmeterdb bash</p>
+<p>下载 influxDB 镜像： docker pull influxdb<br>docker run -d -p 8086:8086 -p 8083:8083 –name=jmeterdb influxdb<br>docker exec -it jmeterdb bash</p>
 </li>
 <li><p>jmeter</p>
-<p>  jmeter中在Backend Listener implementation 中选择<br>  InfluxdbBackendListenerClient （注意：必须使⽤jmeter 5.0以上版本，<br>  否则需要单独装插件才可以看到这个组件）<br>  在influxdbURL中将实际的influxdb hostname填写进去<br>  在application中填写 order<br>  在testTitle中填写 Order Testing<br>  其余配置保持不变</p>
+<p>jmeter 中在 Backend Listener implementation 中选择<br>InfluxdbBackendListenerClient （注意：必须使⽤ jmeter 5.0 以上版本，<br>否则需要单独装插件才可以看到这个组件）<br>在 influxdbURL 中将实际的 influxdb hostname 填写进去<br>在 application 中填写 order<br>在 testTitle 中填写 Order Testing<br>其余配置保持不变</p>
 </li>
-<li><p>grafana<br>  docker pull grafana/grafana<br>  docker run -d -p 3001:3000 –name=jmeterGraf grafana/grafana</p>
+<li><p>grafana<br>docker pull grafana/grafana<br>docker run -d -p 3001:3000 –name=jmeterGraf grafana/grafana</p>
 </li>
 </ul>
-<h2 id="jmeter详解"><a href="#jmeter详解" class="headerlink" title="jmeter详解"></a>jmeter详解</h2><h3 id="jmeter八大元件说明"><a href="#jmeter八大元件说明" class="headerlink" title="jmeter八大元件说明"></a>jmeter八大元件说明</h3><ul>
+<h2 id="jmeter-详解"><a href="#jmeter-详解" class="headerlink" title="jmeter 详解"></a>jmeter 详解</h2><h3 id="jmeter-八大元件说明"><a href="#jmeter-八大元件说明" class="headerlink" title="jmeter 八大元件说明"></a>jmeter 八大元件说明</h3><ul>
 <li>Sampler(取样器)：不与其他元件发生交互的作用的元件</li>
-<li>Logic Controller()支队子节点的sampler有效，二其他元件需要与sampler等元件交互</li>
+<li>Logic Controller()支队子节点的 sampler 有效，二其他元件需要与 sampler 等元件交互</li>
 <li>Config Elements(配置元件)：影响其他范围内的所有元件</li>
-<li>Pre-processors(前置处理器)：在其作用范围内的每一sampler元件之前执行</li>
-<li>Timer(定时器)：对其作用范围内的每一个sampler有效</li>
-<li>Post-processors(后置处理器)：在其作用范围内的每一个sampler元件之后执行</li>
-<li>Assertions(断言)：对其作用范围内的每一个sampler元件执行后的结果执行校验</li>
-<li>Listener(监听器)：手机器作用范围内的每一个sampler元件的信息并且呈现出来</li>
+<li>Pre-processors(前置处理器)：在其作用范围内的每一 sampler 元件之前执行</li>
+<li>Timer(定时器)：对其作用范围内的每一个 sampler 有效</li>
+<li>Post-processors(后置处理器)：在其作用范围内的每一个 sampler 元件之后执行</li>
+<li>Assertions(断言)：对其作用范围内的每一个 sampler 元件执行后的结果执行校验</li>
+<li>Listener(监听器)：手机器作用范围内的每一个 sampler 元件的信息并且呈现出来</li>
 </ul>
-<h3 id="jmeter八大元件-作用于以及上下级关系"><a href="#jmeter八大元件-作用于以及上下级关系" class="headerlink" title="jmeter八大元件 作用于以及上下级关系"></a>jmeter八大元件 作用于以及上下级关系</h3><p>Sampler独立，因此不存在作用域问题<br>Logic Controller仅对其子节点中的sampler生效<br>其他元件，如果是sampler的子节点，则仅对其父节点作用<br>除sampler和Logic Controller外的其他元件，如果其父节点不是sampler，作用域是该元件父节点下的其他所有后代节点（包括子节点，子节点的子节点等）<br>想听节点加载/执行顺序：<br>Config Elements<br>pre-processors<br>Timer<br>Sampler<br>Post-processors<br>Assertions<br>Listener</p>
-<h3 id="jmeter配置设置"><a href="#jmeter配置设置" class="headerlink" title="jmeter配置设置"></a>jmeter配置设置</h3><p>可以再bin目录下的*.properties 文件修改</p>
+<h3 id="jmeter-八大元件-作用于以及上下级关系"><a href="#jmeter-八大元件-作用于以及上下级关系" class="headerlink" title="jmeter 八大元件 作用于以及上下级关系"></a>jmeter 八大元件 作用于以及上下级关系</h3><p>Sampler 独立，因此不存在作用域问题<br>Logic Controller 仅对其子节点中的 sampler 生效<br>其他元件，如果是 sampler 的子节点，则仅对其父节点作用<br>除 sampler 和 Logic Controller 外的其他元件，如果其父节点不是 sampler，作用域是该元件父节点下的其他所有后代节点（包括子节点，子节点的子节点等）<br>想听节点加载/执行顺序：<br>Config Elements<br>pre-processors<br>Timer<br>Sampler<br>Post-processors<br>Assertions<br>Listener</p>
+<h3 id="jmeter-配置设置"><a href="#jmeter-配置设置" class="headerlink" title="jmeter 配置设置"></a>jmeter 配置设置</h3><p>可以再 bin 目录下的*.properties 文件修改</p>
+<h2 id="压测分析"><a href="#压测分析" class="headerlink" title="压测分析"></a>压测分析</h2><img src="/img/jmeter1.png" >
+如果
+cpu占用率70-80
+rt响应时间几十几百毫秒，一般几十毫秒
+接口成功率99.99%
+单机QPS（每秒查询率）一万的话  
+图上做好了一天几亿qps没问题
+如果是springboot 单机qps 5k-2w比较合理
 
     </div>
 
@@ -353,7 +366,7 @@ Default Values 设置默认值，如果没有匹配到值则变量为默认值</
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和简易使用"><span class="nav-number">1.</span> <span class="nav-text">安装和简易使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录制，参数化配置"><span class="nav-number">1.2.</span> <span class="nav-text">录制，参数化配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压测执行和压测自动化"><span class="nav-number">1.3.</span> <span class="nav-text">压测执行和压测自动化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-with-jmeter"><span class="nav-number">1.3.1.</span> <span class="nav-text">java with jmeter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做一个性能监控平台"><span class="nav-number">1.4.</span> <span class="nav-text">做一个性能监控平台</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所需工具"><span class="nav-number">1.4.1.</span> <span class="nav-text">所需工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境部署"><span class="nav-number">1.4.2.</span> <span class="nav-text">环境部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jmeter详解"><span class="nav-number">2.</span> <span class="nav-text">jmeter详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter八大元件说明"><span class="nav-number">2.1.</span> <span class="nav-text">jmeter八大元件说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter八大元件-作用于以及上下级关系"><span class="nav-number">2.2.</span> <span class="nav-text">jmeter八大元件 作用于以及上下级关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter配置设置"><span class="nav-number">2.3.</span> <span class="nav-text">jmeter配置设置</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和简易使用"><span class="nav-number">1.</span> <span class="nav-text">安装和简易使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录制，参数化配置"><span class="nav-number">1.2.</span> <span class="nav-text">录制，参数化配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压测执行和压测自动化"><span class="nav-number">1.3.</span> <span class="nav-text">压测执行和压测自动化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-with-jmeter"><span class="nav-number">1.3.1.</span> <span class="nav-text">java with jmeter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做一个性能监控平台"><span class="nav-number">1.4.</span> <span class="nav-text">做一个性能监控平台</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所需工具"><span class="nav-number">1.4.1.</span> <span class="nav-text">所需工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境部署"><span class="nav-number">1.4.2.</span> <span class="nav-text">环境部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jmeter-详解"><span class="nav-number">2.</span> <span class="nav-text">jmeter 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter-八大元件说明"><span class="nav-number">2.1.</span> <span class="nav-text">jmeter 八大元件说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter-八大元件-作用于以及上下级关系"><span class="nav-number">2.2.</span> <span class="nav-text">jmeter 八大元件 作用于以及上下级关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jmeter-配置设置"><span class="nav-number">2.3.</span> <span class="nav-text">jmeter 配置设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压测分析"><span class="nav-number">3.</span> <span class="nav-text">压测分析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,14 +382,14 @@ Default Values 设置默认值，如果没有匹配到值则变量为默认值</
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
