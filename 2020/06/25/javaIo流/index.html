@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="java io 流分为硬盘读写和内存读写 File 类file 能新建，删除，重命名文件和目录，但 file 不能访问文件内容本身 123456789101112131415161718192021222324252627282930public class Test&amp;#123;    public static void main(String[] args)&amp;#123;        File">
+  <meta name="description" content="java io 流分为硬盘读写和内存读写">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaIo流">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;25&#x2F;javaIo%E6%B5%81&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="java io 流分为硬盘读写和内存读写 File 类file 能新建，删除，重命名文件和目录，但 file 不能访问文件内容本身 123456789101112131415161718192021222324252627282930public class Test&amp;#123;    public static void main(String[] args)&amp;#123;        File">
+<meta property="og:description" content="java io 流分为硬盘读写和内存读写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-05T11:16:19.710Z">
+<meta property="og:updated_time" content="2020-07-08T09:29:27.317Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/06/25/javaIo%E6%B5%81/">
@@ -183,7 +183,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-05 19:16:19" itemprop="dateModified" datetime="2020-07-05T19:16:19+08:00">2020-07-05</time>
+                <time title="修改时间：2020-07-08 17:29:27" itemprop="dateModified" datetime="2020-07-08T17:29:27+08:00">2020-07-08</time>
               </span>
 
           
@@ -198,6 +198,8 @@
 
       
         <h2 id="java-io-流"><a href="#java-io-流" class="headerlink" title="java io 流"></a>java io 流</h2><p>分为硬盘读写和内存读写</p>
+<a id="more"></a>
+
 <h3 id="File-类"><a href="#File-类" class="headerlink" title="File 类"></a>File 类</h3><p>file 能新建，删除，重命名文件和目录，但 file 不能访问文件内容本身</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        File f=<span class="keyword">new</span> File(<span class="string">"path"</span>);</span><br><span class="line">        File f1=<span class="keyword">new</span> File(<span class="string">"path1"</span>,<span class="string">"path2"</span>);</span><br><span class="line">        File f2=<span class="keyword">new</span> File(<span class="string">"path1"</span>+File.separator+<span class="string">"path2"</span>);</span><br><span class="line">        f.getName(); <span class="comment">//获取文件名或文件夹名</span></span><br><span class="line">        f.getPath(); <span class="comment">//获取文件或文件夹路径</span></span><br><span class="line">        f.getAbsolutePath(); <span class="comment">//获取绝对路径</span></span><br><span class="line">        f.getAbsoluteFile(); <span class="comment">//返回一个用当前的文件绝对路径构建的file对象</span></span><br><span class="line">        f.getParent(); <span class="comment">//返回当前文件或文件夹的父级路径</span></span><br><span class="line">        f.renameTo(<span class="keyword">new</span> File(<span class="string">"path"</span>)); <span class="comment">//给文件或文件夹重命名</span></span><br><span class="line">        <span class="comment">//文件检测</span></span><br><span class="line">        f.exist(); <span class="comment">//是否存在</span></span><br><span class="line">        f.canWrite();</span><br><span class="line">        f.canRead();</span><br><span class="line">        f.isDirectory();</span><br><span class="line">        <span class="comment">//获取常规文件信息</span></span><br><span class="line">        f.lastModify(); <span class="comment">//上一次修改时间</span></span><br><span class="line">        f.Length();</span><br><span class="line">        <span class="comment">//文件操作相关</span></span><br><span class="line">        f.createNewFile(); <span class="comment">//创建新文件，需要捕获异常</span></span><br><span class="line">        f.delete();</span><br><span class="line">        <span class="comment">//目录操作相关</span></span><br><span class="line">        f.mkdir(); <span class="comment">//创建文件夹 f对象是个文件夹</span></span><br><span class="line">        f.mkdirs(); <span class="comment">//创建多级目录</span></span><br><span class="line">        f.list();  <span class="comment">//返回改path下的目录和文件（1层） 需要遍历显示</span></span><br><span class="line">        f.listFiles();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
