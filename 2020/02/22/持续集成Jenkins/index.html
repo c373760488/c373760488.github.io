@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -20,15 +20,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="安装123456789#普通启动java -jar jenkins.war --httpport=8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&amp;lt;tomcat_ip&amp;gt;:&amp;lt;tomcat_port&amp;gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
-<meta name="keywords" content="学院">
+  <meta name="description" content="安装123456789#普通启动java -jar jenkins.war --httpport&#x3D;8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&lt;tomcat_ip&gt;:&lt;tomcat_port&gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="持续集成Jenkins">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;22&#x2F;%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="安装123456789#普通启动java -jar jenkins.war --httpport=8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&amp;lt;tomcat_ip&amp;gt;:&amp;lt;tomcat_port&amp;gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-28T08:17:46.000Z">
+<meta property="og:description" content="安装123456789#普通启动java -jar jenkins.war --httpport&#x3D;8081#部署在tomcat准备一台tomcat服务器将jenkins.war复制到$tomcat_home&#x2F;webapps&#x2F;下启动tomcatjenkins服务地址http:&#x2F;&#x2F;&lt;tomcat_ip&gt;:&lt;tomcat_port&gt;&#x2F;jenkins如果端口占用修改config&#x2F;s">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-22T07:49:34.000Z">
+<meta property="article:modified_time" content="2020-02-28T08:17:46.000Z">
+<meta property="article:author" content="Coye">
+<meta property="article:tag" content="学院">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/22/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90Jenkins/">
@@ -230,7 +232,7 @@
 </li>
 <li>Jenkins Location<ul>
 <li>Jenkins URL:<a href="http://localhost:8080/jenkins" target="_blank" rel="noopener">http://localhost:8080/jenkins</a></li>
-<li>系统管理员邮件地址:<a href="mailto:xxx@qq.com" target="_blank" rel="noopener">xxx@qq.com</a><h3 id="构建触发邮件"><a href="#构建触发邮件" class="headerlink" title="构建触发邮件"></a>构建触发邮件</h3></li>
+<li>系统管理员邮件地址:<a href="mailto:xxx@qq.com">xxx@qq.com</a><h3 id="构建触发邮件"><a href="#构建触发邮件" class="headerlink" title="构建触发邮件"></a>构建触发邮件</h3></li>
 </ul>
 </li>
 </ul>
@@ -256,9 +258,9 @@
 <li>publish html report 可以添加生成的html报告，需要添加groovy postbuild，不然js代码不能运行</li>
 </ul>
 <h2 id="jenkins-api"><a href="#jenkins-api" class="headerlink" title="jenkins api"></a>jenkins api</h2><ul>
-<li>build<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">post:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/build</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/build</span><br></pre></td></tr></table></figure></li>
-<li>获取最新任务编号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/lastBuild/buildNumber</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/lastBuild/buildNumber</span><br></pre></td></tr></table></figure></li>
-<li>查询任务状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http://username:password@localhost:8080/job/jobname/&lt;buildnum&gt;/api/json</span><br><span class="line">http://coye:123456@localhost:8080/job/test_email/2/api/json</span><br></pre></td></tr></table></figure>
+<li>build<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">post:</span><br><span class="line">http:&#x2F;&#x2F;username:password@localhost:8080&#x2F;job&#x2F;jobname&#x2F;build</span><br><span class="line">http:&#x2F;&#x2F;coye:123456@localhost:8080&#x2F;job&#x2F;test_email&#x2F;build</span><br></pre></td></tr></table></figure></li>
+<li>获取最新任务编号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http:&#x2F;&#x2F;username:password@localhost:8080&#x2F;job&#x2F;jobname&#x2F;lastBuild&#x2F;buildNumber</span><br><span class="line">http:&#x2F;&#x2F;coye:123456@localhost:8080&#x2F;job&#x2F;test_email&#x2F;lastBuild&#x2F;buildNumber</span><br></pre></td></tr></table></figure></li>
+<li>查询任务状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get:</span><br><span class="line">http:&#x2F;&#x2F;username:password@localhost:8080&#x2F;job&#x2F;jobname&#x2F;&lt;buildnum&gt;&#x2F;api&#x2F;json</span><br><span class="line">http:&#x2F;&#x2F;coye:123456@localhost:8080&#x2F;job&#x2F;test_email&#x2F;2&#x2F;api&#x2F;json</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -268,8 +270,8 @@
 <li>jenkins项目中打开GitHub hook trigger for GITScm polling</li>
 </ul>
 <h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><ul>
-<li>Declarative pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">- 必须出现的指令 </span><br><span class="line">- any：可以在任意agent上执行pipeline </span><br><span class="line">- none：pipeline将不分配全局agent, 每个stage分配自己的agent </span><br><span class="line">- label：指定运行节点的Label </span><br><span class="line">- node：自定义运行节点配置， </span><br><span class="line">    - 指定 label </span><br><span class="line">    - 指定 customWorkspace </span><br><span class="line">- docker：控制目标节点上的docker运行相关内容</span><br><span class="line">stages：包含一个或多个stage的序列，Pipeline的大部分工作在此执行; </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 每个pipeline 代码区间中必须只有一个stages </span><br><span class="line">stage：包含在stages中，pipeline完成的所有实际工作都需要包含到stage中 </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 需要定义stage的名字 </span><br><span class="line">steps：</span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 具体执行步骤，包含在 stage 代码区间中</span><br><span class="line">post ：定义Pipeline或stage运行结束时的操作</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - always：无论Pipeline运行的完成状态如何都会运行 </span><br><span class="line">    - changed：只有当前Pipeline运行的状态与先前完成的Pipeline的状态不同时，才能运行 </span><br><span class="line">    - failure：仅当当前Pipeline处于“失败”状态时才运行 </span><br><span class="line">    - success ：仅当当前Pipeline具有“成功”状态时才运行 </span><br><span class="line">    - unstable：只有当前Pipeline具有“不稳定”状态才能运行 </span><br><span class="line">    - aborted：只有当前Pipeline处于“中止”状态时才能运行</span><br><span class="line">options ：定义pipeline 的专有属性</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - buildDiscarder：保持构建的最大个数 </span><br><span class="line">    - disableConcurrentBuilds：不允许并行执行pipeline任务 </span><br><span class="line">    - timeout：pipeline 超时时间 timeout(time: 1,unit: &quot;HOURS&quot;)</span><br><span class="line">    - retry：失败后，重试整个Pipeline的次数 retry(3)</span><br><span class="line">    - timestamps：预定义由Pipeline生成的所有控制台输出时间 </span><br><span class="line">    - skipStagesAfterUnstable：一旦构建状态进入了“Unstable”状态，就跳过此stage</span><br><span class="line">parameters：定义pipeline 的专有参数列表</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - 支持数据类型：booleanParam, choice, credentials, file, text, password, run, string </span><br><span class="line">    - 类似参数化构建的选项</span><br><span class="line">triggers：定义了Pipeline自动化触发的方式</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - cron：接受一个cron风格的字符串来定义Pipeline触发的常规间隔 </span><br><span class="line">    - pollSCM：接受一个cron风格的字符串来定义 Jenkins 检查SCM源更改的常规间隔；如果存在新 的更改，则Pipeline将被重新触发。</span><br><span class="line">https://github.com/c373760488/iPipeline</span><br></pre></td></tr></table></figure></li>
-<li>Scripts pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/c373760488/iPipeline</span><br></pre></td></tr></table></figure>
+<li>Declarative pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">- 必须出现的指令 </span><br><span class="line">- any：可以在任意agent上执行pipeline </span><br><span class="line">- none：pipeline将不分配全局agent, 每个stage分配自己的agent </span><br><span class="line">- label：指定运行节点的Label </span><br><span class="line">- node：自定义运行节点配置， </span><br><span class="line">    - 指定 label </span><br><span class="line">    - 指定 customWorkspace </span><br><span class="line">- docker：控制目标节点上的docker运行相关内容</span><br><span class="line">stages：包含一个或多个stage的序列，Pipeline的大部分工作在此执行; </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 每个pipeline 代码区间中必须只有一个stages </span><br><span class="line">stage：包含在stages中，pipeline完成的所有实际工作都需要包含到stage中 </span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 需要定义stage的名字 </span><br><span class="line">steps：</span><br><span class="line">    - 必须出现的指令 </span><br><span class="line">    - 无参数 </span><br><span class="line">    - 具体执行步骤，包含在 stage 代码区间中</span><br><span class="line">post ：定义Pipeline或stage运行结束时的操作</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - always：无论Pipeline运行的完成状态如何都会运行 </span><br><span class="line">    - changed：只有当前Pipeline运行的状态与先前完成的Pipeline的状态不同时，才能运行 </span><br><span class="line">    - failure：仅当当前Pipeline处于“失败”状态时才运行 </span><br><span class="line">    - success ：仅当当前Pipeline具有“成功”状态时才运行 </span><br><span class="line">    - unstable：只有当前Pipeline具有“不稳定”状态才能运行 </span><br><span class="line">    - aborted：只有当前Pipeline处于“中止”状态时才能运行</span><br><span class="line">options ：定义pipeline 的专有属性</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - buildDiscarder：保持构建的最大个数 </span><br><span class="line">    - disableConcurrentBuilds：不允许并行执行pipeline任务 </span><br><span class="line">    - timeout：pipeline 超时时间 timeout(time: 1,unit: &quot;HOURS&quot;)</span><br><span class="line">    - retry：失败后，重试整个Pipeline的次数 retry(3)</span><br><span class="line">    - timestamps：预定义由Pipeline生成的所有控制台输出时间 </span><br><span class="line">    - skipStagesAfterUnstable：一旦构建状态进入了“Unstable”状态，就跳过此stage</span><br><span class="line">parameters：定义pipeline 的专有参数列表</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - 支持数据类型：booleanParam, choice, credentials, file, text, password, run, string </span><br><span class="line">    - 类似参数化构建的选项</span><br><span class="line">triggers：定义了Pipeline自动化触发的方式</span><br><span class="line">    - 不是必须出现的指令 </span><br><span class="line">    - cron：接受一个cron风格的字符串来定义Pipeline触发的常规间隔 </span><br><span class="line">    - pollSCM：接受一个cron风格的字符串来定义 Jenkins 检查SCM源更改的常规间隔；如果存在新 的更改，则Pipeline将被重新触发。</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;c373760488&#x2F;iPipeline</span><br></pre></td></tr></table></figure></li>
+<li>Scripts pipeline<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;c373760488&#x2F;iPipeline</span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -385,14 +387,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -423,7 +425,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Coye</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
@@ -446,9 +448,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

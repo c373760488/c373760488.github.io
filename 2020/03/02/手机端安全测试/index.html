@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,14 +21,16 @@
   </script>
 
   <meta name="description" content="app反编译,静态破解 jadx反编译工具 https:&#x2F;&#x2F;github.com&#x2F;skylot&#x2F;jadxapktools重新编译：https:&#x2F;&#x2F;ibotpeaches.github.io&#x2F;Apktool&#x2F;smali语法：https:&#x2F;&#x2F;source.android.com&#x2F;devices&#x2F;tech&#x2F;dalvik&#x2F;dalvik-bytecode">
-<meta name="keywords" content="学院">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手机端安全测试">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;02&#x2F;%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
 <meta property="og:description" content="app反编译,静态破解 jadx反编译工具 https:&#x2F;&#x2F;github.com&#x2F;skylot&#x2F;jadxapktools重新编译：https:&#x2F;&#x2F;ibotpeaches.github.io&#x2F;Apktool&#x2F;smali语法：https:&#x2F;&#x2F;source.android.com&#x2F;devices&#x2F;tech&#x2F;dalvik&#x2F;dalvik-bytecode">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T11:21:40.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-02T10:40:04.000Z">
+<meta property="article:modified_time" content="2020-03-05T11:21:40.000Z">
+<meta property="article:author" content="Coye">
+<meta property="article:tag" content="学院">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/">
@@ -200,12 +202,12 @@
         <h2 id="app反编译-静态破解"><a href="#app反编译-静态破解" class="headerlink" title="app反编译,静态破解"></a>app反编译,静态破解</h2><ul>
 <li>jadx反编译工具 <a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">https://github.com/skylot/jadx</a><br>apktools重新编译：<a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="noopener">https://ibotpeaches.github.io/Apktool/</a><br>smali语法：<a href="https://source.android.com/devices/tech/dalvik/dalvik-bytecode" target="_blank" rel="noopener">https://source.android.com/devices/tech/dalvik/dalvik-bytecode</a><a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#反编译</span></span><br><span class="line">java -jar apktool_2.3.4.jar  decode keep.apk  -o keep_source</span><br><span class="line"><span class="comment">#修改smali指令</span></span><br><span class="line"><span class="comment">#vim keep_source/smali/com/gotokeep/keep/KApplication.smali</span></span><br><span class="line"><span class="comment">#重新编译</span></span><br><span class="line">java -jar apktool_2.3.4.jar  build keep_source/ -o keep-new.apk</span><br><span class="line"><span class="comment">#生成一个证书，只执行一次即可</span></span><br><span class="line">keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -<span class="built_in">alias</span> my-alias</span><br><span class="line"><span class="comment">#用证书签名</span></span><br><span class="line">jarsigner -verbose -keystore my-release-key.jks  -signedjar keep-new-signed.apk  keep-new.apk  my-alias</span><br><span class="line"><span class="comment">#安装到手机，需要删除原来的Keep</span></span><br><span class="line">adb install -r keep-new-signed.apk</span><br><span class="line"><span class="comment">#检测修改结果</span></span><br><span class="line">adb logcat  | grep testerhome</span><br></pre></td></tr></table></figure>
-修改smali指令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">method public onCreate()V</span><br><span class="line">    .locals 4</span><br><span class="line"></span><br><span class="line">    .prologue</span><br><span class="line">    const/4 v1, 0x1</span><br><span class="line"></span><br><span class="line">    const/4 v2, 0x0</span><br><span class="line"></span><br><span class="line">    .line 162</span><br><span class="line">    invoke-super &#123;p0&#125;, Landroid/app/Application;-&gt;onCreate()V</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#新增指令开始</span><br><span class="line">    const-string v0, &quot;testerhome&quot;</span><br><span class="line">    const-string v1, &quot;hello from seveniruby&quot;</span><br><span class="line">    invoke-static &#123;v0, v1&#125;, Landroid/util/Log;-&gt;e(Ljava/lang/String;Ljava/lang/String;)I</span><br><span class="line">    const/4 v1, 0x1</span><br><span class="line">    const/4 v2, 0x0</span><br><span class="line">#新增修改结束</span><br></pre></td></tr></table></figure>
+修改smali指令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">method public onCreate()V</span><br><span class="line">    .locals 4</span><br><span class="line"></span><br><span class="line">    .prologue</span><br><span class="line">    const&#x2F;4 v1, 0x1</span><br><span class="line"></span><br><span class="line">    const&#x2F;4 v2, 0x0</span><br><span class="line"></span><br><span class="line">    .line 162</span><br><span class="line">    invoke-super &#123;p0&#125;, Landroid&#x2F;app&#x2F;Application;-&gt;onCreate()V</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#新增指令开始</span><br><span class="line">    const-string v0, &quot;testerhome&quot;</span><br><span class="line">    const-string v1, &quot;hello from seveniruby&quot;</span><br><span class="line">    invoke-static &#123;v0, v1&#125;, Landroid&#x2F;util&#x2F;Log;-&gt;e(Ljava&#x2F;lang&#x2F;String;Ljava&#x2F;lang&#x2F;String;)I</span><br><span class="line">    const&#x2F;4 v1, 0x1</span><br><span class="line">    const&#x2F;4 v2, 0x0</span><br><span class="line">#新增修改结束</span><br></pre></td></tr></table></figure>
 修改完成的结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">09-09 11:34:21.358 25656 25656 E testerhome: hello from seveniruby</span><br><span class="line">09-09 11:34:21.643 25715 25715 E testerhome: hello from seveniruby</span><br><span class="line">09-09 11:34:21.667 25743 25743 E testerhome: hello from seveniruby</span><br></pre></td></tr></table></figure>
 问题记录：<br>如果出现未处理成功的png图片，简单修改下对应的png图片的后缀名为.bak即可，删除的话会报错</li>
 </ul>
 <h2 id="动态破解"><a href="#动态破解" class="headerlink" title="动态破解"></a>动态破解</h2><ul>
-<li>XPosed: <a href="http://repo.xposed.info/module/de.robv.android.xposed.installer" target="_blank" rel="noopener">http://repo.xposed.info/module/de.robv.android.xposed.installer</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">XPosed使用教程:https://github.com/rovo89/XposedBridge/wiki/Development-tutorial</span><br><span class="line">创建xposed的扩展:https://github.com/rovo89/XposedExamples/blob/master/RedClock/src/de/robv/android/xposed/examples/redclock/RedClock.java</span><br><span class="line"></span><br><span class="line">把installer安装到一个root过的机器上</span><br><span class="line">安装框架</span><br><span class="line">增加application的meta-data</span><br><span class="line">添加xposed bridge api jar包并设置为不要打包进去</span><br><span class="line">增加Class 替换方法</span><br><span class="line">增加assets/xposed_init，填充类的路径</span><br><span class="line">安装，并用xposed installer加载</span><br><span class="line">重启</span><br></pre></td></tr></table></figure></li>
+<li>XPosed: <a href="http://repo.xposed.info/module/de.robv.android.xposed.installer" target="_blank" rel="noopener">http://repo.xposed.info/module/de.robv.android.xposed.installer</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">XPosed使用教程:https:&#x2F;&#x2F;github.com&#x2F;rovo89&#x2F;XposedBridge&#x2F;wiki&#x2F;Development-tutorial</span><br><span class="line">创建xposed的扩展:https:&#x2F;&#x2F;github.com&#x2F;rovo89&#x2F;XposedExamples&#x2F;blob&#x2F;master&#x2F;RedClock&#x2F;src&#x2F;de&#x2F;robv&#x2F;android&#x2F;xposed&#x2F;examples&#x2F;redclock&#x2F;RedClock.java</span><br><span class="line"></span><br><span class="line">把installer安装到一个root过的机器上</span><br><span class="line">安装框架</span><br><span class="line">增加application的meta-data</span><br><span class="line">添加xposed bridge api jar包并设置为不要打包进去</span><br><span class="line">增加Class 替换方法</span><br><span class="line">增加assets&#x2F;xposed_init，填充类的路径</span><br><span class="line">安装，并用xposed installer加载</span><br><span class="line">重启</span><br></pre></td></tr></table></figure></li>
 <li>Frida</li>
 <li>Substrate</li>
 </ul>
@@ -309,14 +311,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -347,7 +349,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Coye</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
@@ -370,9 +372,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
