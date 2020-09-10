@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="git安装1yum install git  配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git使用">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;29&#x2F;git%E4%BD%BF%E7%94%A8&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="git安装1yum install git  配置账号123git config --global user.name &quot;username&quot;git config --global user.email &quot;email&quot;git config --global color.ui true #加颜色  不执行也可以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-02T13:25:59.914Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/29/git%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>git使用 | Coye's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">给自己看的=。=</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/git%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-29 20:23:04" itemprop="dateCreated datePublished" datetime="2020-06-29T20:23:04+08:00">2020-06-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-02 21:25:59" itemprop="dateModified" datetime="2020-07-02T21:25:59+08:00">2020-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置账号"><a href="#配置账号" class="headerlink" title="配置账号"></a>配置账号</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "username"</span><br><span class="line">git config --global user.email "email"</span><br><span class="line">git config --global color.ui true #加颜色  不执行也可以</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="创建-git-本地仓库，提交代码，回滚"><a href="#创建-git-本地仓库，提交代码，回滚" class="headerlink" title="创建 git 本地仓库，提交代码，回滚"></a>创建 git 本地仓库，提交代码，回滚</h3><p>模型：<br>本地文件—暂存区—本地仓库—远程仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">git init</span><br><span class="line">git status #查看仓库状态，如果有文件没有git add，会显示出来</span><br><span class="line">git add .  # 提交到暂存区，也可以git add filename</span><br><span class="line">git commit -m "第一次提交" #提交到本地仓库，-m是对此次提交的描述</span><br><span class="line">git diff file #查看file改动细节，是本地文件与暂存区文件作比较，所以git add后 就不会有差异了</span><br><span class="line">git diff --cache file #暂存区与本地仓库作比较</span><br><span class="line">git log #显示每次提交编号，提交人，提交时间，增删记录</span><br><span class="line">git log --oneLine #显示编号，增删记录</span><br><span class="line">git log -1 #显示上一次提交日志</span><br><span class="line">git checkout file #回退 本地文件写乱了想回到上一次的状态。使上次提交至暂存区的文件覆盖本地的文件</span><br><span class="line">git reset HEAD file #回退  撤回一次失误的git add</span><br><span class="line">git reset --hard &lt;编号&gt; #回退 从本地仓库回退</span><br><span class="line">git reflog  #当本地仓库从版本4回退到版本2时，git log就不显示版本3,4了，需要使用reflog查看版本3,4然后进行回滚</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-分支"><a href="#git-分支" class="headerlink" title="git 分支"></a>git 分支</h3><p>正常步骤：分支测试完毕，拉去主分支代码合并，再切换到主分支，拉去分支代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">假如创建分支dev</span></span><br><span class="line">git branch #查看所有分支  当前工作的分支前会有*</span><br><span class="line">git branch dev  #创建dev分支</span><br><span class="line">git checkout master #切换到master分支</span><br><span class="line">git merge master #当前在dev分支 吧master的代码拉过来</span><br><span class="line">git merge dev #当前在master 把dev分支拉过来</span><br><span class="line">git branch -d dev #删除dev分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h3><p>分支标签与 master 标签没关联</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git tag #查看已有标签</span><br><span class="line">git tag -a "v1.0" -m "描述信息。。。" #打标签</span><br><span class="line">git show v1.0  #查看标签内容</span><br><span class="line">git tag -a "v1,0" &lt;commit id&gt; -m "..." #对指定快照打标签</span><br><span class="line">git tag -d v1.0 #删除标签</span><br></pre></td></tr></table></figure>
+
+<h3 id="关联远程仓库"><a href="#关联远程仓库" class="headerlink" title="关联远程仓库"></a>关联远程仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;address&gt; #配置远程仓库地址</span><br><span class="line">git push -u origin master #本地仓库文件推送到远程仓库</span><br><span class="line">git remote remove origin #删除远程仓库 origin是用户名</span><br><span class="line"><span class="meta">#</span><span class="bash">新开发人员加入</span></span><br><span class="line">git clone &lt;add&gt;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>正常安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y curl policycoreutils-python openssh-server</span><br><span class="line">sudo systemctl enable sshd</span><br><span class="line">sudo systemctl start sshd</span><br><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br><span class="line">sudo yum install postfix</span><br><span class="line">sudo systemctl enable postfix</span><br><span class="line">sudo systemctl start postfix</span><br><span class="line">curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash</span><br><span class="line">sudo yum install -y gitlab-ee</span><br><span class="line"><span class="meta">#</span><span class="bash">配置</span></span><br><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">external_url 'http://gitlab.feifei.com' #修改本地host就可以访问了</span><br><span class="line">gitlab_rails['gitlab_email_enabled'] = true</span><br><span class="line">gitlab_rails['gitlab_email_from'] = "373760488@qq.com" #发件人邮箱</span><br><span class="line">gitlab_rails['smtp_port'] = 465</span><br><span class="line">gitlab_rails['smtp_user_name'] = "smtp user" #发件人邮箱账户</span><br><span class="line">gitlab_rails['smtp_password'] = "smtp password" #授权码</span><br><span class="line">gitlab_rails['smtp_domain'] = "qq.com"</span><br><span class="line">gitlab_rails['smtp_authentication'] = "login"</span><br><span class="line">gitlab_rails['smtp_enable_starttls_auto'] = true</span><br><span class="line">gitlab_rails['smtp_tls'] = true</span><br><span class="line">gitlab_monitor['enable'] = false #关闭prometheus监控</span><br><span class="line"><span class="meta">#</span><span class="bash">开启备份</span></span><br><span class="line">gitlab_monitor['manage_backup_path'] = true</span><br><span class="line">gitlab_monitor['backup_path'] = "/data/gitlab/backups"</span><br><span class="line">gitlab_monitor['backup_keep_time'] = 604800  #保留一星期</span><br><span class="line"></span><br><span class="line">gitlab-ctl reconfigure #重置配置</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+
+<p>docker<br><a href="https://www.jianshu.com/p/c99a40e5255d" target="_blank" rel="noopener">https://www.jianshu.com/p/c99a40e5255d</a></p>
+<p>汉化：<br>gitlab.com/xhang/gitlab</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r gitlab-12-9-stable-zh/* /opt/gitlab/embedded/service/gitlab-rails/</span><br></pre></td></tr></table></figure>
+
+<p>备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br><span class="line">vi backup_task.sh</span><br><span class="line">00 02 * * * gitlab-rake gitlab:backup:create &amp;&gt;/dev/null # * * * * * 分时日月周，所以是每天两点备份    &amp;&gt;/dev/null这是把 stdout 送到 /dev/null 里面</span><br></pre></td></tr></table></figure>
+
+<p>恢复</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">停止数据写入</span></span><br><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-rake gitlab:backup:restore BACKUP=&lt;备份文件名时间戳&gt;</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="与-jenkins-集成"><a href="#与-jenkins-集成" class="headerlink" title="与 jenkins 集成"></a>与 jenkins 集成</h4><p>jenkins 所需插件<br>|插件|作用|<br>|-|-|<br>|Creadentials Plugin| 允许 jenkins 中储存认证的凭据<br>|Git Client Plugin | 允许 jenkins 使用 Git<br>|Git Plugin| 允许 Jenkins 集成 git<br>|Gitlab Plugin| 允许 Gitlab 触发 jenkins 构建并在 Gitlab 中显示<br>|GitLab Hook| 允许 gitlab 自动触发 jenkins 构建项目<br>|Gitlab Authentication plugin gilab| 身份验证插件<br>|Git Parameter|git 参数</p>
+<p>#TODO</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/25/java%E7%BA%BF%E7%A8%8B/" rel="prev" title="java线程">
+      <i class="fa fa-chevron-left"></i> java线程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/12/k8s-yaml/" rel="next" title="k8s_yaml">
+      k8s_yaml <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">1.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置账号"><span class="nav-number">1.1.1.</span> <span class="nav-text">配置账号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-git-本地仓库，提交代码，回滚"><span class="nav-number">1.2.</span> <span class="nav-text">创建 git 本地仓库，提交代码，回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-分支"><span class="nav-number">1.3.</span> <span class="nav-text">git 分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-标签"><span class="nav-number">1.4.</span> <span class="nav-text">git 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联远程仓库"><span class="nav-number">1.5.</span> <span class="nav-text">关联远程仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitlab"><span class="nav-number">2.</span> <span class="nav-text">gitlab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#与-jenkins-集成"><span class="nav-number">2.1.1.</span> <span class="nav-text">与 jenkins 集成</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Coye"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Coye</p>
+  <div class="site-description" itemprop="description">记录测试的点点滴滴。。。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

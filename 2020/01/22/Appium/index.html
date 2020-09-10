@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="功能回归测试，使用模拟器就足够了。比如持续集成中的冒烟测试、自动化测试都是用虚拟机。兼容性测试、手工测试、移动端性能测试&#x2F;专项测试 使用真机特别的UI兼容性问题，可以用模拟器模拟 Android studio安装 android studio or sdk 下载Android studio 直接下载sdk 加入环境变量 sudo vi .bash_profile123export ANDROID_">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appium">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;22&#x2F;Appium&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="功能回归测试，使用模拟器就足够了。比如持续集成中的冒烟测试、自动化测试都是用虚拟机。兼容性测试、手工测试、移动端性能测试&#x2F;专项测试 使用真机特别的UI兼容性问题，可以用模拟器模拟 Android studio安装 android studio or sdk 下载Android studio 直接下载sdk 加入环境变量 sudo vi .bash_profile123export ANDROID_">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-28T08:16:42.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/22/Appium/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Appium | Coye's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">给自己看的=。=</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/22/Appium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Appium
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-22 13:07:53" itemprop="dateCreated datePublished" datetime="2020-01-22T13:07:53+08:00">2020-01-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-28 16:16:42" itemprop="dateModified" datetime="2020-02-28T16:16:42+08:00">2020-02-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>功能回归测试，使用模拟器就足够了。比如持续集成中的冒烟测试、自动化测试都是用虚拟机。<br>兼容性测试、手工测试、移动端性能测试/专项测试 使用真机<br>特别的UI兼容性问题，可以用模拟器模拟</p>
+<h2 id="Android-studio"><a href="#Android-studio" class="headerlink" title="Android studio"></a>Android studio</h2><h3 id="安装-android-studio-or-sdk"><a href="#安装-android-studio-or-sdk" class="headerlink" title="安装 android studio or sdk"></a>安装 android studio or sdk</h3><ul>
+<li>下载Android studio</li>
+<li>直接下载sdk</li>
+<li>加入环境变量 sudo vi .bash_profile<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ANDROID_HOME=/Users/coye/Library/Android/sdk</span><br><span class="line">PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$ANDROID_HOME</span>/platform-tools</span><br><span class="line">PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$ANDROID_HOME</span>/tools</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="启动模拟器"><a href="#启动模拟器" class="headerlink" title="启动模拟器"></a>启动模拟器</h3><ul>
+<li><p>查看拥有的模拟器<br>  $(which emulator) -list-avds</p>
+</li>
+<li><p>启动模拟器<br>  $(which emulator) @Pixel_2_API_27</p>
+</li>
+<li><p>win 问题<br>如果创建虚拟机时提示your CPU dose not support required features(VT -x or SVM)  需要开启虚拟化 </p>
+</li>
+<li><p>mac 问题<br>如果在studio启动成功，但在shell启动失败提示 mulator: PANIC: Missing emulator engine program for ‘x86’ CPU<br>需要把sdk/emulator下文件拷贝到tools下</p>
+</li>
+<li><p>安装app<br>coyedeMacBook-Pro:~ coye$ adb install ~/Downloads/com.xueqiu.android_12.3_245.apk</p>
+</li>
+</ul>
+<h2 id="安装Appium"><a href="#安装Appium" class="headerlink" title="安装Appium"></a>安装Appium</h2><h3 id="Appium-Desktop工具包"><a href="#Appium-Desktop工具包" class="headerlink" title="Appium Desktop工具包"></a>Appium Desktop工具包</h3><p><a href="https://github.com/appium/appium-desktop/releases" target="_blank" rel="noopener">https://github.com/appium/appium-desktop/releases</a><br>host 为0.0.0.0 为只开放本地</p>
+<ul>
+<li>start server</li>
+<li>start inspector session (右上角的放大镜)</li>
+<li>disired capability设置<br>  <a href="https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/caps.md" target="_blank" rel="noopener">https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/caps.md</a>  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "platformName": "iOS",  //平台名字 iOS或者android</span><br><span class="line">    "platformVersion": "11.0",</span><br><span class="line">    "deviceName": "iPhone 7",  //Android 可以随便写。iPhone Simulator, iPad Simulator, iPhone Retina 4-inch, Android Emulator, Galaxy S4, etc.... On iOS, this should be one of the valid devices returned by instruments with instruments -s devices.</span><br><span class="line">    "automationName": "XCUITest", //XCUITest 好像是ios用的 android6以上用uiautomator2，6以下用uiautomator</span><br><span class="line">    "app": "/path/to/my.app",    //ios上是app，android是apk，可以给apk的路径，会重新安装。不想安装需要设置apppackage</span><br><span class="line">    "autoGrantPermissions": "true",   //给app需要的权限，这样就不会有权限弹框了</span><br><span class="line">    "dontStopAppOnReset":"true",</span><br><span class="line">    "noReset":"true"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  appPackage： adb logcat | grep Displayed 查看日志<br>  以下日志 appackage 为：com.xueqiu.android<br>  appWaitActivity 为：.view.WelcomeActivityAlias  （必须是app的第一个activity）  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">01-22 18:21:02.435  1715  1735 I ActivityManager: Displayed com.xueqiu.android/.view.WelcomeActivityAlias: +1s288ms</span><br><span class="line">01-22 18:22:01.574  1715  1735 I ActivityManager: Displayed com.xueqiu.android/.common.MainActivity: +765ms</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BoxDriver</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        caps = &#123;&#125;</span><br><span class="line">        caps[<span class="string">"platformName"</span>] = <span class="string">"android"</span></span><br><span class="line">        caps[<span class="string">"deviceName"</span>] = <span class="string">"hogwarts"</span></span><br><span class="line">        caps[<span class="string">"appPackage"</span>] = <span class="string">"com.xueqiu.android"</span></span><br><span class="line">        caps[<span class="string">"appActivity"</span>] = <span class="string">".view.WelcomeActivityAlias"</span></span><br><span class="line">        print(<span class="string">"雪球app Version：12.3.1"</span>)</span><br><span class="line">        self.box_driver = webdriver.Remote(<span class="string">"http://localhost:4723/wd/hub"</span>, caps)</span><br><span class="line">        self.box_driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    pytest.main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="appium-日志查看"><a href="#appium-日志查看" class="headerlink" title="appium 日志查看"></a>appium 日志查看</h3><ul>
+<li>appium:  appium -g  path.log  运行并将日志存放到path.log<ul>
+<li>adb mock<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">log</span>=/tmp/adb.log</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"# $$ "</span>$(date <span class="string">"+%Y/%m/%d %H:%M:%S"</span>) &gt;&gt; <span class="variable">$log</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"# ppid: <span class="variable">$(ps -o command  $(ps -o ppid $$ | tail -1)</span> | tail -1)"</span> &gt;&gt; <span class="variable">$log</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"adb <span class="variable">$@</span>"</span> &gt;&gt; <span class="variable">$log</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">echo</span> <span class="string">"<span class="variable">$@</span>"</span> | grep -E <span class="string">"logcat |exec-out |uiautomator runtest"</span> &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"exec"</span> &gt;&gt; <span class="variable">$log</span></span><br><span class="line"><span class="built_in">exec</span> /Users/seveniruby/Library/Android/sdk//platform-tools/adb.bak <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">result=$(/Users/seveniruby/Library/Android/sdk//platform-tools/adb.bak <span class="string">"<span class="variable">$@</span>"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"origin"</span> &gt;&gt; <span class="variable">$log</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$result</span>"</span> | tee -a <span class="variable">$log</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span> &gt;&gt; <span class="variable">$log</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>webdriver<br><a href="https://w3c.github.io/webdriver/" target="_blank" rel="noopener">https://w3c.github.io/webdriver/</a><br><a href="http://127.0.0.1:5723/wd/hub/status" target="_blank" rel="noopener">http://127.0.0.1:5723/wd/hub/status</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">"Content-Type: application/json; charset=utf-8"</span> \</span><br><span class="line">-H <span class="string">"Cache-Control: no-cache"</span> \</span><br><span class="line">--data <span class="string">'&#123;"desiredCapabilities":&#123;"appActivity":".view.WelcomeActivityAlias","appPackage":"com.xueqiu.android","autoGrantPermissions":"true","deviceName":"hogwarts","platformName":"android","newCommandTimeout":0,"connectHardwareKeyboard":true&#125;&#125;'</span> \</span><br><span class="line">-XPOST http://127.0.0.1:5723/wd/hub/session</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>抓包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i any port 5723 or port 4724 -vv -w /tmp/tcpdump.1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>二次改造</p>
+<ul>
+<li><p>改造appium</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/appium/appium.git</span><br><span class="line"><span class="built_in">cd</span> appium</span><br><span class="line">cnpm install</span><br><span class="line">npm run build</span><br><span class="line">node .</span><br></pre></td></tr></table></figure></li>
+<li><p>改造uiautomator</p>
+<p>appium依赖appium-uiautomator2-driver<br>appium-uiautomator2-driver依赖appium-uiautomator2-server<br>升级uiautomator2-server后，把编译的apk copy到 appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/<br>修改uiautomator2-server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/appium/appium-uiautomator2-server.git</span><br><span class="line"><span class="built_in">cd</span> appium-uiautomator2-server</span><br><span class="line">gradle clean assembleServerDebug assembleServerDebugAndroidTest</span><br><span class="line">adb shell am instrument -w io.appium.uiautomator2.server.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Appium-API"><a href="#Appium-API" class="headerlink" title="Appium API"></a>Appium API</h3><h4 id="xpath定位s"><a href="#xpath定位s" class="headerlink" title="xpath定位ß"></a>xpath定位ß</h4><ul>
+<li>//*[@resource-id=’com.xueqiu.android:id/search_input_text’ and @class=’android.widget.LinearLayout’]    //是相对路径的意思,</li>
+<li>//*[contains(@resource-id,’search_input_text’) and contains(@class,’LinearLayout’)]</li>
+<li>(//*[contains(@resource-id,’search_input_text’)])[1]</li>
+<li>//<em>[]//</em>[]  </li>
+</ul>
+<h4 id="TouchAction"><a href="#TouchAction" class="headerlink" title="TouchAction"></a>TouchAction</h4><ul>
+<li>swipe</li>
+<li>longpress</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>appium.io/docs/en/commands/</p>
+<ul>
+<li>screenshot<br>  driver.save_screenshot(“.png”)</li>
+<li>log<br>  driver.log_types<br>  driver.get_log(“logcat”)</li>
+<li>network<br>  driver.send.sms(“15211111111”,”hahaha”)<br>  driver.make_gms_call(“15211111111”,”call”)</li>
+<li>perf<br>  for i in driver.get_performance_data_types():<pre><code>print(driver.get_performance_data(packagename,i))</code></pre></li>
+</ul>
+<h3 id="hamcrest"><a href="#hamcrest" class="headerlink" title="hamcrest"></a>hamcrest</h3><p>一个断言工具<br>pip install pyhamcrest</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert_that(price,close_to(expect_price,expect_price*<span class="number">0.1</span>)) <span class="comment">#close_to最后一个参数是浮动范围</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="appium-server-代替Appium-desktop"><a href="#appium-server-代替Appium-desktop" class="headerlink" title="appium server  代替Appium desktop"></a>appium server  代替Appium desktop</h3><p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>cnpm install -g appium</p>
+<h3 id="uiautomatorviewer"><a href="#uiautomatorviewer" class="headerlink" title="uiautomatorviewer"></a>uiautomatorviewer</h3><p>启动失败尝试adb kill server,adb devices</p>
+<h3 id="app中的webview"><a href="#app中的webview" class="headerlink" title="app中的webview"></a>app中的webview</h3><ul>
+<li><p>class: android.webkit.webview</p>
+</li>
+<li><p>com.tencent.tbs.core.webkit.webview</p>
+</li>
+<li><p>webview的组件的class多数都是android.view.view</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">self.driver.find_element(MobileBy.XPATH, <span class="string">"//*[@text='交易']"</span>).click()</span><br><span class="line"><span class="comment">#返回的是不带webview的组件，默认是找不到webview内的元素，除非设置了等待</span></span><br><span class="line">print(self.driver.page_source)</span><br><span class="line"><span class="comment">#原生定位</span></span><br><span class="line">self.driver.find_element(MobileBy.ID, <span class="string">'page_type_fund'</span>).click()</span><br><span class="line"></span><br><span class="line">WebDriverWait(self.driver, <span class="number">20</span>, <span class="number">1</span>).until(<span class="keyword">lambda</span> x: <span class="string">"WEBVIEW_com.xueqiu.android"</span> <span class="keyword">in</span> self.driver.contexts)</span><br><span class="line">print(<span class="string">"=======webview load"</span>)</span><br><span class="line"><span class="comment">#返回的是带有webview组件树，此时可以使用原生定位去定位webview内的元素</span></span><br><span class="line">print(self.driver.page_source)</span><br><span class="line"><span class="comment">#使用原生定位方式定位webview控件</span></span><br><span class="line">self.driver.find_element(MobileBy.ACCESSIBILITY_ID, <span class="string">"蛋卷基金安全开户"</span>).click()</span><br><span class="line"></span><br><span class="line">self.driver.switch_to.context(<span class="string">"WEBVIEW_com.xueqiu.android"</span>)</span><br><span class="line">print(<span class="string">"======webview enter"</span>)</span><br><span class="line"><span class="comment">#返回的是html，此次可以使用selenium的css定位</span></span><br><span class="line">print(self.driver.page_source)</span><br><span class="line">self.driver.find_element(By.NAME, <span class="string">"tel"</span>).send_keys(<span class="string">"15600534760"</span>)</span><br><span class="line">self.driver.find_element(By.NAME, <span class="string">"captcha"</span>).send_keys(<span class="string">"1234"</span>)</span><br><span class="line">self.driver.find_element(By.CSS_SELECTOR, <span class="string">".dj-button"</span>).click()</span><br></pre></td></tr></table></figure></li>
+<li><p>使用webview需要匹配的chromedriver<br>caps需要添加字段  caps[“chromedriverExcutable”]=”chromeDriver的绝对路径”.</p>
+</li>
+<li><p>Webview识别原理<br>  appium会启动chromedriver /Users/seveniruby/projects/chromedriver/2.20/chromedriver –url-base=wd/hub –port=8000 –adb-port=5037 –verbose<br>  app或者浏览器，底层使用的是android的webview组件，webview组件有一个debug特性，可以在启动的时候，写入一个domain socket记录， webview_devtools_remote_3548<br>  adb -P 5037 -s emulator-5554 shell cat /proc/net/unix 找到对应的webview调试入口<br>  adb forward tcp:$port localabstract:webview_devtools_remote_$pid<br>  curl <a href="http://localhost:7770/json/version" target="_blank" rel="noopener">http://localhost:7770/json/version</a><br>  curl <a href="http://localhost:7770/json" target="_blank" rel="noopener">http://localhost:7770/json</a><br>  自动寻找webview并分析</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">list_webview ()</span><br><span class="line">&#123;</span><br><span class="line">    port=<span class="variable">$1</span>;</span><br><span class="line">    adb shell cat /proc/net/unix | grep -a webview | awk -F_ <span class="string">'&#123;print $NF&#125;'</span> | tr -d <span class="string">'\r'</span> | <span class="keyword">while</span> <span class="built_in">read</span> pid; <span class="keyword">do</span></span><br><span class="line">        port=$((port+=1));</span><br><span class="line">        adb forward tcp:<span class="variable">$port</span> localabstract:webview_devtools_remote_<span class="variable">$pid</span>;</span><br><span class="line">        curl http://localhost:<span class="variable">$port</span>/json/version;</span><br><span class="line">        curl http://localhost:<span class="variable">$port</span>/json;</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line">list_webview 7770</span><br></pre></td></tr></table></figure>
+<p>  真机为了提高性能，默认不开启webview的debug属性，需要研发在webview的组件上调用debug开关<br>  <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/webviews?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/tools/chrome-devtools/remote-debugging/webviews?hl=zh-cn</a></p>
+</li>
+<li><p>adb network功能</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">networking:</span><br><span class="line">connect HOST[:PORT]      connect to a device via TCP/IP [default port=5555]</span><br><span class="line">disconnect [HOST[:PORT]]</span><br><span class="line">    disconnect from given TCP/IP device [default port=5555], or all</span><br><span class="line">forward --list           list all forward socket connections</span><br><span class="line">forward [--no-rebind] LOCAL REMOTE</span><br><span class="line">    forward socket connection using:</span><br><span class="line">    tcp:&lt;port&gt; (&lt;<span class="built_in">local</span>&gt; may be <span class="string">"tcp:0"</span> to pick any open port)</span><br><span class="line">    localabstract:&lt;unix domain socket name&gt;</span><br><span class="line">    localreserved:&lt;unix domain socket name&gt;</span><br><span class="line">    localfilesystem:&lt;unix domain socket name&gt;</span><br><span class="line">    dev:&lt;character device name&gt;</span><br><span class="line">    jdwp:&lt;process pid&gt; (remote only)</span><br><span class="line">forward --remove LOCAL   remove specific forward socket connection</span><br><span class="line">forward --remove-all     remove all forward socket connections</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/20/python%E8%A3%85%E9%A5%B0%E5%99%A8/" rel="prev" title="python装饰器">
+      <i class="fa fa-chevron-left"></i> python装饰器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/29/%E8%87%AA%E5%8A%A8%E9%81%8D%E5%8E%86%E5%B7%A5%E5%85%B7/" rel="next" title="自动遍历工具">
+      自动遍历工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-studio"><span class="nav-number">1.</span> <span class="nav-text">Android studio</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-android-studio-or-sdk"><span class="nav-number">1.1.</span> <span class="nav-text">安装 android studio or sdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动模拟器"><span class="nav-number">1.2.</span> <span class="nav-text">启动模拟器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Appium"><span class="nav-number">2.</span> <span class="nav-text">安装Appium</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Appium-Desktop工具包"><span class="nav-number">2.1.</span> <span class="nav-text">Appium Desktop工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#appium-日志查看"><span class="nav-number">2.3.</span> <span class="nav-text">appium 日志查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Appium-API"><span class="nav-number">2.4.</span> <span class="nav-text">Appium API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#xpath定位s"><span class="nav-number">2.4.1.</span> <span class="nav-text">xpath定位ß</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TouchAction"><span class="nav-number">2.4.2.</span> <span class="nav-text">TouchAction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">2.4.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hamcrest"><span class="nav-number">2.5.</span> <span class="nav-text">hamcrest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#appium-server-代替Appium-desktop"><span class="nav-number">2.6.</span> <span class="nav-text">appium server  代替Appium desktop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uiautomatorviewer"><span class="nav-number">2.7.</span> <span class="nav-text">uiautomatorviewer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app中的webview"><span class="nav-number">2.8.</span> <span class="nav-text">app中的webview</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Coye"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Coye</p>
+  <div class="site-description" itemprop="description">记录测试的点点滴滴。。。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="基于 3.x 版本的脚手架创建 vue 项目12345678&#x2F;&#x2F; 1.基于交互式命令行的方式，创建新版vue 项目vue create my-project&#x2F;&#x2F;2．基于图形化界面的方式，创建新版vue项目vue ui&#x2F;&#x2F;3．基于 2.x的旧模板，创建旧版vue项目npm install -g evue&#x2F; cli-initvue init webpack my-project">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue脚手架">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;01&#x2F;vue%E8%84%9A%E6%89%8B%E6%9E%B6&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="基于 3.x 版本的脚手架创建 vue 项目12345678&#x2F;&#x2F; 1.基于交互式命令行的方式，创建新版vue 项目vue create my-project&#x2F;&#x2F;2．基于图形化界面的方式，创建新版vue项目vue ui&#x2F;&#x2F;3．基于 2.x的旧模板，创建旧版vue项目npm install -g evue&#x2F; cli-initvue init webpack my-project">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-09T11:28:38.223Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/09/01/vue%E8%84%9A%E6%89%8B%E6%9E%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>vue脚手架 | Coye's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">给自己看的=。=</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/vue%E8%84%9A%E6%89%8B%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue脚手架
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 04:34:23" itemprop="dateCreated datePublished" datetime="2020-09-01T04:34:23+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-09 19:28:38" itemprop="dateModified" datetime="2020-09-09T19:28:38+08:00">2020-09-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基于-3-x-版本的脚手架创建-vue-项目"><a href="#基于-3-x-版本的脚手架创建-vue-项目" class="headerlink" title="基于 3.x 版本的脚手架创建 vue 项目"></a>基于 3.x 版本的脚手架创建 vue 项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.基于交互式命令行的方式，创建新版vue 项目</span></span><br><span class="line">vue create my-project</span><br><span class="line"></span><br><span class="line"><span class="comment">//2．基于图形化界面的方式，创建新版vue项目</span></span><br><span class="line">vue ui</span><br><span class="line"><span class="comment">//3．基于 2.x的旧模板，创建旧版vue项目</span></span><br><span class="line">npm install -g evue/ cli-init</span><br><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>安装步骤</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset:</span><br><span class="line">  Default ([Vue 2] babel, eslint)   #默认插件</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Default (Vue 3 Preview) ([Vue 3] babel, eslint) <span class="comment">#默认插件</span></span></span><br><span class="line">  Manually select features   //自定义插件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">选择要安装的插件，上下选择，空格选中</span></span><br><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">(*) Choose Vue version</span></span><br><span class="line"> (*) Babel</span><br><span class="line"> ( ) TypeScript</span><br><span class="line"> ( ) Progressive Web App (PWA) Support</span><br><span class="line"> ( ) Router</span><br><span class="line"> ( ) Vuex</span><br><span class="line"> ( ) CSS Pre-processors</span><br><span class="line"> (*) Linter / Formatter</span><br><span class="line"> ( ) Unit Testing</span><br><span class="line"> ( ) E2E Testing</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Choose Vue version, Babel, Router, Linter</span><br><span class="line">? Choose a version of Vue.js that you want to start the project with 3.x (Preview)</span><br><span class="line">? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)    #是否选择历史模式路由，选n， 我们用hash模式的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Choose Vue version, Babel, Router, Linter</span><br><span class="line">? Choose a version of Vue.js that you want to start the project with 3.x (Preview)</span><br><span class="line">? Use history mode for router? (Requires proper server setup for index fallback in production) No</span><br><span class="line">? Pick a linter / formatter config: (Use arrow keys)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ESLint with error prevention only</span></span><br><span class="line">  ESLint + Airbnb config</span><br><span class="line">  ESLint + Standard config  #选择标准模式</span><br><span class="line">  ESLint + Prettier</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">什么时候进行es lint语法校验</span></span><br><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Choose Vue version, Babel, Router, Linter</span><br><span class="line">? Choose a version of Vue.js that you want to start the project with 3.x (Preview)</span><br><span class="line">? Use history mode for router? (Requires proper server setup for index fallback in production) No</span><br><span class="line">? Pick a linter / formatter config: Standard</span><br><span class="line">? Pick additional lint features: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">(*) Lint on save       <span class="comment">#选这个</span></span></span><br><span class="line"> ( ) Lint and fix on commit (requires Git)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Choose Vue version, Babel, Router, Linter</span><br><span class="line">? Choose a version of Vue.js that you want to start the project with 3.x (Preview)</span><br><span class="line">? Use history mode for router? (Requires proper server setup for index fallback in production) No</span><br><span class="line">? Pick a linter / formatter config: Standard</span><br><span class="line">? Pick additional lint features: Lint on save</span><br><span class="line">? Where do you prefer placing config for Babel, ESLint, etc.? (Use arrow keys)#询问这些工具配置文件怎么创建</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> In dedicated config files <span class="comment">#单独的创建配置文件  选择个</span></span></span><br><span class="line">In packagejson   # 都放到packagejson</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v4.5.4</span><br><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Choose Vue version, Babel, Router, Linter</span><br><span class="line">? Choose a version of Vue.js that you want to start the project with 3.x (Preview)</span><br><span class="line">? Use history mode for router? (Requires proper server setup for index fallback in production) No</span><br><span class="line">? Pick a linter / formatter config: Standard</span><br><span class="line">? Pick additional lint features: Lint on save</span><br><span class="line">? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files</span><br><span class="line">? Save this as a preset for future projects? (y/N)   #是否把上述选择保存作为一个模板以后用，随意选</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h3><p>创建 vue.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    <span class="comment">//自动打开浏览器</span></span><br><span class="line">    open: <span class="literal">true</span>,</span><br><span class="line">    prot: <span class="number">8888</span>, <span class="comment">//打开的端口</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Element-UI-安装"><a href="#Element-UI-安装" class="headerlink" title="Element-UI 安装"></a>Element-UI 安装</h2><h3 id="命令方式"><a href="#命令方式" class="headerlink" title="命令方式"></a>命令方式</h3><ul>
+<li>安装依赖<code>npm i element-ui -S</code></li>
+<li>导入相关资源<br>main.js 中添加<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入组件库</span></span><br><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">"element-ui"</span>;</span><br><span class="line">导入组件相关样式;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"element-ui/lib/theme-chalk/index.css"</span>;</span><br><span class="line"><span class="comment">//配置vue插件</span></span><br><span class="line">Vue.use(ElementUI);</span><br></pre></td></tr></table></figure>
+vue 模板中添加官方复制的代码就好了</li>
+</ul>
+<h3 id="图形界面安装"><a href="#图形界面安装" class="headerlink" title="图形界面安装"></a>图形界面安装</h3><ul>
+<li>vue ui 打开可视页面，根据提示创建项目</li>
+<li>选中插件，找到<code>vue-cli-plugin-element</code>并安装，<code>How do you want to import Element?</code> 选择 <code>import on demand</code>(按需安装)</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>首先 vue ui 创建项目安装相关插件，依赖<br>插件： vue-cli-plugin-element（配置 import on demand）<br>依赖：axios,less,less-loader,</p>
+<h3 id="导入-axios"><a href="#导入-axios" class="headerlink" title="导入 axios"></a>导入 axios</h3><p>main.js 中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入axois，配置基本路径</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">"axios"</span>;</span><br><span class="line">axios.defaults.baseURL = <span class="string">"http://localhost:8888/api/private/v1"</span>;</span><br><span class="line">Vue.prototype.$http = axios;</span><br></pre></td></tr></table></figure>
+
+<h3 id="语法格式化处理"><a href="#语法格式化处理" class="headerlink" title="语法格式化处理"></a>语法格式化处理</h3><p>根目录创建 .prettierrc</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"semi"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"singleQuote"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>.eslintrc.js 中添加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    <span class="string">'space-before-function-paren'</span>:<span class="number">0</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由导航守卫控制访问权限"><a href="#路由导航守卫控制访问权限" class="headerlink" title="路由导航守卫控制访问权限"></a>路由导航守卫控制访问权限</h3><p>如果用户没有登录，但是直接通过 URL 访问特定页面，需要重新导航到登录页面。<br>router.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">'../components/Login.vue'</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'../components/Home.vue'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">redirect</span>: <span class="string">'/login'</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/login'</span>, <span class="attr">component</span>: Login &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/home'</span>, <span class="attr">component</span>: Home &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line">router.beforeEach(to,<span class="keyword">from</span>,next)=&gt; &#123;</span><br><span class="line">  <span class="comment">//如果用户访问的登录页，直接放行</span></span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) <span class="keyword">return</span> next()</span><br><span class="line">  <span class="comment">//从sessionstorage中获取到保存的token值</span></span><br><span class="line">  <span class="keyword">const</span> tokenstr = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="comment">//没有token，强制跳转到登录页</span></span><br><span class="line">  <span class="keyword">if</span> (!tokenstr) <span class="keyword">return</span> next(<span class="string">'/login'</span>)</span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+
+<h3 id="登出"><a href="#登出" class="headerlink" title="登出"></a>登出</h3><p>home.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;&lt;el-button @click=&quot;logout&quot; type=&quot;info&quot;&gt;退出&lt;/el-button&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    logout() &#123;</span><br><span class="line">      window.sessionStorage.clear();</span><br><span class="line">      this.$router.push(&quot;.login&quot;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;less&quot; scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过接口获取菜单数据"><a href="#通过接口获取菜单数据" class="headerlink" title="通过接口获取菜单数据"></a>通过接口获取菜单数据</h3><p>通过 axios 请求拦截器添加 token，保证拥有获取数据的权限。<br>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//axios请求拦截</span></span><br><span class="line">axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//为请求头对象，添加Token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">"token"</span>);</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"># vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/01/webpack%E7%9B%B8%E5%85%B3/" rel="prev" title="webpack相关">
+      <i class="fa fa-chevron-left"></i> webpack相关
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/01/django/" rel="next" title="django">
+      django <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于-3-x-版本的脚手架创建-vue-项目"><span class="nav-number">1.</span> <span class="nav-text">基于 3.x 版本的脚手架创建 vue 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置"><span class="nav-number">1.1.</span> <span class="nav-text">自定义配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-UI-安装"><span class="nav-number">2.</span> <span class="nav-text">Element-UI 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令方式"><span class="nav-number">2.1.</span> <span class="nav-text">命令方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形界面安装"><span class="nav-number">2.2.</span> <span class="nav-text">图形界面安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">2.2.1.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入-axios"><span class="nav-number">2.3.</span> <span class="nav-text">导入 axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法格式化处理"><span class="nav-number">2.4.</span> <span class="nav-text">语法格式化处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由导航守卫控制访问权限"><span class="nav-number">2.5.</span> <span class="nav-text">路由导航守卫控制访问权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登出"><span class="nav-number">2.6.</span> <span class="nav-text">登出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过接口获取菜单数据"><span class="nav-number">2.7.</span> <span class="nav-text">通过接口获取菜单数据</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Coye"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Coye</p>
+  <div class="site-description" itemprop="description">记录测试的点点滴滴。。。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

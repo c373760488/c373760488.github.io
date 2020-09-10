@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化">
+<meta name="keywords" content="qta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qta接口">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;qta%E6%8E%A5%E5%8F%A3&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="qtafclass Environ用法说明：它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：from testbase.testcase import Environenv = Environ()env保存了用例运行时的一些测试环境变量。TestCase中有进行实例化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-08T05:17:20.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/25/qta%E6%8E%A5%E5%8F%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>qta接口 | Coye's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">给自己看的=。=</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/qta%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          qta接口
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-25 09:58:45" itemprop="dateCreated datePublished" datetime="2020-03-25T09:58:45+08:00">2020-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-08 13:17:20" itemprop="dateModified" datetime="2020-04-08T13:17:20+08:00">2020-04-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="qtaf"><a href="#qtaf" class="headerlink" title="qtaf"></a>qtaf</h1><h3 id="class-Environ"><a href="#class-Environ" class="headerlink" title="class Environ"></a>class Environ</h3><p>用法说明：<br>它是一个继承了字典类型的单实例类。使用时，需先实例化该类，如：<br>from testbase.testcase import Environ<br>env = Environ()<br>env保存了用例运行时的一些测试环境变量。<br>TestCase中有进行实例化</p>
+<a id="more"></a>
+<h3 id="class-TestCase"><a href="#class-TestCase" class="headerlink" title="class TestCase"></a>class TestCase</h3><p>‘’‘测试用例基类<br>    所有测试用例都最终从此基类继承。测试用例的测试脚本主要实现在”runTest()”中，<br>    而当用例需要初始化和清理测试环境时则分别重写”preTest()”和”postTest()”函数。<br>‘’’</p>
+<ul>
+<li><p>class EnumStatus<br>  5种用例状态<br>Design, Implement, Review, Ready, Suspend </p>
+</li>
+<li><p>class EnumPriority<br>  4种优先级<br>  BVT, High, Normal, Low</p>
+</li>
+<li><p>def <strong>init</strong><br>  ‘’’构造函数<br>  :param testdata: 测试数据<br>  :type testdata: object<br>  :param testdataname: 测试数据标识<br>  :type testdataname: str<br>  :param attrs: 重载的测试用例属性<br>  :type attrs: dict<br>  ‘’’</p>
+</li>
+<li><p>属性<br> owner = None<br>  priority = None<br>  status = None<br>  timeout = None</p>
+</li>
+<li><p>def pre_test<br>测试环境初始化</p>
+</li>
+<li><p>def run_test<br>运行测试用例</p>
+</li>
+<li><p>def post_test<br>测试环境清理</p>
+</li>
+<li><p>def start_step<br>开始执行一个测试步骤</p>
+</li>
+<li><p>def log_info<br>log一条信息</p>
+</li>
+<li><p>def fail<br>测试用例失败</p>
+</li>
+<li><p>def assert_<br>测试断言，如果value的值不为真，则用例失败，输出对应信息</p>
+</li>
+<li><p>def assert_equal<br>检查实际值和期望值是否相等，不能则测试用例失败</p>
+</li>
+<li><p>def assert_match<br>检查actual和expect是否模式匹配，不匹配则记录一个检查失败</p>
+</li>
+<li><p>def wait_for_equal<br>每隔interval检查obj.prop_name是否和expected相等，如果在timeout时间内都不相等，则测试用例失败</p>
+</li>
+<li><p>def get_extra_fail_record<br>当错误发生时，获取需要额外添加的日志记录和附件信息</p>
+</li>
+<li><p>def debug_run<br>本地调试测试用例</p>
+</li>
+<li><p>def debug_run_one<br>本地调试测试用例，给数据驱动的用例使用，只执行一个用例<br>:param name: 测试数据名称，如果不指定，执行第一个数据的用例</p>
+</li>
+<li><p>def run<br>本地调试测试用例</p>
+</li>
+</ul>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><h3 id="生成测试报告"><a href="#生成测试报告" class="headerlink" title="生成测试报告"></a>生成测试报告</h3><h1 id="qt4a"><a href="#qt4a" class="headerlink" title="qt4a"></a>qt4a</h1><h3 id="class-AndroidTestBase"><a href="#class-AndroidTestBase" class="headerlink" title="class AndroidTestBase"></a>class AndroidTestBase</h3><p>继承testbase.testcase import Testcase</p>
+<ul>
+<li><p>def acquire_device<br>申请设备接口</p>
+</li>
+<li><p>def get_extra_fail_record<br>用例执行失败时，用于获取用例相关的错误记录和附件信息</p>
+</li>
+<li><p>def take_screen_shot<br>生成当前指定设备的屏幕截图</p>
+</li>
+<li><p>def extract_crash_from_logcat<br>检测logcat日志中是否有crash发生并萃取出相关日志</p>
+</li>
+<li><p>def add_logcat_callback<br>判断logcat日志中是否包含debug级别的日志，如果没有，很有可能该手机可以设置日志级别，且本身已设置了过滤debug级别的日志,可尝试操作手机设置</p>
+</li>
+</ul>
+<h3 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h3><ul>
+<li><p>@property def device_host<br>设备主机名</p>
+</li>
+<li><p>@property def device_name<br>设备名</p>
+</li>
+<li><p>def add_no_log_thread<br>添加线程到不打印日志线程列表</p>
+</li>
+<li><p>def remove_no_log_thread<br>移除不打印日志线程列表中指定线程</p>
+</li>
+<li><p>def run_adb_cmd<br>执行adb命令</p>
+</li>
+<li><p>def run_shell_cmd<br>运行shell命令</p>
+</li>
+<li><p>def reboot<br>重启手机</p>
+</li>
+<li><p>def wait_for_boot_complete<br>等待手机启动完成</p>
+</li>
+<li><p>def start_logcat<br>运行logcat进程</p>
+</li>
+<li><p>def stop_logcat<br>停止logcat</p>
+</li>
+<li><p>deg get_log<br>获取已经保存的log</p>
+</li>
+<li><p>def save_log<br>保存log</p>
+</li>
+<li><p>def add_logcat_callback<br>添加logcat回调</p>
+</li>
+<li><p>def remove_logcat_callback<br>移除logcat回调</p>
+</li>
+<li><p>def forward<br>‘’’端口转发<br>:param port1: PC上的TCP端口<br>:type port1:  int<br>:param port2: 手机上的端口或LocalSocket地址<br>:type port2:  int或String<br>:param type:  手机上的端口类型<br>:type type:   String，LocalSocket地址使用“localabstract”<br>‘’’</p>
+</li>
+<li><p>def remove_forward<br>移除指定的端口映射</p>
+</li>
+<li><p>def create_tunnel<br>直接创建与手机中socket服务端的连接</p>
+</li>
+<li><p>def push_file<br>以指定身份拷贝文件到手机中</p>
+</li>
+<li><p>def pull_file<br>从手机中拉取文件</p>
+</li>
+<li><p>def install_apk<br>安装应用</p>
+</li>
+<li><p>def uninstall_app<br>卸载应用</p>
+</li>
+<li><p>def start_activity<br>‘’’打开一个Activity<br>Warning: Activity not started, intent has been delivered to currently running top-most instance.<br>Status: ok<br>ThisTime: 0<br>TotalTime: 0<br>WaitTime: 2<br>Complete<br>‘’’</p>
+</li>
+<li><p>def start_service<br>启动服务</p>
+</li>
+<li><p>def stop_service<br>停止服务</p>
+</li>
+<li><p>def send_broadcast<br>发送广播</p>
+</li>
+<li><p>def get_property<br>读取属性</p>
+</li>
+<li><p>def set_property<br>设置属性</p>
+</li>
+<li><p>def get_uid<br>获取APP的uid</p>
+</li>
+<li><p>def is_selinux_opened<br>selinux是否是enforcing状态</p>
+</li>
+<li><p>def close_selinux<br>关闭selinux</p>
+</li>
+<li><p>def chmod<br>修改文件/目录属性</p>
+</li>
+<li><p>def chown<br>修改文件的拥有者和群组</p>
+</li>
+<li><p>def mkdir</p>
+</li>
+</ul>
+<ul>
+<li>def list_dir</li>
+</ul>
+<ul>
+<li><p>def get_sdcard_path<br>获取sdcard路径</p>
+</li>
+<li><p>def get_file_info<br>获取文件信息</p>
+</li>
+<li><p>def copy_file<br>在手机上拷贝文件</p>
+</li>
+<li><p>def delete_file<br>删除手机上文件</p>
+</li>
+<li><p>def delete_folder<br>删除手机上的目录</p>
+</li>
+<li><p>def run_as_by_app<br>在app中执行命令</p>
+</li>
+<li><p>def run_as<br>以package_name权限执行命令</p>
+</li>
+<li><p>def is_app_process64<br>是否是64位应用进程</p>
+</li>
+<li><p>def list_process<br>获取进程列表</p>
+</li>
+<li><p>def get_pid<br>获取进程ID</p>
+</li>
+<li><p>def get_process_status<br>获取进程状态信息</p>
+</li>
+<li><p>def get_process_user<br>get procees user name</p>
+</li>
+<li><p>def kill_process<br>杀进程</p>
+</li>
+<li><p>def get_device_imei<br>获取手机串号</p>
+</li>
+<li><p>def get_process_cpu<br>获取进程中每个线程的CPU占用率</p>
+</li>
+<li><p>def get_cpu_usage<br>获取手机全局CPU使用率</p>
+</li>
+<li><p>def get_state<br>获取设备状态</p>
+</li>
+</ul>
+<h3 id="class-AndroidApp"><a href="#class-AndroidApp" class="headerlink" title="class AndroidApp"></a>class AndroidApp</h3><ul>
+<li><p>属性<br>package_name = ‘’</p>
+</li>
+<li><p>def <strong>init</strong>(self, process_name, device, init_env=True):</p>
+</li>
+<li><p>def device<br>返回所在的设备</p>
+</li>
+<li><p>def process_name<br>应用所在的主进程名</p>
+</li>
+<li><p>def get_driver<br>根据进程名获取driver对象，默认为主程序driver</p>
+</li>
+<li><p>def close_driver<br>关闭测试桩</p>
+</li>
+<li><p>def close_activity<br>关闭Activity</p>
+</li>
+<li><p>def wait_for_activity<br>等待Activity打开</p>
+</li>
+<li><p>def drag<br>滑动屏幕，适合一大块区域（如引导屏）的滑动，无需关心具体的控件</p>
+</li>
+<li><p>def send_back_key<br>发送返回按键</p>
+</li>
+<li><p>def send_key<br>发送单个按键</p>
+</li>
+<li><p>def send_home_key<br>发送Home键</p>
+</li>
+<li><p>def send_menu_key<br>发送菜单键</p>
+</li>
+<li><p>def close<br>关闭所有打开的driver</p>
+</li>
+<li><p>def run_shell_cmd<br>root下使用root权限执行命令，非root下使用应用权限执行命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_start</span><span class="params">(self, clear_state=True, kill_process=True, start_extra_params=&#123;&#125;)</span>:</span></span><br><span class="line">    <span class="string">'''启动Android demo apk</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 启动Activity的相关代码，此处省略，详细见Demo样例</span></span><br><span class="line">    <span class="comment">#接下来新增应用启动后检测无用窗口</span></span><br><span class="line">    self.add_monitor_task(self.detect_invalid_activity)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">detect_invalid_activity</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">'''检测不想要弹出的窗口</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    current_activity = self.device.get_current_activity()</span><br><span class="line">    <span class="keyword">if</span> current_activity == <span class="string">'xx.xx.upgradeActivity'</span>:</span><br><span class="line">        self.send_back_key()</span><br><span class="line">    <span class="keyword">elif</span> current_activity == <span class="string">'xx.xx.adviseActivity'</span>:</span><br><span class="line">        <span class="comment">#定义该面板，并点击面板中的例如关闭按钮关闭页面。例如：</span></span><br><span class="line">        <span class="comment"># advise_panel = AdvisePanel(self)</span></span><br><span class="line">        <span class="comment">#if advise_panel.Controls['关闭推荐'].exist():</span></span><br><span class="line">            <span class="comment">#advise_panel.Controls['关闭推荐'].click()</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>def on_crashed<br>发生Crash之后的处理</p>
+</li>
+<li><p>def add_monitor_task<br>添加监控任务</p>
+</li>
+<li><p>def remove_monitor_task<br>移除监控任务</p>
+</li>
+<li><p>def remove_all_task<br>移除所有任务</p>
+</li>
+<li><p>def start_monitor<br>启动监控</p>
+</li>
+<li><p>def stop_monitor<br>停止检测</p>
+</li>
+<li><p>def monitor_thread<br>监控线程</p>
+</li>
+<li><p>def get_string_resource<br>获取字符串资源</p>
+</li>
+<li><p>def is_debug<br>是否是debug包</p>
+</li>
+<li><p>def set_activity_popup<br>设置Activity是否可以弹窗</p>
+</li>
+<li><p>def send_image<br>向Activity发送图片，支持多图</p>
+</li>
+<li><p>def send_file<br>向Activity发送文件</p>
+</li>
+<li><p>def set_driver_thread_priority<br>设置测试线程优先级</p>
+</li>
+<li><p>def grant_all_runtime_permissions<br>授予所有运行时权限</p>
+</li>
+<li><p>def enable_system_alert_window<br>允许弹出悬浮窗口</p>
+</li>
+<li><p>def enable_media_permission<br>允许截屏和录音</p>
+</li>
+</ul>
+<h3 id="class-Window"><a href="#class-Window" class="headerlink" title="class Window"></a>class Window</h3><p>控件容器基类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Process = <span class="string">''</span>  <span class="comment"># 所在的进程名，不填表示是主进程</span></span><br><span class="line">Activity = <span class="string">''</span>  <span class="comment"># 所在的Activity</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>def post_init<br>窗口类自定义的初始化逻辑</p>
+</li>
+<li><p>@property def Controls<br>返回控件集合。使用如foo.Controls[‘最小化按钮’]的形式获取控件</p>
+</li>
+<li><p>def update_locator<br>更新控件定义</p>
+</li>
+<li><p>def wait_for_exist<br>等待窗口出现</p>
+</li>
+<li><p>def rect<br>return 窗口区域</p>
+</li>
+<li><p>def close<br>关闭窗口(send back)</p>
+</li>
+<li><p>def get_metis_view<br>返回MetisView</p>
+</li>
+</ul>
+<h3 id="class-Gravity"><a href="#class-Gravity" class="headerlink" title="class Gravity"></a>class Gravity</h3><p>用于控制控件靠左、居中等位置的属性</p>
+<h3 id="class-VerticalSwipe"><a href="#class-VerticalSwipe" class="headerlink" title="class VerticalSwipe"></a>class VerticalSwipe</h3><p>纵向滑动包装类</p>
+<ul>
+<li><p>def <strong>init</strong>(self, view):</p>
+</li>
+<li><p>property def rect<br>left, top, width, height返回区域大小</p>
+</li>
+<li><p>def swipe_up<br>向上滑动</p>
+</li>
+<li><p>def swipe_down<br>向下滑动</p>
+</li>
+</ul>
+<h3 id="class-View"><a href="#class-View" class="headerlink" title="class View"></a>class View</h3><p>控件基类</p>
+<ul>
+<li><p>def <strong>init</strong>(self, activity, root, driver, locator=None, hashcode=0):</p>
+</li>
+<li><p>def <strong>eq</strong><br>根据hashcode判断两个控件是否相同</p>
+</li>
+<li><p>@property def container<br>获取所在容器类</p>
+</li>
+<li><p>def parent<br>获取父控件</p>
+</li>
+<li><p>def children<br>获取子节点列表</p>
+</li>
+<li><p>def visible<br>是否可见</p>
+</li>
+<li><p>def clickable<br>是否可点击</p>
+</li>
+<li><p>def enabled<br>是否可用</p>
+</li>
+<li><p>def background_color<br>背景色</p>
+</li>
+<li><p>def content_desc<br>控件描述</p>
+</li>
+<li><p>def exist<br>判断控件是否存在</p>
+</li>
+<li><p>def wait_for_exist<br>等待控件出现</p>
+</li>
+<li><p>def wait_for_visible<br>等待控件可见</p>
+</li>
+<li><p>def wait_for_invisible<br>等待控件不可见</p>
+</li>
+<li><p>def scroll_to_visible<br>滚动到可视区域</p>
+</li>
+<li><p>def click</p>
+</li>
+<li><p>def double_click</p>
+</li>
+<li><p>def multiple_click<br>多次点击</p>
+</li>
+<li><p>long_click<br>长安</p>
+</li>
+<li><p>def wait_for_value<br>等待控件属性值出现, 如果属性为字符串类型，则使用正则匹配</p>
+</li>
+<li><p>def swipe<br>滑动</p>
+</li>
+<li><p>get_metis_view<br>返回MetisView</p>
+</li>
+</ul>
+<h4 id="class-TextView-View"><a href="#class-TextView-View" class="headerlink" title="class TextView(View)"></a>class TextView(View)</h4><ul>
+<li><p>def text<br>获取文本</p>
+</li>
+<li><p>def html_style_text<br>HTML格式文本</p>
+</li>
+<li><p>def text_size<br>字体大小</p>
+</li>
+<li><p>def text_color<br>字体颜色</p>
+</li>
+<li><p>def disable_soft_input<br>禁用软键盘</p>
+</li>
+<li><p>def hint_text<br>空白提示文本</p>
+</li>
+<li><p>def image_resource_name<br>图像资源名称</p>
+</li>
+<li><p>def click_clickable_span<br>点击TextView中的ClickableSpan区域</p>
+</li>
+</ul>
+<h4 id="class-EditText-TextView"><a href="#class-EditText-TextView" class="headerlink" title="class EditText(TextView)"></a>class EditText(TextView)</h4><ul>
+<li><p>def send_text<br>输入按键，此方法不能输入中文和大写字母</p>
+</li>
+<li><p>def click<br>click后自动关闭输入法</p>
+</li>
+</ul>
+<h4 id="class-Button-TextView"><a href="#class-Button-TextView" class="headerlink" title="class Button(TextView)"></a>class Button(TextView)</h4><h4 id="class-CompoundButton-Button"><a href="#class-CompoundButton-Button" class="headerlink" title="class CompoundButton(Button)"></a>class CompoundButton(Button)</h4><p>可选按钮，一般用于实现Switch</p>
+<ul>
+<li>def checked<br>是否已选</li>
+</ul>
+<h4 id="RadioButton-CompoundButton"><a href="#RadioButton-CompoundButton" class="headerlink" title="RadioButton(CompoundButton)"></a>RadioButton(CompoundButton)</h4><p>单选按钮</p>
+<h4 id="CheckBox-CompoundButton"><a href="#CheckBox-CompoundButton" class="headerlink" title="CheckBox(CompoundButton)"></a>CheckBox(CompoundButton)</h4><p>选择按钮</p>
+<h4 id="CheckedTextView-TextView"><a href="#CheckedTextView-TextView" class="headerlink" title="CheckedTextView(TextView)"></a>CheckedTextView(TextView)</h4><p>可选文本框</p>
+<ul>
+<li>def checked<br>是否已选</li>
+</ul>
+<h4 id="ImageView-View"><a href="#ImageView-View" class="headerlink" title="ImageView(View)"></a>ImageView(View)</h4><p>显示图片控件</p>
+<ul>
+<li><p>def resource_name<br>当前使用的图片资源名称</p>
+</li>
+<li><p>def capture<br>保存图片到本地</p>
+</li>
+</ul>
+<h4 id="class-ImageButton-ImageView"><a href="#class-ImageButton-ImageView" class="headerlink" title="class ImageButton(ImageView)"></a>class ImageButton(ImageView)</h4><h4 id="class-DropdownView-View"><a href="#class-DropdownView-View" class="headerlink" title="class DropdownView(View)"></a>class DropdownView(View)</h4><h4 id="class-ViewGroup-View"><a href="#class-ViewGroup-View" class="headerlink" title="class ViewGroup(View)"></a>class ViewGroup(View)</h4><h4 id="class-FrameLayout-ViewGroup"><a href="#class-FrameLayout-ViewGroup" class="headerlink" title="class FrameLayout(ViewGroup)"></a>class FrameLayout(ViewGroup)</h4><h4 id="class-LinearLayout-ViewGroup"><a href="#class-LinearLayout-ViewGroup" class="headerlink" title="class LinearLayout(ViewGroup)"></a>class LinearLayout(ViewGroup)</h4><h4 id="class-RelativeLayout-ViewGroup"><a href="#class-RelativeLayout-ViewGroup" class="headerlink" title="class RelativeLayout(ViewGroup)"></a>class RelativeLayout(ViewGroup)</h4><ul>
+<li>def gravity<br>位置属性<h4 id="class-ProgressBar-View"><a href="#class-ProgressBar-View" class="headerlink" title="class ProgressBar(View):"></a>class ProgressBar(View):</h4></li>
+<li>def progress</li>
+</ul>
+<h4 id="class-SeekBar-ProgressBar"><a href="#class-SeekBar-ProgressBar" class="headerlink" title="class SeekBar(ProgressBar)"></a>class SeekBar(ProgressBar)</h4><p>可修改进度的进度条</p>
+<ul>
+<li><p>def progress</p>
+<h4 id="class-ScrollView-FrameLayout"><a href="#class-ScrollView-FrameLayout" class="headerlink" title="class ScrollView(FrameLayout)"></a>class ScrollView(FrameLayout)</h4><p>滚动视图</p>
+</li>
+<li><p>def reach_top<br>滑动区域达到顶部</p>
+</li>
+<li><p>def reach_bottom<br>滑动区域达到底部</p>
+</li>
+<li><p>def scroll<br>横向或纵向滚动</p>
+</li>
+<li><p>def on_scroll</p>
+</li>
+<li><p>def scroll_up_one_page<br>向上滑动一页</p>
+</li>
+<li><p>def scroll_down_one_page<br>向下滑动一页</p>
+</li>
+<li><p>def scroll_to_top<br>滑动到顶部</p>
+</li>
+<li><p>def scroll_to_bottom<br>滑动到底部</p>
+</li>
+<li><p>def pull_down_refresh<br>下拉刷新</p>
+</li>
+</ul>
+<h4 id="AbsListView-ScrollView"><a href="#AbsListView-ScrollView" class="headerlink" title="AbsListView(ScrollView)"></a>AbsListView(ScrollView)</h4><p>ListView和GridView基类</p>
+<ul>
+<li><p>def scroll_up_one_page<br>向上滑动一页</p>
+</li>
+<li><p>def scroll_down_one_page<br>向下滑动一页</p>
+</li>
+<li><p>def wait_for_complete<br>等待ListView控件变化，比如需要读取本地数据</p>
+</li>
+</ul>
+<h4 id="class-ListItem"><a href="#class-ListItem" class="headerlink" title="class ListItem"></a>class ListItem</h4><p>为方便遍历AbsListView，表示AbsListView的直接子孩子</p>
+<ul>
+<li>def has<br>是否存在该节点</li>
+</ul>
+<h4 id="class-ListView-AbsListView"><a href="#class-ListView-AbsListView" class="headerlink" title="class ListView(AbsListView)"></a>class ListView(AbsListView)</h4><p>列表视图</p>
+<h4 id="class-GridView-AbsListView"><a href="#class-GridView-AbsListView" class="headerlink" title="class GridView(AbsListView)"></a>class GridView(AbsListView)</h4><p>格子视图</p>
+<h4 id="class-TabWidget-View"><a href="#class-TabWidget-View" class="headerlink" title="class TabWidget(View)"></a>class TabWidget(View)</h4><p>Tab控件</p>
+<ul>
+<li>def selected_index<br>当前所选项的索引</li>
+</ul>
+<h4 id="class-WebkitWebView-View"><a href="#class-WebkitWebView-View" class="headerlink" title="class WebkitWebView(View)"></a>class WebkitWebView(View)</h4><ul>
+<li>def eval_script<br>执行JavaScript</li>
+</ul>
+<h4 id="class-WebView-View"><a href="#class-WebView-View" class="headerlink" title="class WebView(View)"></a>class WebView(View)</h4><p>Web页面容器</p>
+<ul>
+<li><p>def eval_script</p>
+</li>
+<li><p>def disable_soft_input<br>禁用软键盘</p>
+</li>
+<li><p>def click<br>点击WebView中的某个坐标</p>
+</li>
+<li><p>def long_click<br>长按WebView中的某个坐标</p>
+</li>
+<li><p>def send_keys<br>向WebView中的输入框发送按键</p>
+</li>
+<li><p>def drag<br>从(x1, y1)点滑动到(x2, y2)点</p>
+</li>
+<li><p>def screenshot<br>当前WebView的截图<br>:return: PIL.Image</p>
+</li>
+</ul>
+<h4 id="class-ChromiumWebView-WebkitWebView"><a href="#class-ChromiumWebView-WebkitWebView" class="headerlink" title="class ChromiumWebView(WebkitWebView)"></a>class ChromiumWebView(WebkitWebView)</h4><p>Chromium内核的WebView</p>
+<ul>
+<li><p>def create_socket<br>创建socket对象</p>
+</li>
+<li><p>defget_page_url<br>获取当前WebView页面的url</p>
+</li>
+<li><p>def get_debugger<br>获取当前页面的RemoteDebugger实例</p>
+</li>
+<li><p>def convert_frame_tree<br>将frame tree转化为Frame对象</p>
+</li>
+<li><p>def eval_script</p>
+</li>
+</ul>
+<h4 id="class-ViewPager-ViewGroup"><a href="#class-ViewPager-ViewGroup" class="headerlink" title="class ViewPager(ViewGroup)"></a>class ViewPager(ViewGroup)</h4><p>横向滚动视图</p>
+<ul>
+<li><p>def current_item_index<br>当前显示项的索引</p>
+</li>
+<li><p>def item_count<br>总项数</p>
+</li>
+<li><p>def scroll<br>左右滚动</p>
+</li>
+</ul>
+<h4 id="class-RadioGroup-LinearLayout"><a href="#class-RadioGroup-LinearLayout" class="headerlink" title="class RadioGroup(LinearLayout)"></a>class RadioGroup(LinearLayout)</h4><h4 id="class-RecyclerView-AbsListView"><a href="#class-RecyclerView-AbsListView" class="headerlink" title="class RecyclerView(AbsListView)"></a>class RecyclerView(AbsListView)</h4><p>虽然不是继承自ListView，但是可以复用其部分代码，所以从ListView继承过来</p>
+<ul>
+<li><p>def reached_left<br>滑动区域达到最左边</p>
+</li>
+<li><p>def reached_right</p>
+</li>
+<li><p>def scroll_left_one_page<br>向左滑动一页</p>
+</li>
+<li><p>def scroll_right_one_page</p>
+</li>
+<li><p>def scroll_up_one_page</p>
+</li>
+<li><p>def scroll_down_one_page</p>
+</li>
+<li><p>def get_child<br>提供使用索引访问子元素的方法</p>
+</li>
+</ul>
+<h4 id="class-DatePicker-FrameLayout"><a href="#class-DatePicker-FrameLayout" class="headerlink" title="class DatePicker(FrameLayout)"></a>class DatePicker(FrameLayout)</h4><p>时间选择器</p>
+<ul>
+<li>def set_date</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/qta/" rel="tag"># qta</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/02/%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="prev" title="手机端安全测试">
+      <i class="fa fa-chevron-left"></i> 手机端安全测试
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/14/%E7%B3%BB%E7%BB%9F%E7%9B%91%E6%8E%A7/" rel="next" title="系统监控">
+      系统监控 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#qtaf"><span class="nav-number">1.</span> <span class="nav-text">qtaf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Environ"><span class="nav-number">1.0.1.</span> <span class="nav-text">class Environ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-TestCase"><span class="nav-number">1.0.2.</span> <span class="nav-text">class TestCase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程"><span class="nav-number">1.0.3.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成测试报告"><span class="nav-number">1.0.4.</span> <span class="nav-text">生成测试报告</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qt4a"><span class="nav-number">2.</span> <span class="nav-text">qt4a</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-AndroidTestBase"><span class="nav-number">2.0.1.</span> <span class="nav-text">class AndroidTestBase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ADB"><span class="nav-number">2.0.2.</span> <span class="nav-text">ADB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-AndroidApp"><span class="nav-number">2.0.3.</span> <span class="nav-text">class AndroidApp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Window"><span class="nav-number">2.0.4.</span> <span class="nav-text">class Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-Gravity"><span class="nav-number">2.0.5.</span> <span class="nav-text">class Gravity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-VerticalSwipe"><span class="nav-number">2.0.6.</span> <span class="nav-text">class VerticalSwipe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-View"><span class="nav-number">2.0.7.</span> <span class="nav-text">class View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#class-TextView-View"><span class="nav-number">2.0.7.1.</span> <span class="nav-text">class TextView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-EditText-TextView"><span class="nav-number">2.0.7.2.</span> <span class="nav-text">class EditText(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-Button-TextView"><span class="nav-number">2.0.7.3.</span> <span class="nav-text">class Button(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-CompoundButton-Button"><span class="nav-number">2.0.7.4.</span> <span class="nav-text">class CompoundButton(Button)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton-CompoundButton"><span class="nav-number">2.0.7.5.</span> <span class="nav-text">RadioButton(CompoundButton)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CheckBox-CompoundButton"><span class="nav-number">2.0.7.6.</span> <span class="nav-text">CheckBox(CompoundButton)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CheckedTextView-TextView"><span class="nav-number">2.0.7.7.</span> <span class="nav-text">CheckedTextView(TextView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ImageView-View"><span class="nav-number">2.0.7.8.</span> <span class="nav-text">ImageView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ImageButton-ImageView"><span class="nav-number">2.0.7.9.</span> <span class="nav-text">class ImageButton(ImageView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-DropdownView-View"><span class="nav-number">2.0.7.10.</span> <span class="nav-text">class DropdownView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ViewGroup-View"><span class="nav-number">2.0.7.11.</span> <span class="nav-text">class ViewGroup(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-FrameLayout-ViewGroup"><span class="nav-number">2.0.7.12.</span> <span class="nav-text">class FrameLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-LinearLayout-ViewGroup"><span class="nav-number">2.0.7.13.</span> <span class="nav-text">class LinearLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RelativeLayout-ViewGroup"><span class="nav-number">2.0.7.14.</span> <span class="nav-text">class RelativeLayout(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ProgressBar-View"><span class="nav-number">2.0.7.15.</span> <span class="nav-text">class ProgressBar(View):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-SeekBar-ProgressBar"><span class="nav-number">2.0.7.16.</span> <span class="nav-text">class SeekBar(ProgressBar)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ScrollView-FrameLayout"><span class="nav-number">2.0.7.17.</span> <span class="nav-text">class ScrollView(FrameLayout)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AbsListView-ScrollView"><span class="nav-number">2.0.7.18.</span> <span class="nav-text">AbsListView(ScrollView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ListItem"><span class="nav-number">2.0.7.19.</span> <span class="nav-text">class ListItem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ListView-AbsListView"><span class="nav-number">2.0.7.20.</span> <span class="nav-text">class ListView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-GridView-AbsListView"><span class="nav-number">2.0.7.21.</span> <span class="nav-text">class GridView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-TabWidget-View"><span class="nav-number">2.0.7.22.</span> <span class="nav-text">class TabWidget(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-WebkitWebView-View"><span class="nav-number">2.0.7.23.</span> <span class="nav-text">class WebkitWebView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-WebView-View"><span class="nav-number">2.0.7.24.</span> <span class="nav-text">class WebView(View)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ChromiumWebView-WebkitWebView"><span class="nav-number">2.0.7.25.</span> <span class="nav-text">class ChromiumWebView(WebkitWebView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-ViewPager-ViewGroup"><span class="nav-number">2.0.7.26.</span> <span class="nav-text">class ViewPager(ViewGroup)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RadioGroup-LinearLayout"><span class="nav-number">2.0.7.27.</span> <span class="nav-text">class RadioGroup(LinearLayout)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-RecyclerView-AbsListView"><span class="nav-number">2.0.7.28.</span> <span class="nav-text">class RecyclerView(AbsListView)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-DatePicker-FrameLayout"><span class="nav-number">2.0.7.29.</span> <span class="nav-text">class DatePicker(FrameLayout)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Coye"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Coye</p>
+  <div class="site-description" itemprop="description">记录测试的点点滴滴。。。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

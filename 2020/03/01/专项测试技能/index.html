@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="和用户体验强相关的app性能指标 启动时间：47%用户希望启动时间&amp;lt;2s 流畅度：16.67ms绘制一帧作为极限流畅度 稳定性：不出现app崩溃访问错误等 页面加载：5s后，每增加1s，会降低7%的访问量">
+<meta name="keywords" content="学院">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专项测试技能">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD&#x2F;index.html">
+<meta property="og:site_name" content="Coye&#39;s blog">
+<meta property="og:description" content="和用户体验强相关的app性能指标 启动时间：47%用户希望启动时间&amp;lt;2s 流畅度：16.67ms绘制一帧作为极限流畅度 稳定性：不出现app崩溃访问错误等 页面加载：5s后，每增加1s，会降低7%的访问量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;专项测试技能.jpg">
+<meta property="og:updated_time" content="2020-03-05T09:21:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;专项测试技能.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>专项测试技能 | Coye's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coye's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">给自己看的=。=</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%8A%80%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          专项测试技能
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 14:23:35" itemprop="dateCreated datePublished" datetime="2020-03-01T14:23:35+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-05 17:21:56" itemprop="dateModified" datetime="2020-03-05T17:21:56+08:00">2020-03-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="和用户体验强相关的app性能指标"><a href="#和用户体验强相关的app性能指标" class="headerlink" title="和用户体验强相关的app性能指标"></a>和用户体验强相关的app性能指标</h2><ul>
+<li>启动时间：47%用户希望启动时间&lt;2s</li>
+<li>流畅度：16.67ms绘制一帧作为极限流畅度</li>
+<li>稳定性：不出现app崩溃访问错误等</li>
+<li>页面加载：5s后，每增加1s，会降低7%的访问量<a id="more"></a>
+<h2 id="专项测试（技术维度）"><a href="#专项测试（技术维度）" class="headerlink" title="专项测试（技术维度）"></a>专项测试（技术维度）</h2></li>
+<li>崩溃<ul>
+<li>自动遍历，monkey测试，横竖屏切换，快速进退</li>
+</ul>
+</li>
+<li>卡顿（掉帧，gc，cpu）<ul>
+<li>卡顿测试，内存泄漏测试，menthod profile</li>
+</ul>
+</li>
+<li>响应慢（启动时间，交互相应，h5加载<ul>
+<li>冷热启动，界面切换，h5性能测试）</li>
+</ul>
+</li>
+<li>发热（cpu,men,io,network,gps等硬件使用）<ul>
+<li>method profile,gc统计，io统计，流量统计，硬件使用统计，耗电量分析</li>
+</ul>
+</li>
+<li>兼容性测试（机型覆盖，回归）<ul>
+<li>兼容性测试，自动化测试，自动遍历，monkey测试<h3 id="常用测试方案"><a href="#常用测试方案" class="headerlink" title="常用测试方案"></a>常用测试方案</h3></li>
+</ul>
+</li>
+<li>Android<ul>
+<li>自己编写sdk</li>
+<li>ddms</li>
+<li>android studio最新版本的集成工具</li>
+<li>hook</li>
+<li>代码插桩</li>
+</ul>
+</li>
+<li>iOS<ul>
+<li>instruments</li>
+<li>hook</li>
+<li>代码插桩</li>
+</ul>
+</li>
+</ul>
+<h2 id="崩溃测试"><a href="#崩溃测试" class="headerlink" title="崩溃测试"></a>崩溃测试</h2><h3 id="崩溃问题类型"><a href="#崩溃问题类型" class="headerlink" title="崩溃问题类型"></a>崩溃问题类型</h3><h4 id="典型问题"><a href="#典型问题" class="headerlink" title="典型问题"></a>典型问题</h4><ul>
+<li>ANR;<ul>
+<li>主线程5s内没响应</li>
+</ul>
+</li>
+<li>NullPotinterException<ul>
+<li>空指针</li>
+</ul>
+</li>
+<li>ClassCastException<ul>
+<li>类型转换异常</li>
+</ul>
+</li>
+<li>Force Close：<ul>
+<li>未捕获的android VM 异常</li>
+</ul>
+</li>
+<li>Crash:<ul>
+<li>未处理的native异常<br>崩溃检测通过 adb log <em>:S</em>:E 捕获异常<h4 id="基本测试方法"><a href="#基本测试方法" class="headerlink" title="基本测试方法"></a>基本测试方法</h4></li>
+</ul>
+</li>
+<li>发布前<ul>
+<li>monkey测试—+appcrawler自动遍历</li>
+<li>结合各类场景用例</li>
+</ul>
+</li>
+<li>发布后<ul>
+<li>埋点</li>
+<li>接入外部sdk</li>
+</ul>
+</li>
+</ul>
+<h4 id="异常场景（常见）"><a href="#异常场景（常见）" class="headerlink" title="异常场景（常见）"></a>异常场景（常见）</h4><ul>
+<li>后台接口问题：<ul>
+<li>弱网：完全超时。2G，3G</li>
+<li>接口返回异常：null返回</li>
+<li>接口变更问题：字段类型变更</li>
+</ul>
+</li>
+<li>逻辑问题<ul>
+<li>异步线程问题：打开新闻页在快速按返回</li>
+<li>逻辑处理不当：横竖屏切换，前台后台切换</li>
+</ul>
+</li>
+<li>内存问题：低内存，循环翻页，执行可累计内存的操作<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3></li>
+<li>什么时间点做性能测试<ul>
+<li>第一轮功能测试结束，无重大修改</li>
+</ul>
+</li>
+<li>基于什么基础测上测<ul>
+<li>历史版本&amp;竞品</li>
+</ul>
+</li>
+<li>什么时候性能优化<ul>
+<li>一般情况只有在大版本迭代或者重点性能优化才进行</li>
+</ul>
+</li>
+<li>要哪些场景<ul>
+<li>app核心场景，必须优化场景</li>
+</ul>
+</li>
+<li>要测什么包<ul>
+<li>一般侧正式包（release），反应真实用户体感</li>
+</ul>
+</li>
+<li>要测几轮<ul>
+<li>一般测正式一轮，剩余看开发优化</li>
+</ul>
+</li>
+</ul>
+<h3 id="性能专项测试报告"><a href="#性能专项测试报告" class="headerlink" title="性能专项测试报告"></a>性能专项测试报告</h3><img src="/img/专项测试技能.jpg" >
+
+<h3 id="App冷启动"><a href="#App冷启动" class="headerlink" title="App冷启动"></a>App冷启动</h3><ul>
+<li>adb shel am force-stop com.qiyi.video</li>
+<li>adb shell am start -S -W com.qiyi.video/.WelcomeActivity</li>
+<li>adb logcat | grep -i activitymanager.*Displayed</li>
+<li>lazy load:只能埋点</li>
+<li>this Time 最后一个activity时间</li>
+<li>totalTime：包括简介启动的activity时间</li>
+<li>waitTime：总体小耗时间<h3 id="录屏"><a href="#录屏" class="headerlink" title="录屏"></a>录屏</h3></li>
+<li>adb shell screenrecord –time-limit 10 /sdcard/video.mp4</li>
+<li>adb pull /sdcard/video.mp4 /Users/liyu/Desktop/video</li>
+<li>视频分帧<ul>
+<li>ffmpeg -i d:/test/video.mp4 -r 100 -threads 2 d:/test/Android-Capture-%05d.png<h3 id="硬件使用信息"><a href="#硬件使用信息" class="headerlink" title="硬件使用信息"></a>硬件使用信息</h3></li>
+</ul>
+</li>
+<li>adb shell dumpsys cpuinfo</li>
+<li>adb shell dumpsys meminfo packagename or pid</li>
+<li>adb shell getprop dalvik.vm.heapgrowthlimit 查看进程可用的最大内存</li>
+<li>adb shell cat /proc/#pid#/net/dev 流量数据获取 飞行模式可以清零流量<ul>
+<li>receive表示收包</li>
+<li>transmit比搜啊还是发包</li>
+<li>bytes表示收发的字节数</li>
+<li>packets表示手法正确的包量</li>
+<li>errs表示收发错误的包量</li>
+<li>drop表示收发丢弃的包量</li>
+</ul>
+</li>
+</ul>
+<h2 id="弱网测试"><a href="#弱网测试" class="headerlink" title="弱网测试"></a>弱网测试</h2><p>通过fidller charles代理改变网络测试</p>
+<h2 id="app流量分析"><a href="#app流量分析" class="headerlink" title="app流量分析"></a>app流量分析</h2><p>tcpdump+wireshark<br>proxy<br>burp suite<br>anyproxy</p>
+<h2 id="耗电量分析"><a href="#耗电量分析" class="headerlink" title="耗电量分析"></a>耗电量分析</h2><p><a href="https://developer.android.com/studio/profile/battery-historian" target="_blank" rel="noopener">https://developer.android.com/studio/profile/battery-historian</a><br><a href="https://developer.android.com/topic/performance/power/battery-historian" target="_blank" rel="noopener">https://developer.android.com/topic/performance/power/battery-historian</a><br><a href="https://developer.android.com/s/results/?q=Battery%20Historian" target="_blank" rel="noopener">https://developer.android.com/s/results/?q=Battery%20Historian</a><br>默认提供的docker需要Google Cloud的支持，默认用不了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p port_number:9999 gcr.io/android-battery-historian/stable:3.0 --port 9999</span><br></pre></td></tr></table></figure>
+<h3 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h3><p><a href="https://github.com/google/battery-historian" target="_blank" rel="noopener">https://github.com/google/battery-historian</a></p>
+<h2 id="cpu-men-newwork-分析"><a href="#cpu-men-newwork-分析" class="headerlink" title="cpu men newwork 分析"></a>cpu men newwork 分析</h2><p>android studio profile可以分析cpu men network</p>
+<ul>
+<li><p>内存分析<br>  内存信息dump下来后的hprof文件需要使用hprof-conv xxx.hprof xxx.jvm.hprof转成java可用的文件，然后启动jvisualvm程序加载文件</p>
+</li>
+<li><p>cpu network 直接在profile看就好</p>
+</li>
+</ul>
+<h2 id="关键硬件资源的占用率"><a href="#关键硬件资源的占用率" class="headerlink" title="关键硬件资源的占用率"></a>关键硬件资源的占用率</h2><ul>
+<li>adb shell dumpsys procstasts –hours 3</li>
+<li>adb shell dumpsys meminfo package_name | pid [-d] </li>
+<li>adb shell dumpsys  batterystats –charged package-name</li>
+<li>adb shell dumpsys netstats detail</li>
+<li>adb shell dumpsys gfxinfo package-name<h2 id="卡顿分析"><a href="#卡顿分析" class="headerlink" title="卡顿分析"></a>卡顿分析</h2>卡顿影响因素：</li>
+<li>内存问题：（内存抖动，full gc）</li>
+<li>cpu （计算耗时）</li>
+<li>render（布局复杂，overdraw）<h3 id="使用systrace"><a href="#使用systrace" class="headerlink" title="使用systrace"></a>使用systrace</h3>路径：<code>/Users/coye/Library/Android/sdk/platform-tools/systrace</code><br>使用：<code>python2 ./systrace.py</code>运行，然后操作app，完成后按enter结束，打开生成的html<br>找到对应的app 红色F代表绘制有延迟，绿色正常。鼠标选中一片区域查看slices</li>
+<li><code>python2 ./systrace.py -l</code>列举所有支持的性能数据分析</li>
+<li><code>python2 ./systrace.py -t 10</code>手机10s左右的系统性能数据</li>
+<li><code>python2 ./systrace.py -t 10 -j</code>保存一份json数据文件用于编程分析</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E9%99%A2/" rel="tag"># 学院</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/28/%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%B8%8E%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" rel="prev" title="测试平台与质量管理">
+      <i class="fa fa-chevron-left"></i> 测试平台与质量管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/01/%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="next" title="查看数据类型">
+      查看数据类型 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#和用户体验强相关的app性能指标"><span class="nav-number">1.</span> <span class="nav-text">和用户体验强相关的app性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专项测试（技术维度）"><span class="nav-number">2.</span> <span class="nav-text">专项测试（技术维度）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用测试方案"><span class="nav-number">2.1.</span> <span class="nav-text">常用测试方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#崩溃测试"><span class="nav-number">3.</span> <span class="nav-text">崩溃测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#崩溃问题类型"><span class="nav-number">3.1.</span> <span class="nav-text">崩溃问题类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#典型问题"><span class="nav-number">3.1.1.</span> <span class="nav-text">典型问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本测试方法"><span class="nav-number">3.1.2.</span> <span class="nav-text">基本测试方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常场景（常见）"><span class="nav-number">3.1.3.</span> <span class="nav-text">异常场景（常见）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">4.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思考"><span class="nav-number">4.1.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能专项测试报告"><span class="nav-number">4.2.</span> <span class="nav-text">性能专项测试报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App冷启动"><span class="nav-number">4.3.</span> <span class="nav-text">App冷启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录屏"><span class="nav-number">4.4.</span> <span class="nav-text">录屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件使用信息"><span class="nav-number">4.5.</span> <span class="nav-text">硬件使用信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弱网测试"><span class="nav-number">5.</span> <span class="nav-text">弱网测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app流量分析"><span class="nav-number">6.</span> <span class="nav-text">app流量分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#耗电量分析"><span class="nav-number">7.</span> <span class="nav-text">耗电量分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从源代码安装"><span class="nav-number">7.1.</span> <span class="nav-text">从源代码安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-men-newwork-分析"><span class="nav-number">8.</span> <span class="nav-text">cpu men newwork 分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键硬件资源的占用率"><span class="nav-number">9.</span> <span class="nav-text">关键硬件资源的占用率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卡顿分析"><span class="nav-number">10.</span> <span class="nav-text">卡顿分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用systrace"><span class="nav-number">10.1.</span> <span class="nav-text">使用systrace</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Coye"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Coye</p>
+  <div class="site-description" itemprop="description">记录测试的点点滴滴。。。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coye</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
