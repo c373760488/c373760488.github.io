@@ -151,63 +151,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/02/vue%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Coye">
-      <meta itemprop="description" content="记录测试的点点滴滴。。。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coye's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/02/vue%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">vue项目</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-02 20:05:33" itemprop="dateCreated datePublished" datetime="2020-09-02T20:05:33+08:00">2020-09-02</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/django/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -862,6 +805,107 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/29/linux%E5%AE%89%E8%A3%85android%E6%A8%A1%E6%8B%9F%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Coye">
+      <meta itemprop="description" content="记录测试的点点滴滴。。。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coye's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/29/linux%E5%AE%89%E8%A3%85android%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="post-title-link" itemprop="url">移动自动化测试平台</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-29 23:38:09" itemprop="dateCreated datePublished" datetime="2020-05-29T23:38:09+08:00">2020-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-12 18:55:26" itemprop="dateModified" datetime="2020-08-12T18:55:26+08:00">2020-08-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装-sdk"><a href="#安装-sdk" class="headerlink" title="安装 sdk"></a>安装 sdk</h2><ul>
+<li><p>基础包:<a href="http://tools.android-studio.org/index.php/sdk" target="_blank" rel="noopener">http://tools.android-studio.org/index.php/sdk</a> 选择 linux 版本下载(wget url)</p>
+</li>
+<li><p>解压缩: tar zxvf tgz 包</p>
+</li>
+<li><p>解压完成后，执行 sdk 更新下载命令</p>
+</li>
+<li><p>tools/android update sdk –no-ui 下载的太多不用执行(更新所有 sdk)</p>
+</li>
+<li><p>因为模拟器需要有 system.img 文件，才能创建出来</p>
+</li>
+<li><p>所以我们需要先通过 tools/android list sdk –extended –no-ui –all 查询一下有哪些 sys-img*文件,我们过滤一下<code>./android list sdk --extended --no-ui --all | grep sys-img</code></p>
+</li>
+<li><p><code>./android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-23</code></p>
+</li>
+<li><p>如果报缺少依赖 sdk，执行<code>./android list sdk -a</code>找到需要的 sdk 安装<code>./android update sdk -u -t 46 -a</code></p>
+</li>
+<li><p><code>android list target</code>查看有哪些 sdk</p>
+</li>
+<li><p>创建模拟器：<code>android create avd -n 模拟器名字 -t 上一步的id序号</code> (如: android create avd -n mytest1 -t 18),系统会询问用户是否需要定制硬件配臵清单(Do you wish to create a custom hardware profile),这里选择 no ,使用缺省的硬件配置</p>
+</li>
+<li><p>这样创建出来的内存等参数配置特别差，我们需要改一下硬件配置参数。<code>android create avd -n stf1 -t 17 -s 480x800</code> -c 是存储空间</p>
+</li>
+<li><p>创建好后，通过<code>android list avd</code> 来查看已经创建了哪些模拟器</p>
+</li>
+<li><p>可能碰到如下错误：</p>
+<ul>
+<li><code>android-sdk-linux/tools/qemu/linux-x86_64/qemu-system-armel: error while loading shared libraries: libpulse.so.0: cannot open shared object file: No such file or directory</code>碰到如上错误，输入 cat /etc/redhat-release，查看当前 linux 系统版本为 CentOS Linux release 7.4.1708 (Core) 。到<a href="https://pkgs.org/download/libpulse.so.0" target="_blank" rel="noopener">https://pkgs.org/download/libpulse.so.0</a> 安装对应的版本使用命令行：<code>yum install pulseaudio-libs</code></li>
+<li><code>-bash: ./emulator: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory</code>执行<code>yum install glibc.i686</code></li>
+<li><code>error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory</code>。执行命令： <code>yum whatprovides libstdc++.so.6</code>然后会提示哪个安装包。然后执行<code>yum install libstdc++-4.8.5-39.el7.i686</code></li>
+<li><code>PANIC: HOME is defined but could not find stf1.ini file in $HOME/.android/avd(Note: avd is searched in the order of $ANDROID_AVD_HOME,$ANDROID_SDK_HOME/.android/avd and $HOME/.android/avd)</code>。sudo cp -r /root/.android /home/用户名/</li>
+</ul>
+</li>
+<li><p><code>./emulator -avd stf1 -no-window -no-boot-anim -no-audio -gpu off</code></p>
+</li>
+</ul>
+<p>nohup emulator -avd stf1 -no-window -no-boot-anim -no-audio -gpu off &gt;log.txt 2&gt;&amp;1 &amp;</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -934,7 +978,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
