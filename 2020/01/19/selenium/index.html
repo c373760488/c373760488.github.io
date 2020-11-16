@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="相关知识selenium核心组件 selenium webdriver selenium drivers selenium1 selenium-rc(已被废弃) selenium IDE selenium grid">
+  <meta name="description" content="相关知识selenium 核心组件 selenium webdriver selenium drivers selenium1 selenium-rc(已被废弃) selenium IDE selenium grid">
 <meta name="keywords" content="学院">
 <meta property="og:type" content="article">
 <meta property="og:title" content="selenium">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;19&#x2F;selenium&#x2F;index.html">
 <meta property="og:site_name" content="Coye&#39;s blog">
-<meta property="og:description" content="相关知识selenium核心组件 selenium webdriver selenium drivers selenium1 selenium-rc(已被废弃) selenium IDE selenium grid">
+<meta property="og:description" content="相关知识selenium 核心组件 selenium webdriver selenium drivers selenium1 selenium-rc(已被废弃) selenium IDE selenium grid">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-28T08:16:26.000Z">
+<meta property="og:updated_time" content="2020-11-16T10:40:21.682Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/19/selenium/">
@@ -183,7 +183,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-28 16:16:26" itemprop="dateModified" datetime="2020-02-28T16:16:26+08:00">2020-02-28</time>
+                <time title="修改时间：2020-11-16 18:40:21" itemprop="dateModified" datetime="2020-11-16T18:40:21+08:00">2020-11-16</time>
               </span>
 
           
@@ -197,7 +197,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><h3 id="selenium核心组件"><a href="#selenium核心组件" class="headerlink" title="selenium核心组件"></a>selenium核心组件</h3><ul>
+        <h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><h3 id="selenium-核心组件"><a href="#selenium-核心组件" class="headerlink" title="selenium 核心组件"></a>selenium 核心组件</h3><ul>
 <li>selenium webdriver</li>
 <li>selenium drivers</li>
 <li>selenium1 selenium-rc(已被废弃)</li>
@@ -206,35 +206,36 @@
 </ul>
 <a id="more"></a>
 
-<h3 id="Chromedriver安装"><a href="#Chromedriver安装" class="headerlink" title="Chromedriver安装"></a>Chromedriver安装</h3><ul>
-<li>mac<br>brew cask install chromedriver<br>或者自行下载放到/usr/local/bin/  目录（是一个环境变量的目录就好）</li>
-<li>win<br>baidu…  </li>
+<h3 id="Chromedriver-安装"><a href="#Chromedriver-安装" class="headerlink" title="Chromedriver 安装"></a>Chromedriver 安装</h3><ul>
+<li>mac<br>brew cask install chromedriver<br>或者自行下载放到/usr/local/bin/ 目录（是一个环境变量的目录就好）</li>
+<li>win<br>baidu…</li>
 </ul>
-<h3 id="console-定位"><a href="#console-定位" class="headerlink" title="console 定位"></a>console 定位</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementByXpath</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">document</span>.evaluate(path, <span class="built_in">document</span>, <span class="literal">null</span>, </span><br><span class="line">       XPathResult.FIRST_ORDERED_NODE_TYPE, <span class="literal">null</span>).singleNodeValue;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//$x() 好像也可以。。。但内容太多</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.title .subtitle[title="hahaha"]'</span>) <span class="comment">// .title代表class title 空格代表进入子关系。。就是说class subtitle 包含 class title，[]里面是属性</span></span><br><span class="line"><span class="comment">//[title*='a']  title包含a </span></span><br><span class="line"><span class="comment">//[title$='a']  title结尾是a</span></span><br></pre></td></tr></table></figure>
-<h3 id="部分api"><a href="#部分api" class="headerlink" title="部分api"></a>部分api</h3><ul>
-<li>execute_script(“”)发送js代码执行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ele=self.driver.find_element_by_xpath(<span class="string">"asd"</span>)</span><br><span class="line">self.driver.excute_script(<span class="string">"arguments[0].click"</span>,ele)  <span class="comment">#arguments[0]代表第一个参数即ele</span></span><br><span class="line">print(self.driver.excute_script(“console.log(<span class="string">'hello'</span>)”）) <span class="comment">#函数会返回执行js返回的结果</span></span><br></pre></td></tr></table></figure>
+<h3 id="console-定位"><a href="#console-定位" class="headerlink" title="console 定位"></a>console 定位</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementByXpath</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.evaluate(</span><br><span class="line">    path,</span><br><span class="line">    <span class="built_in">document</span>,</span><br><span class="line">    <span class="literal">null</span>,</span><br><span class="line">    XPathResult.FIRST_ORDERED_NODE_TYPE,</span><br><span class="line">    <span class="literal">null</span></span><br><span class="line">  ).singleNodeValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//$x() 好像也可以。。。但内容太多</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.title .subtitle[title="hahaha"]'</span>); <span class="comment">// .title代表class title 空格代表进入子关系。。就是说class subtitle 包含 class title，[]里面是属性</span></span><br><span class="line"><span class="comment">//[title*='a']  title包含a</span></span><br><span class="line"><span class="comment">//[title$='a']  title结尾是a</span></span><br></pre></td></tr></table></figure>
 
-
-</li>
+<h3 id="部分-api"><a href="#部分-api" class="headerlink" title="部分 api"></a>部分 api</h3><ul>
+<li>execute_script(“”)发送 js 代码执行</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ele=self.driver.find_element_by_xpath(<span class="string">"asd"</span>)</span><br><span class="line">self.driver.excute_script(<span class="string">"arguments[0].click"</span>,ele)  <span class="comment">#arguments[0]代表第一个参数即ele</span></span><br><span class="line">print(self.driver.excute_script(“console.log(<span class="string">'hello'</span>)”）) <span class="comment">#函数会返回执行js返回的结果</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p>ActionChains  拖拽操作</p>
+<li><p>ActionChains 拖拽操作</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element = driver.find_element_by_name(<span class="string">"souce"</span>)</span><br><span class="line">target = driver.find_element_by_name(<span class="string">"target"</span>)</span><br><span class="line">action_chains = ActionChains(driver)</span><br><span class="line">action_chains.drag_adn_drop(element,target).perform()</span><br></pre></td></tr></table></figure></li>
 <li><p>location 获取坐标</p>
 </li>
 <li><p>等待</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="comment">#EC 还有很多方法等待可见，等待可点击等等</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#WebDriverWait(driver,查找时间)</span></span><br><span class="line">    WebDriverWait(self.driver,<span class="number">10</span>).until(EC.presence_of_element_located((By.XPATH,path)))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
-<h3 id="chrome-remote-debug启动"><a href="#chrome-remote-debug启动" class="headerlink" title="chrome remote debug启动"></a>chrome remote debug启动</h3><ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="comment">#EC 还有很多方法等待可见，等待可点击等等</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#WebDriverWait(driver,查找时间)</span></span><br><span class="line">    WebDriverWait(self.driver,<span class="number">10</span>).until(EC.presence_of_element_located((By.XPATH,path)))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="chrome-remote-debug-启动"><a href="#chrome-remote-debug-启动" class="headerlink" title="chrome remote debug 启动"></a>chrome remote debug 启动</h3><ul>
 <li>win chrome.exe –remote-debugging-port=9999</li>
 <li>mac /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome –remote-debugging-port=9222</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动后在使用下面代码创建driver就可以不用打开新的浏览器调试了</span></span><br><span class="line">options=webdriver.ChromeOptions()</span><br><span class="line">options.dubugger_address=<span class="string">"127.0.0.1:9999"</span></span><br><span class="line">self.driver=webdriver.Chrome(options)</span><br></pre></td></tr></table></figure>
-<p>写得不多。。其实多看看api文档就知道怎么用了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动后在使用下面代码创建driver就可以不用打开新的浏览器调试了</span></span><br><span class="line">options=webdriver.ChromeOptions()</span><br><span class="line">options.debugger_address=<span class="string">"127.0.0.1:9999"</span></span><br><span class="line">self.driver=webdriver.Chrome(options)</span><br></pre></td></tr></table></figure>
+
+<p>写得不多。。其实多看看 api 文档就知道怎么用了</p>
 
     </div>
 
@@ -319,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关知识"><span class="nav-number">1.</span> <span class="nav-text">相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selenium核心组件"><span class="nav-number">1.1.</span> <span class="nav-text">selenium核心组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chromedriver安装"><span class="nav-number">1.2.</span> <span class="nav-text">Chromedriver安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-定位"><span class="nav-number">1.3.</span> <span class="nav-text">console 定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分api"><span class="nav-number">1.4.</span> <span class="nav-text">部分api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-remote-debug启动"><span class="nav-number">1.5.</span> <span class="nav-text">chrome remote debug启动</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关知识"><span class="nav-number">1.</span> <span class="nav-text">相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selenium-核心组件"><span class="nav-number">1.1.</span> <span class="nav-text">selenium 核心组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chromedriver-安装"><span class="nav-number">1.2.</span> <span class="nav-text">Chromedriver 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-定位"><span class="nav-number">1.3.</span> <span class="nav-text">console 定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分-api"><span class="nav-number">1.4.</span> <span class="nav-text">部分 api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-remote-debug-启动"><span class="nav-number">1.5.</span> <span class="nav-text">chrome remote debug 启动</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
